@@ -6,16 +6,17 @@ Sitio web completo con páginas separadas, diseño minimalista estilo Cosmos par
 
 ## 📄 Estructura del Sitio
 
-El sitio está organizado en 4 páginas principales:
+El sitio está organizado en **5 páginas principales**:
 
-- **index.html** - Página de inicio (Home)
-- **servicios.html** - Página de servicios completos
+- **index.html** - Página de inicio (Home) con resumen de beneficios y servicios
+- **sobre-nosotros.html** - Información completa de la empresa, experiencia y valores
+- **servicios.html** - Página de servicios completos y detallados
 - **proyectos.html** - Portafolio y casos de éxito
 - **contacto.html** - Información de contacto y ubicación
 
 ## 🎨 Características
 
-- ✅ **Arquitectura multi-página** - 4 páginas separadas profesionales
+- ✅ **Arquitectura multi-página** - 5 páginas separadas profesionales
 - ✅ Diseño minimalista estilo Cosmos
 - ✅ Menú de navegación con páginas independientes
 - ✅ Modo claro/oscuro con toggle persistente
@@ -31,6 +32,7 @@ El sitio está organizado en 4 páginas principales:
 
 Busca y reemplaza `INDUSTRIAL AI` en **todos los archivos HTML**:
 - index.html
+- sobre-nosotros.html
 - servicios.html
 - proyectos.html
 - contacto.html
@@ -72,9 +74,23 @@ En **contacto.html** y en los **footers de todas las páginas**:
 
 **Archivos a modificar:**
 - contacto.html (información principal de contacto)
-- Footer en index.html, servicios.html, proyectos.html, contacto.html
+- Footer en todas las páginas HTML
 
-### 4. Personalizar los Servicios
+### 4. Personalizar "Sobre Nosotros"
+
+En **sobre-nosotros.html** encontrarás todas las secciones sobre tu empresa:
+
+**Secciones principales:**
+- Hero con mensaje principal
+- "¿Quiénes Somos?" con características de la empresa
+- Tecnologías que dominan
+- Industrias que atienden
+- Nuestro Enfoque
+- Nuestros Valores
+
+Edita cada sección según tu empresa. Esta página es tu carta de presentación.
+
+### 5. Personalizar los Servicios
 
 En **servicios.html**, busca la sección "Servicios Principales":
 
@@ -92,7 +108,7 @@ Puedes:
 - Agregar más servicios duplicando el bloque
 - Eliminar servicios que no ofrezcas
 
-### 5. Editar los Proyectos
+### 6. Editar los Proyectos
 
 En **proyectos.html**, busca la sección "Proyectos Destacados":
 
@@ -111,26 +127,15 @@ Cada proyecto tiene esta estructura:
 </div>
 ```
 
-### 6. Modificar las Industrias que Atendes
+### 7. Modificar las Industrias que Atendes
 
-En `index.html`, sección "Industrias que Atendemos" (líneas 207-225):
+En `sobre-nosotros.html`, sección "Industrias que Atendemos":
 
 ```html
 <div class="integration">Nombre de Industria</div>
 ```
 
 Agrega o elimina según tus necesidades.
-
-### 7. Cambiar las Preguntas Frecuentes (FAQ)
-
-En `index.html`, sección FAQ (líneas 289-322):
-
-```html
-<details class="faq">
-    <summary>¿Tu pregunta aquí?</summary>
-    <p>Respuesta a la pregunta.</p>
-</details>
-```
 
 ### 8. Personalizar Colores (Opcional)
 
@@ -170,7 +175,7 @@ Para agregar imágenes a los proyectos:
 En `index.html`, líneas 42-51:
 
 ```html
-<section id="home" class="hero">
+<section class="hero">
     <p class="hero-subtitle">Tu Subtítulo</p>
     <h1>Tu Mensaje Principal</h1>
     <p class="hero-description">Tu descripción.</p>
@@ -186,14 +191,16 @@ En `index.html`, líneas 42-51:
 2. ✅ Configurar el número de WhatsApp (en todos los HTML)
 3. ✅ Actualizar email y teléfono de contacto (contacto.html + footers)
 4. ✅ Personalizar el mensaje del Hero en index.html
-5. ✅ Revisar y editar los servicios en servicios.html
-6. ✅ Actualizar proyectos en proyectos.html
-7. ✅ Modificar ubicación en contacto.html
+5. ✅ Personalizar información en sobre-nosotros.html
+6. ✅ Revisar y editar los servicios en servicios.html
+7. ✅ Actualizar proyectos en proyectos.html
+8. ✅ Modificar ubicación en contacto.html
 
 ## 🚀 Para Implementar
 
 1. Sube los archivos a tu servidor web:
    - `index.html`
+   - `sobre-nosotros.html`
    - `servicios.html`
    - `proyectos.html`
    - `contacto.html`
@@ -218,9 +225,18 @@ El sitio es completamente responsive y se adapta a:
 
 - **Mejor SEO**: Cada página puede optimizarse para diferentes palabras clave
 - **Carga más rápida**: Solo se carga el contenido necesario
-- **URLs limpias**: `/servicios.html`, `/proyectos.html`, etc.
+- **URLs limpias**: `/servicios.html`, `/proyectos.html`, `/sobre-nosotros.html`, etc.
 - **Mejor experiencia**: Usuarios pueden compartir enlaces específicos
 - **Profesional**: Estructura estándar de sitios web corporativos
+- **Organización clara**: Información dividida lógicamente por secciones
+
+## 🆕 Novedades en esta Versión
+
+- ✅ Nueva página "Sobre Nosotros" dedicada
+- ✅ Home más enfocado en beneficios y llamadas a la acción
+- ✅ Mejor organización de la información
+- ✅ Navegación más intuitiva con 5 secciones principales
+- ✅ Footer actualizado con nuevo enlace
 
 ## 🛠️ Soporte Técnico
 
