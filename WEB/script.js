@@ -260,3 +260,4 @@ if (whatsappButton) {
 }
 
 console.log('🚀 Todo listo - Modo minimalista activado');
+
