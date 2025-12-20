@@ -262,6 +262,152 @@ body.light-mode .moon-icon {
 }
 
 /* ========================================
+   HERO CON IMAGEN DE FONDO - ESTILO PROFESIONAL PROELECTRONIC
+======================================== */
+
+.hero-with-bg {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Efecto parallax suave */
+    min-height: 65vh; /* Altura controlada - no tan agresiva */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 40px 100px;
+    overflow: hidden;
+}
+
+/* Overlay mejorado con gradiente más profesional */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg, 
+        rgba(0, 0, 0, 0.40) 0%, 
+        rgba(0, 0, 0, 0.20) 50%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+    z-index: 1;
+}
+
+body.light-mode .hero-overlay {
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.65) 0%, 
+        rgba(255, 255, 255, 0.50) 50%,
+        rgba(255, 255, 255, 0.60) 100%
+    );
+}
+
+/* Contenido del hero mejorado */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos específicos para el contenido dentro del hero con imagen */
+.hero-with-bg .hero-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700; /* MÁS GRUESO - Extra Bold */
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.6);
+}
+
+body.light-mode .hero-with-bg .hero-subtitle {
+    color: rgba(0, 0, 0, 0.75);
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+.hero-with-bg h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 700; /* MÁS GRUESO - Extra Bold */
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    color: #ffffff;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+}
+
+body.light-mode .hero-with-bg h1 {
+    color: #1a1a1a;
+    text-shadow: 0 2px 15px rgba(255, 255, 255, 0.7);
+}
+
+.hero-with-bg .hero-description {
+    font-size: clamp(16px, 2vw, 19px);
+    color: rgba(255, 255, 255, 0.97);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    font-weight: 300;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode .hero-with-bg .hero-description {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 1px 5px rgba(255, 255, 255, 0.5);
+}
+
+.hero-with-bg .cta-buttons {
+    margin-top: 40px;
+}
+
+/* Variantes de altura opcionales */
+.hero-with-bg.full-height {
+    min-height: 100vh;
+}
+
+.hero-with-bg.medium-height {
+    min-height: 65vh;
+}
+
+.hero-with-bg.small-height {
+    min-height: 45vh;
+    padding: 120px 40px 80px;
+}
+
+/* Efecto de zoom suave en hover (opcional) */
+.hero-with-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    background-size: cover;
+    background-position: center;
+    transition: transform 8s ease-out;
+    z-index: 0;
+}
+
+.hero-with-bg:hover::before {
+    transform: scale(1.05);
+}
+
+/* ========================================
    SECTIONS
 ======================================== */
 
@@ -385,57 +531,6 @@ section h2 {
     font-weight: 300;
 }
 
-
-/* ========================================
-   HERO CON IMAGEN DE FONDO
-======================================== */
-
-
-.hero-with-bg {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Oscurece la imagen */
-    z-index: 1;
-}
-
-body.light-mode .hero-overlay {
-    background: rgba(255, 255, 255, 0.7); /* Para modo claro */
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1000px;
-}
-
-/* Cubrir toda la pantalla */
-.hero-with-bg {
-    min-height: 100vh;
-    background-size: cover;
-}
-
-/* Altura fija */
-.hero-with-bg {
-    min-height: 600px;
-    background-size: cover;
-}
-
-/* 70% de la pantalla */
-.hero-with-bg {
-    min-height: 70vh;
-    background-size: cover;
-}
 /* ========================================
    MODULES
 ======================================== */
@@ -832,6 +927,65 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ========================================
+   RESPONSIVE - HERO CON IMAGEN
+======================================== */
+
+@media (max-width: 1024px) {
+    .hero-with-bg {
+        min-height: 55vh;
+        padding: 130px 40px 90px;
+        background-attachment: scroll; /* Desactivar parallax en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-with-bg {
+        min-height: 50vh;
+        padding: 120px 30px 80px;
+        background-attachment: scroll;
+    }
+
+    .hero-with-bg h1 {
+        font-size: clamp(28px, 6vw, 42px);
+    }
+
+    .hero-with-bg .hero-description {
+        font-size: clamp(15px, 3vw, 18px);
+    }
+
+    .hero-with-bg .hero-subtitle {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-with-bg {
+        min-height: 45vh;
+        padding: 100px 20px 70px;
+    }
+
+    .hero-with-bg h1 {
+        font-size: 26px;
+        letter-spacing: -0.5px;
+    }
+
+    .hero-with-bg .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-content .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-content .btn-primary,
+    .hero-content .btn-secondary {
+        width: 100%;
     }
 }
 
