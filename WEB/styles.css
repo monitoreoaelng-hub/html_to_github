@@ -1122,3 +1122,917 @@ footer {
 a, button, .module-item, .integration, .contact-item {
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+/* ========================================
+   CAROUSEL STYLES - iPhone Style
+   Minimalista y elegante
+======================================== */
+
+.services-carousel-section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background: var(--bg-color);
+}
+
+.services-carousel-section h2 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 2;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.services-carousel-section .section-desc {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    border-radius: 24px;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Carousel Slide */
+.carousel-slide {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: var(--secondary-bg);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.carousel-slide:hover {
+    border-color: var(--border-color-hover);
+}
+
+/* Slide Image */
+.slide-image {
+    flex: 0 0 45%;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.carousel-slide:hover .slide-image img {
+    transform: scale(1.05);
+}
+
+.slide-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+body.light-mode .slide-image-overlay {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.6) 100%
+    );
+}
+
+/* Slide Content */
+.slide-content {
+    flex: 1;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.slide-number {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-tertiary);
+    opacity: 0.6;
+}
+
+.slide-content h3 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.slide-content p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.slide-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.slide-link:hover {
+    opacity: 1;
+    gap: 12px;
+}
+
+.slide-link svg {
+    transition: transform 0.3s ease;
+}
+
+.slide-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+}
+
+body.light-mode .carousel-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+.carousel-container:hover .carousel-btn {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+
+body.light-mode .carousel-btn:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.carousel-btn-prev {
+    left: -60px;
+}
+
+.carousel-btn-next {
+    right: -60px;
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Dots Indicators */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 40px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-dot:hover {
+    background: var(--border-color-hover);
+    transform: scale(1.2);
+}
+
+.carousel-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .carousel-btn-prev {
+        left: 10px;
+    }
+    
+    .carousel-btn-next {
+        right: 10px;
+    }
+    
+    .carousel-container:hover .carousel-btn {
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-carousel-section {
+        padding: 60px 20px;
+    }
+    
+    .services-carousel-section h2 {
+        font-size: 32px;
+    }
+    
+    .services-carousel-section .section-desc {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+    
+    .carousel-slide {
+        flex-direction: column;
+    }
+    
+    .slide-image {
+        flex: 0 0 auto;
+        min-height: 300px;
+        max-height: 300px;
+    }
+    
+    .slide-content {
+        padding: 40px 30px;
+    }
+    
+    .slide-content h3 {
+        font-size: 28px;
+    }
+    
+    .slide-content p {
+        font-size: 16px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        opacity: 0.8;
+        pointer-events: all;
+    }
+    
+    .carousel-btn-prev {
+        left: 15px;
+    }
+    
+    .carousel-btn-next {
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-carousel-section {
+        padding: 40px 15px;
+    }
+    
+    .slide-image {
+        min-height: 250px;
+        max-height: 250px;
+    }
+    
+    .slide-content {
+        padding: 30px 20px;
+    }
+    
+    .slide-content h3 {
+        font-size: 24px;
+    }
+    
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .carousel-btn-prev {
+        left: 10px;
+    }
+    
+    .carousel-btn-next {
+        right: 10px;
+    }
+}
+
+/* Animation Classes */
+.carousel-slide.slide-in-right {
+    animation: slideInRight 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.carousel-slide.slide-in-left {
+    animation: slideInLeft 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .carousel-btn {
+        opacity: 0.6;
+        pointer-events: all;
+    }
+    
+    .carousel-btn:active {
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   CORRECCIONES GLOBALES
+======================================== */
+
+/* Evitar que el parallax afecte secciones que no son hero */
+section:not(.hero) {
+    transform: none !important;
+}
+
+/* Asegurar visibilidad de títulos en todas las secciones */
+section h2 {
+    opacity: 1 !important;
+}
+
+section .section-desc {
+    opacity: 1 !important;
+}
+
+/* Corrección adicional para modo claro */
+body.light-mode .services-carousel-section {
+    background: var(--bg-color);
+}
+
+/* Hero ancho completo */
+.hero-with-bg {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.hero-content {
+    padding: 0 40px !important;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 30px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0 20px !important;
+    }
+}
+
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+.hero-with-bg {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    background-size: cover !important;
+    background-position: center center !important;
+}
+
+.hero-content {
+    padding: 0 40px !important;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+section.hero-with-bg {
+    max-width: none !important;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 30px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0 20px !important;
+    }
+}
+
+/* ========================================
+   BENTO BOX CON IMÁGENES - Estilo Iconwerk
+   Cards coloridas con imágenes/iconos dentro
+======================================== */
+
+.tech-stack-section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.tech-stack-section h2 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.tech-stack-section .section-desc {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 80px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid Bento Box */
+.tech-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 140px;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Layout específico para cada card */
+.tech-bento-card:nth-child(1) { grid-column: span 4; grid-row: span 3; }
+.tech-bento-card:nth-child(2) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(3) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(4) { grid-column: span 3; grid-row: span 2; }
+.tech-bento-card:nth-child(5) { grid-column: span 5; grid-row: span 3; }
+.tech-bento-card:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(7) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(8) { grid-column: span 4; grid-row: span 3; }
+.tech-bento-card:nth-child(9) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(10) { grid-column: span 4; grid-row: span 2; }
+
+/* Card base */
+.tech-bento-card {
+    border-radius: 32px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    border: none;
+}
+
+/* ========================================
+   COLORES CORPORATIVOS AELNG SOLUTIONS
+   Reemplaza desde la línea "Colores vibrantes"
+======================================== */
+
+/* Card 1 - Azul Petróleo Oscuro */
+.tech-bento-card:nth-child(1) {
+    background: linear-gradient(135deg, #2C4A6B 0%, #3A5B7F 100%);
+    color: white;
+}
+
+/* Card 2 - Azul Acero */
+.tech-bento-card:nth-child(2) {
+    background: linear-gradient(135deg, #4A6B8A 0%, #5B7C9D 100%);
+    color: white;
+}
+
+/* Card 3 - Slate Azulado */
+.tech-bento-card:nth-child(3) {
+    background: linear-gradient(135deg, #516B87 0%, #627C98 100%);
+    color: white;
+}
+
+/* Card 4 - Azul Grisáceo Medio */
+.tech-bento-card:nth-child(4) {
+    background: linear-gradient(135deg, #6B8CAE 0%, #7B9BB8 100%);
+    color: white;
+}
+
+/* Card 5 - Petróleo Profundo */
+.tech-bento-card:nth-child(5) {
+    background: linear-gradient(135deg, #1F3A52 0%, #2C4A6B 100%);
+    color: white;
+}
+
+/* Card 6 - Azul Intermedio */
+.tech-bento-card:nth-child(6) {
+    background: linear-gradient(135deg, #3D5A7A 0%, #4E6B8B 100%);
+    color: white;
+}
+
+/* Card 7 - Gris Azulado */
+.tech-bento-card:nth-child(7) {
+    background: linear-gradient(135deg, #5A7590 0%, #6B86A1 100%);
+    color: white;
+}
+
+/* Card 8 - Azul Claro Grisáceo */
+.tech-bento-card:nth-child(8) {
+    background: linear-gradient(135deg, #7B9BB8 0%, #8BA5BE 100%);
+    color: white;
+}
+
+/* Card 9 - Steel Blue Claro */
+.tech-bento-card:nth-child(9) {
+    background: linear-gradient(135deg, #8BA5BE 0%, #9BB5CE 100%);
+    color: #1F3A52; /* Texto oscuro para contraste */
+}
+
+/* Card 10 - Azul Medio Oscuro */
+.tech-bento-card:nth-child(10) {
+    background: linear-gradient(135deg, #425A74 0%, #536B85 100%);
+    color: white;
+}
+
+/* Ajuste de texto para card 9 (la más clara) */
+body:not(.light-mode) .tech-bento-card:nth-child(9) {
+    color: #1F3A52;
+}
+
+/* Contenedor de la imagen */
+.tech-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Imagen dentro de la card */
+.tech-image {
+    max-width: 80%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Convierte a blanco */
+    opacity: 0.95;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Imagen negra para card amarilla */
+.tech-bento-card:nth-child(9) .tech-image {
+    filter: brightness(0); /* Negro para fondo amarillo */
+    opacity: 0.85;
+}
+
+/* Cards grandes tienen imágenes más grandes */
+.tech-bento-card:nth-child(1) .tech-image,
+.tech-bento-card:nth-child(5) .tech-image,
+.tech-bento-card:nth-child(8) .tech-image {
+    max-width: 60%;
+}
+
+/* Hover sobre la imagen */
+.tech-bento-card:hover .tech-image {
+    transform: scale(1.1) rotate(-3deg);
+    opacity: 1;
+}
+
+/* Contenedor del texto */
+.tech-content {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Texto - Nombres */
+.tech-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+/* Nombres más grandes para cards grandes */
+.tech-bento-card:nth-child(1) .tech-name,
+.tech-bento-card:nth-child(5) .tech-name,
+.tech-bento-card:nth-child(8) .tech-name {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+/* Categorías */
+.tech-category {
+    font-size: 13px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+/* Hover sobre la card */
+.tech-bento-card:hover {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* Patrón de fondo sutil */
+.tech-bento-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Brillo al hover */
+.tech-bento-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 32px;
+    z-index: 1;
+}
+
+.tech-bento-card:hover::after {
+    opacity: 1;
+}
+
+/* Animación de entrada */
+.tech-bento-card {
+    animation: fadeInScale 0.6s cubic-bezier(0.23, 1, 0.32, 1) backwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Delays escalonados */
+.tech-bento-card:nth-child(1) { animation-delay: 0.05s; }
+.tech-bento-card:nth-child(2) { animation-delay: 0.1s; }
+.tech-bento-card:nth-child(3) { animation-delay: 0.15s; }
+.tech-bento-card:nth-child(4) { animation-delay: 0.2s; }
+.tech-bento-card:nth-child(5) { animation-delay: 0.25s; }
+.tech-bento-card:nth-child(6) { animation-delay: 0.3s; }
+.tech-bento-card:nth-child(7) { animation-delay: 0.35s; }
+.tech-bento-card:nth-child(8) { animation-delay: 0.4s; }
+.tech-bento-card:nth-child(9) { animation-delay: 0.45s; }
+.tech-bento-card:nth-child(10) { animation-delay: 0.5s; }
+
+/* Si no hay imagen, usar icono fallback */
+.tech-icon-fallback {
+    font-size: 72px;
+    opacity: 0.9;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+.tech-bento-card:nth-child(1) .tech-icon-fallback,
+.tech-bento-card:nth-child(5) .tech-icon-fallback,
+.tech-bento-card:nth-child(8) .tech-icon-fallback {
+    font-size: 96px;
+}
+
+/* Responsive - Tablets */
+@media (max-width: 1024px) {
+    .tech-bento-grid {
+        grid-template-columns: repeat(8, 1fr);
+        grid-auto-rows: 130px;
+        gap: 14px;
+    }
+    
+    .tech-bento-card:nth-child(1) { grid-column: span 4; grid-row: span 3; }
+    .tech-bento-card:nth-child(2) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(3) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(4) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(5) { grid-column: span 4; grid-row: span 3; }
+    .tech-bento-card:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(7) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(8) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(9) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(10) { grid-column: span 8; grid-row: span 2; }
+    
+    .tech-bento-card {
+        padding: 28px;
+        border-radius: 28px;
+    }
+    
+    .tech-image {
+        max-width: 70%;
+    }
+}
+
+/* Responsive - Móviles */
+@media (max-width: 768px) {
+    .tech-stack-section {
+        padding: 80px 30px;
+    }
+    
+    .tech-stack-section h2 {
+        font-size: 36px;
+    }
+    
+    .tech-bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 120px;
+        gap: 12px;
+    }
+    
+    .tech-bento-card:nth-child(1) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(2) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(3) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(4) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(5) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(7) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(8) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(9) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(10) { grid-column: span 2; grid-row: span 2; }
+    
+    .tech-bento-card {
+        padding: 20px;
+        border-radius: 24px;
+    }
+    
+    .tech-image {
+        max-width: 60%;
+    }
+    
+    .tech-image-container {
+        margin-bottom: 12px;
+    }
+    
+    .tech-name {
+        font-size: 15px;
+    }
+    
+    .tech-bento-card:nth-child(1) .tech-name,
+    .tech-bento-card:nth-child(6) .tech-name {
+        font-size: 20px;
+    }
+    
+    .tech-category {
+        font-size: 11px;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 480px) {
+    .tech-stack-section {
+        padding: 60px 20px;
+    }
+    
+    .tech-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 140px;
+        gap: 10px;
+    }
+    
+    .tech-bento-card:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(6) { grid-column: span 2; grid-row: span 1; }
+    .tech-bento-card:nth-child(7) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(8) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(9) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(10) { grid-column: span 1; grid-row: span 1; }
+    
+    .tech-image {
+        max-width: 50%;
+    }
+}

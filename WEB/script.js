@@ -261,3 +261,137 @@ if (whatsappButton) {
 
 console.log('🚀 Todo listo - Modo minimalista activado');
 
+// ========================================
+// SERVICES CAROUSEL - iPhone Style
+// ========================================
+
+class ServicesCarousel {
+    constructor() {
+        this.currentSlide = 0;
+        this.slides = document.querySelectorAll('.carousel-slide');
+        this.dots = document.querySelectorAll('.carousel-dot');
+        this.track = document.querySelector('.carousel-track');
+        this.prevBtn = document.querySelector('.carousel-btn-prev');
+        this.nextBtn = document.querySelector('.carousel-btn-next');
+        
+        this.isAnimating = false;
+        this.autoPlayInterval = null;
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+        
+        this.init();
+    }
+    
+    init() {
+        if (!this.track) return;
+        
+        // Event listeners
+        this.prevBtn?.addEventListener('click', () => this.prevSlide());
+        this.nextBtn?.addEventListener('click', () => this.nextSlide());
+        
+        // Dots navigation
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goToSlide(index));
+        });
+        
+        // Touch events for swipe
+        this.track.addEventListener('touchstart', (e) => this.handleTouchStart(e));
+        this.track.addEventListener('touchend', (e) => this.handleTouchEnd(e));
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.prevSlide();
+            if (e.key === 'ArrowRight') this.nextSlide();
+        });
+        
+        // Auto-play (optional - descomenta para activar)
+        // this.startAutoPlay();
+        
+        // Pause autoplay on hover
+        const container = document.querySelector('.carousel-container');
+        container?.addEventListener('mouseenter', () => this.stopAutoPlay());
+        container?.addEventListener('mouseleave', () => this.startAutoPlay());
+        
+        console.log('✨ Services Carousel initialized');
+    }
+    
+    goToSlide(index) {
+        if (this.isAnimating || index === this.currentSlide) return;
+        
+        this.isAnimating = true;
+        const direction = index > this.currentSlide ? 'left' : 'right';
+        
+        // Update transform
+        this.track.style.transform = `translateX(-${index * 100}%)`;
+        
+        // Update active states
+        this.updateDots(index);
+        
+        this.currentSlide = index;
+        
+        // Reset animation flag
+        setTimeout(() => {
+            this.isAnimating = false;
+        }, 600);
+    }
+    
+    nextSlide() {
+        const nextIndex = (this.currentSlide + 1) % this.slides.length;
+        this.goToSlide(nextIndex);
+    }
+    
+    prevSlide() {
+        const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+        this.goToSlide(prevIndex);
+    }
+    
+    updateDots(index) {
+        this.dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+    
+    handleTouchStart(e) {
+        this.touchStartX = e.changedTouches[0].screenX;
+    }
+    
+    handleTouchEnd(e) {
+        this.touchEndX = e.changedTouches[0].screenX;
+        this.handleSwipe();
+    }
+    
+    handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = this.touchStartX - this.touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next slide
+                this.nextSlide();
+            } else {
+                // Swipe right - prev slide
+                this.prevSlide();
+            }
+        }
+    }
+    
+    startAutoPlay(interval = 5000) {
+        this.stopAutoPlay();
+        this.autoPlayInterval = setInterval(() => {
+            this.nextSlide();
+        }, interval);
+    }
+    
+    stopAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+    }
+}
+
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = new ServicesCarousel();
+});
+
