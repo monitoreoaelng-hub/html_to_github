@@ -9,75 +9,143 @@
     <link rel="stylesheet" href="styles-proelectronic.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-         <img src="img/Logo + nombre sin fondo.png" alt="Logo" width="140" height="80">
-        
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="sobre-nosotros.html">Sobre Nosotros</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="productos.html" class="active">Productos</a>
-            <a href="sectores.html">Sectores</a>
-            <a href="blog.html">Blog</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-
-        <!-- Switch tema -->
-        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
-            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"/>
-                <line x1="12" y1="1" x2="12" y2="3"/>
-                <line x1="12" y1="21" x2="12" y2="23"/>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                <line x1="1" y1="12" x2="3" y2="12"/>
-                <line x1="21" y1="12" x2="23" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-        </button>
-    </header>
-
-    <!-- Hero Section -->
-    <!-- <section class="hero" style="padding: 120px 0 80px;">
-        <p class="hero-subtitle">Nuestros Productos</p>
-        <h1>Equipos y Soluciones para Automatización Industrial</h1>
-        <p class="hero-description">Proveemos equipos de última generación, upgrades y repuestos para mantener tu planta operando al máximo rendimiento.</p>
-    </section> -->
-
-        <section class="hero hero-with-bg" style="background-image: url('img/FONDO1.jpg');">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p class="hero-subtitle">Tu Subtítulo</p>
-            <h1>Tu Título Principal</h1>
-            <p class="hero-description">Tu descripción aquí.</p>
-            <div class="cta-buttons">
-                <a href="contacto.html" class="btn-primary">Botón 1</a>
-                <a href="servicios.html" class="btn-secondary">Botón 2</a>
-            </div>
-        </div>
-    </section>
     
     <!-- Intro Section -->
     <section>
         <h2>Catálogo de Productos</h2>
         <p class="section-desc">Ofrecemos dos líneas principales de productos para cubrir todas tus necesidades industriales</p>
+    
+<div class="container">
+        <div class="header">
+            <p class="results-count">Mostrando los 9 resultados</p>
+            <select class="sort-select">
+                <option>Orden predeterminado</option>
+                <option>Más recientes</option>
+                <option>Alfabético A-Z</option>
+                <option>Alfabético Z-A</option>
+            </select>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="services-grid">
+            <a href="reportes-arcotel.html" class="service-card">
+                <div class="service-img">
+                    <img src="https://vestertraining.com/wp-content/uploads/2021/03/plc-sensores.jpg.webp" alt="Reportes ARCOTEL">
+                </div>
+                <div class="service-content">
+                    <h3>SENSORES</h3>
+                    <span class="service-link">Ver más →</span>
+                </div>
+            </a>
+
+            <a href="asesoria-telecomunicaciones.html" class="service-card">
+                <div class="service-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhWd3NlUtfauZlyzm5ogWsZzQL52J_JURNEQ&s" alt="Asesoría">
+                </div>
+                <div class="service-content">
+                    <h3>PLCs (Controladores Lógicos Programables)</h3>
+                    <span class="service-link">Ver más →</span>
+                </div>
+            </a>
+
+            <a href="permiso-isp.html" class="service-card">
+                <div class="service-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-hxaOwJxwePLlE_Y4-KWYZHd93IDW-a0TpQ&s" alt="Permiso ISP">
+                </div>
+                <div class="service-content">
+                    <h3>HMI y SCADA</h3>
+                    <span class="service-link">Ver más →</span>
+                </div>
+            </a>
+
+            <a href="audio-video-suscripcion.html" class="service-card">
+                <div class="service-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9cXtmgTyptKsKR1uQ5KnELwhOgkjBctNIiw&s" alt="Audio y Video">
+                </div>
+                <div class="service-content">
+                    <h3>REDES INDUSTRIALES</h3>
+                    <span class="service-link">Ver más →</span>
+                </div>
+            </a>
+
+            <a href="georeferenciacion-fibra.html" class="service-card">
+                <div class="service-img">
+                    <img src="https://sinci.com/wp-content/uploads/2019/10/Instrumentacio%CC%81n-y-Electricidad-1.jpeg" alt="Fibra Óptica">
+                </div>
+                <div class="service-content">
+                    <h3>INSTRUMENTACIÓN</h3>
+                    <span class="service-link">Ver más →</span>
+                </div>
+            </a>
+            <a href="creacion-empresas.html" class="service-card">
+                <div class="service-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2xy5P_oxuk0nJ_5m3kocbY6GjcVqtJMI3OA&s" alt="Empresas">
+                </div>
+                <div class="service-content">
+                    <h3>PARTES MECÁNICAS Y ELÉCTRICAS</h3>
+                    <span class="service-link">Ver más →</span>
+                </div>
+            </a>
+
+            <a href="auditoria-arcotel.html" class="service-card">
+                <div class="service-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXybu_GMEXZhW7GDrS7Of1Rt-S0Mcx9gfHKg&s" alt="Auditoría">
+                </div>
+                <div class="service-content">
+                    <h3>CONTROLADORES</h3>
+                    <span class="service-link">Ver más →</span>
+                </div>
+            </a>
+
+            <a href="estudios-radio-tv.html" class="service-card">
+                <div class="service-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_3xPZ2KLiyM8KVackKLDpyphrF--FRC39Pg&s" alt="Radio y TV">
+                </div>
+                <div class="service-content">
+                    <h3>EQUIPOS DE MEDICIÓN</h3>
+                    <span class="service-link">Ver más →</span>
+                </div>
+            </a>
+
+            <a href="movil-avanzado.html" class="service-card">
+                <div class="service-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd1kO1FZU_w0d3lCbGGaO_FerSxcvN-05nyw&s" alt="Móvil">
+                </div>
+                <div class="service-content">
+                    <h3>EQUIPOS IoT / LoRaWAN</h3>
+                    <span class="service-link">Ver más →</span>
+                </div>
+            </a>
+
+            <a href="movil-avanzado.html" class="service-card">
+                <div class="service-img">
+                    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTp8SeiTy6-tRconhoWcuMmwvzW8E-d-P4hdM9-qgd49P0O2mT2IorlLvjNwu0m33K55e8ItrEUR-a99DoCsR7rfVwAXWPFT_5buZLcL6sgpocOhkGMipvUe5bwnIPhEjNPjpYRXb7TLQ&usqp=CAc" alt="Móvil">
+                </div>
+                <div class="service-content">
+                    <h3>VARIADORES DE FRECUENCIA</h3>
+                    <span class="service-link">Ver más →</span>
+                </div>
+            </a>
+
+
+        </div>
+    </div>
+
     </section>
 
     <!-- A. Equipos / Tecnología -->
-    <section class="how-section">
+
+
+
+
+    <!-- <section class="how-section">
         <h2>A. Equipos y Tecnología</h2>
         <p class="section-desc">Equipamiento de las principales marcas mundiales para automatización industrial</p>
         
         <div class="features-simple">
             <div class="feature-simple">
                 <h3>Sensores</h3>
-                <p>[AGREGAR TEXTO] Sensores industriales de temperatura, presión, nivel, proximidad, flujo y más. Marcas líderes con certificaciones industriales.</p>
+
             </div>
             
             <div class="feature-simple">
@@ -125,12 +193,12 @@
                 <p>[AGREGAR TEXTO] Contactores, relés, guardamotores, cables industriales, terminales, gabinetes, componentes de control.</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Quote Section -->
-    <section class="quote-section">
+    <!-- <section class="quote-section">
         "Equipamiento de calidad garantiza operación confiable y menor tiempo de parada"
-    </section>
+    </section> -->
 
     <!-- B. Upgrades y Repuestos -->
     <section class="how-section">
@@ -285,5 +353,6 @@
     </a>
 
     <script src="script.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>
