@@ -1,15 +1,19 @@
 // ========================================
-// INDUSTRIAL AI - AUTOMATIZACIÓN INDUSTRIAL
+// INDUSTRIAL AI - AUTOMATIZACION INDUSTRIAL
 // Script minimalista estilo Cosmos
 // ========================================
 
+// Esperar a que el menu.js cargue primero
 document.addEventListener('DOMContentLoaded', () => {
-    initSmoothScroll();
-    initHeaderEffect();
-    initFAQAccordion();
-    initThemeToggle();
-    initActiveNavLink();
-    console.log('✨ Industrial AI cargado');
+    // Dar tiempo a que menu.js inserte el header
+    setTimeout(() => {
+        initSmoothScroll();
+        initHeaderEffect();
+        initFAQAccordion();
+        initThemeToggle();
+        initActiveNavLink();
+        console.log('Industrial AI cargado');
+    }, 100);
 });
 
 // ========================================
@@ -45,6 +49,11 @@ function initSmoothScroll() {
 
 function initHeaderEffect() {
     const header = document.querySelector('header');
+    if (!header) {
+        console.warn('Header no encontrado');
+        return;
+    }
+    
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
@@ -80,14 +89,16 @@ function initFAQAccordion() {
     faqItems.forEach(item => {
         const summary = item.querySelector('summary');
         
-        summary.addEventListener('click', () => {
-            // Opcional: Cerrar otros items para comportamiento de accordion único
-            // faqItems.forEach(otherItem => {
-            //     if (otherItem !== item && otherItem.open) {
-            //         otherItem.open = false;
-            //     }
-            // });
-        });
+        if (summary) {
+            summary.addEventListener('click', () => {
+                // Opcional: Cerrar otros items para comportamiento de accordion unico
+                // faqItems.forEach(otherItem => {
+                //     if (otherItem !== item && otherItem.open) {
+                //         otherItem.open = false;
+                //     }
+                // });
+            });
+        }
     });
 }
 
@@ -97,11 +108,18 @@ function initFAQAccordion() {
 
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) {
+        console.warn('Theme toggle button no encontrado');
+        return;
+    }
+    
     const body = document.body;
     const header = document.querySelector('header');
 
-    // Función para actualizar el header según el tema
+    // Funcion para actualizar el header segun el tema
     function updateHeaderForTheme() {
+        if (!header) return;
+        
         const currentScroll = window.pageYOffset;
         const isLightMode = body.classList.contains('light-mode');
         
@@ -112,20 +130,35 @@ function initThemeToggle() {
         }
     }
 
-    // Cargar tema guardado
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.classList.add('light-mode');
-        updateHeaderForTheme();
+    // Cargar tema guardado con proteccion de errores
+    try {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-mode');
+            updateHeaderForTheme();
+        }
+    } catch (error) {
+        console.warn('localStorage no disponible:', error);
     }
 
     // Toggle del tema
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('light-mode');
         const theme = body.classList.contains('light-mode') ? 'light' : 'dark';
-        localStorage.setItem('theme', theme);
+        
+        console.log('Tema cambiado a:', theme);
+        
+        // Guardar tema con proteccion de errores
+        try {
+            localStorage.setItem('theme', theme);
+        } catch (error) {
+            console.warn('No se pudo guardar el tema:', error);
+        }
+        
         updateHeaderForTheme();
     });
+    
+    console.log('Theme toggle inicializado');
 }
 
 // ========================================
@@ -135,6 +168,8 @@ function initThemeToggle() {
 function initActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+    if (sections.length === 0 || navLinks.length === 0) return;
 
     window.addEventListener('scroll', () => {
         let current = '';
@@ -189,7 +224,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observar elementos para animación de entrada
+// Observar elementos para animacion de entrada
 document.querySelectorAll('.feature-simple, .process-item, .module-item, .contact-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
@@ -198,18 +233,13 @@ document.querySelectorAll('.feature-simple, .process-item, .module-item, .contac
 });
 
 // ========================================
-// DETECCIÓN DE DISPOSITIVO MÓVIL
+// DETECCION DE DISPOSITIVO MOVIL
 // ========================================
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 if (isMobile) {
     document.body.classList.add('mobile');
-    // Deshabilitar parallax en móviles
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        window.removeEventListener('scroll', () => {});
-    }
 }
 
 // ========================================
@@ -218,7 +248,7 @@ if (isMobile) {
 
 window.addEventListener('load', () => {
     const loadTime = performance.now();
-    console.log(`⚡ Página cargada en ${Math.round(loadTime)}ms`);
+    console.log(`Pagina cargada en ${Math.round(loadTime)}ms`);
 });
 
 // ========================================
@@ -228,9 +258,9 @@ window.addEventListener('load', () => {
 document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
     button.addEventListener('click', function(e) {
         const buttonText = this.textContent.trim();
-        console.log(`🎯 CTA clicked: ${buttonText}`);
+        console.log(`CTA clicked: ${buttonText}`);
         
-        // Aquí puedes integrar Google Analytics:
+        // Aqui puedes integrar Google Analytics:
         // if (typeof gtag !== 'undefined') {
         //     gtag('event', 'cta_click', {
         //         'event_category': 'conversion',
@@ -247,9 +277,9 @@ document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
 const whatsappButton = document.querySelector('.whatsapp-float');
 if (whatsappButton) {
     whatsappButton.addEventListener('click', () => {
-        console.log('📱 WhatsApp button clicked');
+        console.log('WhatsApp button clicked');
         
-        // Aquí puedes integrar tracking de eventos:
+        // Aqui puedes integrar tracking de eventos:
         // if (typeof gtag !== 'undefined') {
         //     gtag('event', 'whatsapp_click', {
         //         'event_category': 'contact',
@@ -259,7 +289,7 @@ if (whatsappButton) {
     });
 }
 
-console.log('🚀 Todo listo - Modo minimalista activado');
+console.log('Todo listo - Modo minimalista activado');
 
 // ========================================
 // SERVICES CAROUSEL - iPhone Style
@@ -283,11 +313,18 @@ class ServicesCarousel {
     }
     
     init() {
-        if (!this.track) return;
+        if (!this.track) {
+            console.warn('Carousel track not found');
+            return;
+        }
         
         // Event listeners
-        this.prevBtn?.addEventListener('click', () => this.prevSlide());
-        this.nextBtn?.addEventListener('click', () => this.nextSlide());
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => this.prevSlide());
+        }
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => this.nextSlide());
+        }
         
         // Dots navigation
         this.dots.forEach((dot, index) => {
@@ -295,8 +332,8 @@ class ServicesCarousel {
         });
         
         // Touch events for swipe
-        this.track.addEventListener('touchstart', (e) => this.handleTouchStart(e));
-        this.track.addEventListener('touchend', (e) => this.handleTouchEnd(e));
+        this.track.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+        this.track.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
         
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
@@ -309,17 +346,18 @@ class ServicesCarousel {
         
         // Pause autoplay on hover
         const container = document.querySelector('.carousel-container');
-        container?.addEventListener('mouseenter', () => this.stopAutoPlay());
-        container?.addEventListener('mouseleave', () => this.startAutoPlay());
+        if (container) {
+            container.addEventListener('mouseenter', () => this.stopAutoPlay());
+            container.addEventListener('mouseleave', () => this.startAutoPlay());
+        }
         
-        console.log('✨ Services Carousel initialized');
+        console.log('Services Carousel initialized');
     }
     
     goToSlide(index) {
         if (this.isAnimating || index === this.currentSlide) return;
         
         this.isAnimating = true;
-        const direction = index > this.currentSlide ? 'left' : 'right';
         
         // Update transform
         this.track.style.transform = `translateX(-${index * 100}%)`;
@@ -392,6 +430,21 @@ class ServicesCarousel {
 
 // Initialize carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const carousel = new ServicesCarousel();
+    setTimeout(() => {
+        new ServicesCarousel();
+    }, 150);
 });
 
+// ========================================
+// DROPDOWN Y NAVEGACION ADICIONAL
+// ========================================
+
+// Cerrar dropdown al hacer clic fuera
+document.addEventListener('click', (e) => {
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+        if (!dropdown.contains(e.target)) {
+            // Opcional: anadir clase para cerrar animado
+        }
+    });
+});

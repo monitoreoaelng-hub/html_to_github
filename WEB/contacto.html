@@ -7,109 +7,219 @@
     <meta name="description" content="Contáctanos para una consultoría gratuita en automatización industrial. Teléfono, email y ubicación.">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles-proelectronic.css">
+    <style>
+        /* Estilos específicos para el formulario de contacto */
+        .contact-form-section {
+            padding: 80px 5%;
+            background: var(--bg-color);
+        }
+
+        .contact-form-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-form-image {
+            background-image: url('img/FONDO1.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 600px;
+            position: relative;
+        }
+
+        .contact-form-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+        }
+
+        .contact-form-content {
+            padding: 60px 50px;
+            background: #fff;
+        }
+
+        .contact-form-header {
+            margin-bottom: 10px;
+        }
+
+        .contact-form-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .contact-form-heading {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .contact-form-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 14px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 15px;
+            font-family: inherit;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #aaa;
+        }
+
+        .form-submit-btn {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            align-self: flex-start;
+        }
+
+        .form-submit-btn:hover {
+            background: #e63939;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,68,68,0.3);
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-form-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-image {
+                min-height: 300px;
+                order: 1;
+            }
+
+            .contact-form-content {
+                padding: 40px 30px;
+                order: 2;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-form-content {
+                padding: 30px 20px;
+            }
+
+            .contact-form-heading {
+                font-size: 26px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <a href="#" class="navbar-brand"> <img src="img/Logo + nombre sin fondo.png" alt="Logo" width="140" height="80"> </a>
+    <!-- El header se carga desde menu.js -->
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="sobre-nosotros.html">Sobre Nosotros</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="productos.html">Productos</a>
-            <a href="sectores.html">Sectores</a>
-            <a href="blog.html">Blog</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="contacto.html" class="active">Contacto</a>
-        </nav>
-
-        <!-- Switch tema -->
-        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
-            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"/>
-                <line x1="12" y1="1" x2="12" y2="3"/>
-                <line x1="12" y1="21" x2="12" y2="23"/>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                <line x1="1" y1="12" x2="3" y2="12"/>
-                <line x1="21" y1="12" x2="23" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-        </button>
-    </header>
-
-    <!-- Page Hero -->
-    <!-- <section class="hero" style="min-height: 70vh;">
-        <p class="hero-subtitle">Contacto</p>
-        <h1>Transformemos tu Planta Juntos</h1>
-        <p class="hero-description">Estamos listos para analizar tus necesidades y diseñar la solución de automatización perfecta para tu industria.</p>
-         
-    </section> -->
-
-    <!-- Contact Methods -->
-    <!-- <section>
-        <h2>¿Cómo Podemos Ayudarte?</h2>
-        <p class="section-desc">Elige el canal de comunicación que prefieras</p>
-        
-        <div class="contact-info">
-            <div class="contact-item">
-                <h3>Teléfono</h3>
-                <p><a href="tel:+593999999999" style="color: var(--text-color); text-decoration: none;">+593 99 999 9999</a></p>
-                <p style="font-size: 14px; color: var(--text-secondary); margin-top: 8px;">Lun - Vie: 8:00 AM - 6:00 PM</p>
-            </div>
-            <div class="contact-item">
-                <h3>Email</h3>
-                <p><a href="/cdn-cgi/l/email-protection#dfbcb0b1abbebcabb09fb6b1bbaaacabadb6beb3beb6f1bcb0b2" style="color: var(--text-color); text-decoration: none;"><span class="__cf_email__" data-cfemail="ff9c90918b9e9c8b90bf96919b8a8c8b8d969e939e96d19c9092">[email&#160;protected]</span></a></p>
-                <p style="font-size: 14px; color: var(--text-secondary); margin-top: 8px;">Respuesta en menos de 24 horas</p>
-            </div>
-            <div class="contact-item">
-                <h3>WhatsApp</h3>
-                <p><a href="https://wa.me/593999999999" target="_blank" style="color: var(--text-color); text-decoration: none;">+593 99 999 9999</a></p>
-                <p style="font-size: 14px; color: var(--text-secondary); margin-top: 8px;">Chat directo e inmediato</p>
-            </div>
-        </div>
-
-        <div class="cta-buttons" style="margin-top: 60px;">
-            <a href="tel:+593999999999" class="btn-primary">Llamar Ahora</a>
-            <a href="https://wa.me/593999999999?text=Hola,%20necesito%20información%20sobre%20automatización%20industrial" target="_blank" class="btn-secondary">Escribir por WhatsApp</a>
-        </div>
-    </section> -->
-
-    <!-- Location -->
-         <section class="hero hero-with-bg" style="background-image: url('img/FONDO1.jpg');">
+    <!-- Hero Section (opcional) -->
+    <!-- <section class="hero hero-with-bg" style="background-image: url('img/FONDO1.jpg');">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <p class="hero-subtitle">Tu Subtítulo</p>
-            <h1>Tu Título Principal</h1>
-            <p class="hero-description">Tu descripción aquí.</p>
-            <div class="cta-buttons">
-                <a href="contacto.html" class="btn-primary">Botón 1</a>
-                <a href="servicios.html" class="btn-secondary">Botón 2</a>
-            </div>
+            <p class="hero-subtitle">CONTÁCTANOS</p>
+            <h1>Hablemos de tu Proyecto</h1>
+            <p class="hero-description">Estamos listos para transformar tu operación industrial</p>
         </div>
-    </section>
-     
-    <section class="how-section" style="min-height: 70vh;">
-        <h2>Comienza tu Proyecto Hoy</h2>
-        <p>No esperes más para optimizar tu planta. Contáctanos y recibe una consultoría gratuita.</p>
-        
-        <!-- <h2>Nuestra Ubicación</h2> -->
-        <section class="location">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d418.83997284664656!2d-79.01372393475!3d-2.902548401543626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sec!4v1765749709654!5m2!1ses-419!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </section>
+    </section> -->
 
-        <p class="section-desc">Visítanos en nuestra oficina</p>
+    
+    <!-- Location -->
+    <section class="how-section" style="min-height: 70vh;">
+        <h2>Nuestra Ubicación</h2>
+        <p class="section-desc">Visítanos en nuestra oficina en Cuenca, Ecuador</p>
+        
+        <section class="location">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d418.83997284664656!2d-79.01372393475!3d-2.902548401543626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sec!4v1765749709654!5m2!1ses-419!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
         
         <div class="contact-info">
             <div class="contact-item" style="text-align: left;">
                 <h3 style="text-align: center;">Dirección</h3>
                 <p style="text-align: center; font-size: 16px; line-height: 1.8;">
-                    Av. Principal #123<br>
+                    Calle Alfonso Borrero y R. Ramirez<br>
                     Edificio Industrial<br>
                     Cuenca, Azuay<br>
                     Ecuador
@@ -138,123 +248,83 @@
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <!-- <section>
-        <h2>¿En Qué Podemos Ayudarte?</h2>
-        <p class="section-desc">Áreas en las que podemos asistirte</p>
-        
-        <div class="features-simple">
-            <div class="feature-simple">
-                <h3>Consultoría Gratuita</h3>
-                <p>Agenda una consulta sin costo para evaluar tus necesidades de automatización y recibir recomendaciones profesionales.</p>
-            </div>
-            <div class="feature-simple">
-                <h3>Cotización de Proyecto</h3>
-                <p>Solicita una cotización detallada para tu proyecto específico. Incluimos alcance técnico, cronograma y costos transparentes.</p>
-            </div>
-            <div class="feature-simple">
-                <h3>Soporte Técnico</h3>
-                <p>Si ya eres cliente, contáctanos para soporte técnico, mantenimiento o cualquier consulta sobre tu sistema existente.</p>
-            </div>
-            <div class="feature-simple">
-                <h3>Visita a Planta</h3>
-                <p>Agenda una visita de nuestros ingenieros a tu planta para un diagnóstico en sitio y propuesta técnica personalizada.</p>
-            </div>
-        </div>
-    </section> -->
+    <!-- Formulario de Contacto -->
+    <section class="contact-form-section">
+        <div class="contact-form-container">
+            <!-- Columna Izquierda: Imagen -->
+            <div class="contact-form-image"></div>
 
-    <!-- FAQ Contact -->
-    <!-- <section class="how-section">
-        <h2>Preguntas Frecuentes</h2>
-        <p class="section-desc">Respuestas rápidas a consultas comunes</p>
-        
-        <div class="faq-list" style="max-width: 900px;">
-            <details class="faq">
-                <summary>¿Cuánto tiempo toma recibir una cotización?</summary>
-                <p>Después de tu consulta inicial, entregamos una cotización preliminar en 3-5 días hábiles. Para cotizaciones detalladas con visita a planta, el tiempo puede extenderse a 7-10 días.</p>
-            </details>
-            
-            <details class="faq">
-                <summary>¿Realizan proyectos fuera de Ecuador?</summary>
-                <p>Sí, atendemos proyectos en Colombia y Perú regularmente. Para otros países, evaluamos cada caso según la viabilidad logística y técnica.</p>
-            </details>
-            
-            <details class="faq">
-                <summary>¿La consultoría inicial tiene costo?</summary>
-                <p>No, la primera consultoría es completamente gratuita. Incluye una reunión con nuestros ingenieros para entender tus necesidades y proponer un camino a seguir.</p>
-            </details>
-            
-            <details class="faq">
-                <summary>¿Cuál es el proyecto mínimo que aceptan?</summary>
-                <p>No tenemos un mínimo estricto. Hemos hecho desde actualizaciones puntuales de un PLC hasta plantas completas. Si tu proyecto aporta valor a tu operación, nos interesa.</p>
-            </details>
-            
-            <details class="faq">
-                <summary">¿Ofrecen financiamiento?</summary>
-                <p>Trabajamos con varias instituciones financieras que ofrecen planes de financiamiento para proyectos industriales. Podemos ayudarte a explorar estas opciones.</p>
-            </details>
-            
-            <details class="faq">
-                <summary>¿Qué información necesitan para cotizar?</summary>
-                <p>Idealmente: descripción del proceso a automatizar, layout de planta, equipos existentes, objetivos específicos y presupuesto aproximado. Pero si no tienes toda esta info, igual podemos empezar.</p>
-            </details>
-        </div>
-    </section> -->
+            <!-- Columna Derecha: Formulario -->
+            <div class="contact-form-content">
+                <div class="contact-form-header">
+                    <p class="contact-form-title">CONTACTOS</p>
+                    <h2 class="contact-form-heading">Formulario De Contacto</h2>
+                    <p class="contact-form-description">
+                        Por favor, deje sus datos de contacto y nos pondremos en contacto con usted
+                    </p>
+                </div>
 
-    <!-- Quote -->
-    <!-- <section class="quote-section">
-        "El primer paso hacia la automatización es una conversación. Estamos aquí para escucharte."
-    </section> -->
+                <form class="contact-form" action="" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre *</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre *" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido *</label>
+                            <input type="text" id="apellido" name="apellido" placeholder="Apellido *" required>
+                        </div>
+                    </div>
 
-    <!-- Final CTA -->
-    <section class="contact-us">
-        <div class="row">
-            <div class="contact-col">
-                <div>
-                    <i class="fa fa-home"></i>
-                    <span>
-                        <h5>Calle Alfonso Borrero y R. Ramirez </h5>
-                        <p>Cuenca, Azuay, Ecuador</p>
-                    </span>
-                </div>
-                <div>
-                    <i class="fa fa-phone"></i>
-                    <span>
-                        <h5>+593 987054442</h5>
-                        <p>Lunes - Viernes 8:00 AM - 6:00 PM</p>
-                        <p>sábado 8:00 AM - 1:00 PM</p>
-                    </span>
-                </div>
-                <div>
-                    <i class="fa fa-envelope-o"></i>
-                    <span>
-                        <h5>monitoreo_es1@aelngsolutions.com</h5>
-                        <p>Correo electrónico </p>
-                    </span>
-                </div>
-            </div>  
-            <div class="contact-col">
-                <form action="">
-                    <input type="text" placeholder="Enter your name" required> 
-                    <input type="email" placeholder="Enter email address" required> 
-                    <input type="text" placeholder="Enter your subject" required> 
-                    <textarea rows="8" placeholder="Message" required></textarea> 
-                    <button type="submit" class="hero-btn red-btn">Send Message</button>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cargo">Cargo *</label>
+                            <input type="text" id="cargo" name="cargo" placeholder="Cargo *" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Nombre de la compañía *</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de la compañía *" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" placeholder="E-mail *" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="+593" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="direccion">Dirección *</label>
+                        <input type="text" id="direccion" name="direccion" placeholder="Dirección *" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comentario">Comentario *</label>
+                        <textarea id="comentario" name="comentario" placeholder="Comentario *" required></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit-btn">Enviar</button>
+
+                    <p class="form-note">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                        Protegido por reCAPTCHA - Sus datos están seguros con nosotros
+                    </p>
                 </form>
-
-            </div>  
+            </div>
         </div>
     </section>
 
-
+    <!-- WhatsApp CTA -->
     <section class="cta-section">
-        <!-- <h2>Comienza tu Proyecto Hoy</h2>
-        <p>No esperes más para optimizar tu planta. Contáctanos y recibe una consultoría gratuita.</p>
-        <div class="cta-buttons">
-            <a href="tel:+593999999999" class="btn-primary">Llamar Ahora</a>
-            <a href="/cdn-cgi/l/email-protection#50333f3e243133243f10393e342523242239313c31397e333f3d" class="btn-secondary">Enviar Email</a>
-        </div> -->
-        
         <div style="margin-top: 80px; padding: 40px; background: var(--secondary-bg); border-radius: 12px; max-width: 700px; margin-left: auto; margin-right: auto;">
             <h3 style="font-size: 20px; font-weight: 400; margin-bottom: 20px; text-align: center;">Atención Inmediata por WhatsApp</h3>
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 30px;">
@@ -274,53 +344,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>INDUSTRIAL AI</h3>
-                <p>Somos especialistas en automatización industrial con más de 10 años de experiencia. Diseñamos e implementamos soluciones que transforman plantas industriales en operaciones inteligentes y eficientes.</p>
-            </div>
-            
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h4>Navegación</h4>
-                    <a href="index.html">Home</a>
-                    <a href="sobre-nosotros.html">Sobre Nosotros</a>
-                    <a href="servicios.html">Servicios</a>
-                    <a href="proyectos.html">Proyectos</a>
-                    <a href="contacto.html">Contacto</a>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Servicios</h4>
-                    <a href="servicios.html">Control SCADA</a>
-                    <a href="servicios.html">Automatización</a>
-                    <a href="servicios.html">Robótica</a>
-                    <a href="servicios.html">Instrumentación</a>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Empresa</h4>
-                    <a href="index.html">Sobre Nosotros</a>
-                    <a href="proyectos.html">Casos de Éxito</a>
-                    <a href="#">Certificaciones</a>
-                    <a href="#">Privacidad</a>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Contacto</h4>
-                    <a href="/cdn-cgi/l/email-protection#62010d0c160301160d220b0c06171116100b030e030b4c010d0f">Email</a>
-                    <a href="tel:+593999999999">Teléfono</a>
-                    <a href="contacto.html">Ubicación</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>© 2025 Industrial AI. Todos los derechos reservados.</p>
-        </div>
-    </footer>
     <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script src="footer.js"></script> <!-- ← NUEVO -->
 </body>
 </html>
