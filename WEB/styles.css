@@ -427,398 +427,859 @@ TARJETAS
             transition: background-color 0.3s ease;
         }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
+/* ========================================
+   HEADER - GRADIENTE AZUL PETRÓLEO TRANSLÚCIDO
+======================================== */
+/* ========================================
+   HEADER - GRADIENTE AZUL PETRÓLEO TRANSLÚCIDO
+======================================== */
 
-        body.light-mode header {
-            background: rgba(255, 255, 255, 0.95);
-        }
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+     background: linear-gradient(135deg, rgba(47, 77, 97, 0.85) 0%, rgba(62, 95, 120, 0.85) 100%);
+    
+    
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
+/* Modo claro - gradiente OPACO para contraste perfecto */
+body.light-mode header {
+    background: linear-gradient(135deg, rgb(44, 74, 107) 0%, rgb(58, 91, 127) 100%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-        .logo:hover {
-            transform: scale(1.05);
-        }
+/* Header al hacer scroll - más opaco */
+header.scrolled {
+    background: linear-gradient(135deg, rgba(44, 74, 107, 0.95) 0%, rgba(58, 91, 127, 0.95) 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .logo img {
-            height: 60px;
-            width: auto;
-        }
+body.light-mode header.scrolled {
+    background: linear-gradient(135deg, rgb(44, 74, 107) 0%, rgb(58, 91, 127) 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
 
-        /* Navegación */
-        nav {
-            display: flex;
-            gap: 35px;
-            align-items: center;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
 
-        nav > a,
-        .nav-dropdown > .nav-link {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            padding: 8px 12px;
-            border-radius: 6px;
-            position: relative;
-        }
+.logo:hover {
+    transform: scale(1.05);
+}
 
-        nav > a:hover,
-        .nav-dropdown > .nav-link:hover {
-            color: var(--light-blue);
-            background: rgba(74, 107, 138, 0.1);
-        }
+.logo img {
+    height: 60px;
+    width: auto;
+}
 
-        nav > a.active {
-            color: var(--light-blue);
-        }
+/* Navegación */
+nav {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
 
-        /* Dropdown Container */
-        .nav-dropdown {
-            position: relative;
-            display: inline-block;
-        }
+/* ==========================================
+   MODO OSCURO - Links de navegación
+========================================== */
+nav > a,
+.nav-dropdown > .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+    position: relative;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        .nav-link {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+nav > a:hover,
+.nav-dropdown > .nav-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
 
-        /* Flecha dropdown */
-        .dropdown-arrow {
-            width: 12px;
-            height: 12px;
-            transition: transform 0.3s ease;
-        }
+nav > a:active,
+.nav-dropdown > .nav-link:active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(0.98);
+}
 
-        .nav-dropdown:hover .dropdown-arrow {
-            transform: rotate(180deg);
-        }
+nav > a:focus,
+.nav-dropdown > .nav-link:focus {
+    outline: none;
+    color: #ffffff;
+}
 
-        /* Menú Dropdown */
-        .dropdown-menu {
-            position: absolute;
-            top: calc(100% + 10px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            min-width: 280px;
-            padding: 12px 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
+/* Estado activo - fondo azul más claro */
+nav > a.active {
+    color: #ffffff;
+    background: rgba(74, 107, 138, 0.5);
+}
 
-        body.light-mode .dropdown-menu {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-        }
+/* ==========================================
+/* ==========================================
+   MODO CLARO - Links de navegación - CORRECCIÓN
+========================================== */
 
-        .nav-dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            top: calc(100% + 5px);
-        }
+/* Links visitados y no visitados - BLANCO SIEMPRE */
+body.light-mode nav > a:link,
+body.light-mode nav > a:visited,
+body.light-mode .nav-dropdown > .nav-link:link,
+body.light-mode .nav-dropdown > .nav-link:visited {
+    color: rgba(255, 255, 255, 0.90) !important;
+}
 
-        /* Items del dropdown */
-        .dropdown-menu a {
-            display: block;
-            padding: 12px 24px;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 400;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
+/* Active state con !important para forzar el blanco */
+body.light-mode nav > a:active,
+body.light-mode .nav-dropdown > .nav-link:active {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.30);
+    transform: scale(0.98);
+}
 
-        .dropdown-menu a:hover {
-            background: rgba(74, 107, 138, 0.15);
-            border-left-color: var(--light-blue);
-            padding-left: 28px;
-        }
+/* Dropdown items - MODO CLARO */
+body.light-mode .dropdown-menu a:link,
+body.light-mode .dropdown-menu a:visited {
+    color: rgba(255, 255, 255, 0.90) !important;
+}
 
-        /* Separador en el menú */
-        .dropdown-divider {
-            height: 1px;
-            background: var(--border-color);
-            margin: 8px 16px;
-        }
+body.light-mode .dropdown-menu a:active {
+    background: rgba(255, 255, 255, 0.30);
+    border-left-color: #ffffff;
+    color: #ffffff !important;
+}
 
-        /* Theme toggle */
-        .theme-toggle {
-            background: none;
-            border: 2px solid var(--text-color);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            margin-left: 20px;
-        }
+body.light-mode nav > a:focus,
+body.light-mode .nav-dropdown > .nav-link:focus {
+    outline: none;
+    color: #ffffff;
+}
 
-        .theme-toggle:hover {
-            background: var(--text-color);
-            transform: rotate(180deg);
-        }
+/* Estado activo en modo claro - fondo blanco semi-transparente */
+body.light-mode nav > a.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.25);
+}
 
-        .theme-toggle svg {
-            color: var(--text-color);
-            transition: color 0.3s ease;
-        }
+/* Dropdown Container */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-        .theme-toggle:hover svg {
-            color: var(--bg-color);
-        }
+.nav-link {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
 
-        .sun-icon {
-            display: none;
-        }
+/* Flecha dropdown - blanca SIEMPRE */
+.dropdown-arrow {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.3s ease;
+    color: rgba(255, 255, 255, 0.85);
+}
 
-        .moon-icon {
-            display: block;
-        }
+body.light-mode .dropdown-arrow {
+    color: rgba(255, 255, 255, 0.90);
+}
 
-        body.light-mode .sun-icon {
-            display: block;
-        }
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
 
-        body.light-mode .moon-icon {
-            display: none;
-        }
+/* Menú Dropdown - mismo gradiente azul translúcido */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(44, 74, 107, 0.95) 0%, rgba(58, 91, 127, 0.95) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    min-width: 280px;
+    padding: 12px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
 
-        /* Contenido demo */
-        .demo-content {
-            margin-top: 150px;
-            padding: 40px;
-            text-align: center;
-        }
+body.light-mode .dropdown-menu {
+    background: linear-gradient(135deg, rgba(44, 74, 107, 0.96) 0%, rgba(58, 91, 127, 0.96) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
 
-        .demo-content h1 {
-            font-size: 48px;
-            font-weight: 300;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    top: calc(100% + 5px);
+}
 
-        .demo-content p {
-            font-size: 18px;
-            color: var(--text-color);
-            opacity: 0.7;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+/* Items del dropdown - texto blanco SIEMPRE */
+.dropdown-menu a {
+    display: block;
+    padding: 12px 24px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            header {
-                padding: 20px 40px;
-            }
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-left-color: #ffffff;
+    padding-left: 28px;
+    color: #ffffff;
+}
 
-            nav {
-                gap: 25px;
-            }
-        }
+.dropdown-menu a:active {
+    background: rgba(255, 255, 255, 0.25);
+    border-left-color: #ffffff;
+}
 
-        @media (max-width: 768px) {
-            header {
-                padding: 16px 24px;
-                flex-wrap: wrap;
-            }
+.dropdown-menu a:focus {
+    outline: none;
+}
 
-            .logo img {
-                height: 50px;
-            }
+body.light-mode .dropdown-menu a {
+    color: rgba(255, 255, 255, 0.90);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
-            nav {
-                gap: 15px;
-                font-size: 14px;
-            }
+body.light-mode .dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.20);
+    border-left-color: #ffffff;
+    color: #ffffff;
+}
 
-            .dropdown-menu {
-                min-width: 240px;
-            }
+body.light-mode .dropdown-menu a:active {
+    background: rgba(255, 255, 255, 0.30);
+    border-left-color: #ffffff;
+}
 
-            .demo-content {
-                margin-top: 120px;
-                padding: 20px;
-            }
+body.light-mode .dropdown-menu a:focus {
+    outline: none;
+}
 
-            .demo-content h1 {
-                font-size: 32px;
-            }
-        }
+/* Separador en el menú */
+.dropdown-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 8px 16px;
+}
 
-        @media (max-width: 600px) {
-            nav {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-                margin-top: 10px;
-                gap: 10px;
-            }
+body.light-mode .dropdown-divider {
+    background: rgba(255, 255, 255, 0.2);
+}
 
-            nav > a,
-            .nav-link {
-                font-size: 13px;
-                padding: 6px 10px;
-            }
+/* Theme toggle - blanco siempre */
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
-            .dropdown-menu {
-                left: 0;
-                transform: none;
-                min-width: 200px;
-            }
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: rotate(180deg);
+}
 
-            .theme-toggle {
-                width: 36px;
-                height: 36px;
-            }
-        }
+.theme-toggle:active {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(180deg) scale(0.95);
+}
 
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+.theme-toggle:focus {
+    outline: none;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
-            padding: 40px 20px;
-        }
+.theme-toggle svg {
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.3s ease;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.theme-toggle:hover svg {
+    color: #ffffff;
+}
 
-        .header {
-            text-align: left;
-            margin-bottom: 30px;
-        }
+/* Theme toggle en modo claro - también blanco */
+body.light-mode .theme-toggle {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        .results-count {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
+body.light-mode .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+}
 
-        .sort-select {
-            padding: 8px 30px 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background: white;
-            font-size: 14px;
-            cursor: pointer;
-            float: right;
-        }
+body.light-mode .theme-toggle:active {
+    background: rgba(255, 255, 255, 0.30);
+    transform: rotate(180deg) scale(0.95);
+}
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
+body.light-mode .theme-toggle:focus {
+    outline: none;
+}
 
-        .service-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-        }
+body.light-mode .theme-toggle svg {
+    color: rgba(255, 255, 255, 0.90);
+}
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-        }
+body.light-mode .theme-toggle:hover svg {
+    color: #ffffff;
+}
 
-        .service-img {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-        }
+.sun-icon {
+    display: none;
+}
 
-        .service-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.moon-icon {
+    display: block;
+}
 
-        .service-content {
-            padding: 20px;
-        }
+body.light-mode .sun-icon {
+    display: block;
+}
 
-        .service-content h3 {
-            color: #333;
-            font-size: 16px;
-            line-height: 1.4;
-            margin-bottom: 10px;
-            min-height: 44px;
-        }
+body.light-mode .moon-icon {
+    display: none;
+}
 
-        .service-link {
-            display: inline-block;
-            color: #4CAF50;
-            font-size: 14px;
-            font-weight: 500;
-            margin-top: 10px;
-            transition: color 0.3s ease;
-        }
+/* Responsive */
+@media (max-width: 1024px) {
+    header {
+        padding: 20px 40px;
+    }
 
-        .service-card:hover .service-link {
-            color: #45a049;
-            text-decoration: underline;
-        }
+    nav {
+        gap: 25px;
+    }
+}
 
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .sort-select {
-                float: none;
-                display: block;
-                margin-top: 10px;
-            }
-        }
+@media (max-width: 768px) {
+    header {
+        padding: 16px 24px;
+        flex-wrap: wrap;
+    }
 
+    .logo img {
+        height: 50px;
+    }
 
+    nav {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .dropdown-menu {
+        min-width: 240px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    nav > a,
+    .nav-link {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .dropdown-menu {
+        left: 0;
+        transform: none;
+        min-width: 200px;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ========================================
+   HEADER - GRADIENTE AZUL PETRÓLEO TRANSLÚCIDO
+======================================== */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background: linear-gradient(135deg, rgba(44, 74, 107, 0.85) 0%, rgba(58, 91, 127, 0.85) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Modo claro - FONDO SÓLIDO AZUL 100% OPACO */
+body.light-mode header {
+    background: linear-gradient(135deg, #2C4A6B 0%, #3A5B7F 100%) !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Header al hacer scroll - más opaco */
+header.scrolled {
+    background: linear-gradient(135deg, rgba(44, 74, 107, 0.95) 0%, rgba(58, 91, 127, 0.95) 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode header.scrolled {
+    background: linear-gradient(135deg, #2C4A6B 0%, #3A5B7F 100%) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+/* Navegación */
+nav {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+/* ==========================================
+   MODO OSCURO - Links de navegación
+========================================== */
+nav > a,
+.nav-dropdown > .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+    position: relative;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+nav > a:hover,
+.nav-dropdown > .nav-link:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+nav > a:active,
+.nav-dropdown > .nav-link:active {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(0.98);
+}
+
+nav > a:focus,
+.nav-dropdown > .nav-link:focus {
+    outline: none;
+    color: #ffffff !important;
+}
+
+nav > a:visited,
+.nav-dropdown > .nav-link:visited {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Estado activo - fondo azul más claro */
+nav > a.active {
+    color: #ffffff !important;
+    background: rgba(74, 107, 138, 0.5);
+}
+
+/* ==========================================
+   MODO CLARO - Links de navegación
+========================================== */
+body.light-mode nav > a,
+body.light-mode .nav-dropdown > .nav-link {
+    color: rgba(255, 255, 255, 0.90) !important;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.light-mode nav > a:hover,
+body.light-mode .nav-dropdown > .nav-link:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.20);
+}
+
+body.light-mode nav > a:active,
+body.light-mode .nav-dropdown > .nav-link:active {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.30);
+    transform: scale(0.98);
+}
+
+body.light-mode nav > a:focus,
+body.light-mode .nav-dropdown > .nav-link:focus {
+    outline: none;
+    color: #ffffff !important;
+}
+
+body.light-mode nav > a:visited,
+body.light-mode .nav-dropdown > .nav-link:visited {
+    color: rgba(255, 255, 255, 0.90) !important;
+}
+
+/* Estado activo en modo claro - fondo blanco semi-transparente */
+body.light-mode nav > a.active {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Dropdown Container */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-link {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Flecha dropdown - blanca SIEMPRE */
+.dropdown-arrow {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.3s ease;
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.light-mode .dropdown-arrow {
+    color: rgba(255, 255, 255, 0.90) !important;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Menú Dropdown - mismo gradiente azul translúcido */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(44, 74, 107, 0.95) 0%, rgba(58, 91, 127, 0.95) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    min-width: 280px;
+    padding: 12px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode .dropdown-menu {
+    background: linear-gradient(135deg, #2C4A6B 0%, #3A5B7F 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    top: calc(100% + 5px);
+}
+
+/* Items del dropdown - texto blanco SIEMPRE */
+.dropdown-menu a {
+    display: block;
+    padding: 12px 24px;
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-left-color: #ffffff;
+    padding-left: 28px;
+    color: #ffffff !important;
+}
+
+.dropdown-menu a:active {
+    background: rgba(255, 255, 255, 0.25);
+    border-left-color: #ffffff;
+    color: #ffffff !important;
+}
+
+.dropdown-menu a:focus {
+    outline: none;
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dropdown-menu a:visited {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.light-mode .dropdown-menu a {
+    color: rgba(255, 255, 255, 0.90) !important;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.light-mode .dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.20);
+    border-left-color: #ffffff;
+    color: #ffffff !important;
+}
+
+body.light-mode .dropdown-menu a:active {
+    background: rgba(255, 255, 255, 0.30);
+    border-left-color: #ffffff;
+    color: #ffffff !important;
+}
+
+body.light-mode .dropdown-menu a:focus {
+    outline: none;
+    color: rgba(255, 255, 255, 0.90) !important;
+}
+
+body.light-mode .dropdown-menu a:visited {
+    color: rgba(255, 255, 255, 0.90) !important;
+}
+
+/* Separador en el menú */
+.dropdown-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 8px 16px;
+}
+
+body.light-mode .dropdown-divider {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Theme toggle - blanco siempre */
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    position: relative; /* ← AGREGAR ESTA LÍNEA */
+    z-index: 10000; /* ← AGREGAR ESTA LÍNEA */
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: rotate(180deg);
+}
+
+.theme-toggle:active {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(180deg) scale(0.95);
+}
+
+.theme-toggle:focus {
+    outline: none;
+}
+
+.theme-toggle svg {
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover svg {
+    color: #ffffff;
+}
+
+/* Theme toggle en modo claro - también blanco */
+body.light-mode .theme-toggle {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.light-mode .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+body.light-mode .theme-toggle:active {
+    background: rgba(255, 255, 255, 0.30);
+    transform: rotate(180deg) scale(0.95);
+}
+
+body.light-mode .theme-toggle:focus {
+    outline: none;
+}
+
+body.light-mode .theme-toggle svg {
+    color: rgba(255, 255, 255, 0.90);
+}
+
+body.light-mode .theme-toggle:hover svg {
+    color: #ffffff;
+}
+
+.sun-icon {
+    display: none;
+}
+
+.moon-icon {
+    display: block;
+}
+
+body.light-mode .sun-icon {
+    display: block;
+}
+
+body.light-mode .moon-icon {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    header {
+        padding: 20px 40px;
+    }
+
+    nav {
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 16px 24px;
+        flex-wrap: wrap;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    nav {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .dropdown-menu {
+        min-width: 240px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    nav > a,
+    .nav-link {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .dropdown-menu {
+        left: 0;
+        transform: none;
+        min-width: 200px;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+    }
+}
 
 /* ========================================
    HEADER - MEJORADO
@@ -992,7 +1453,6 @@ body.light-mode .moon-icon {
 .whatsapp-float:hover {
     animation: none;
 }
-
 /* ========================================
    HERO
 ======================================== */
@@ -1036,7 +1496,7 @@ body.light-mode .moon-icon {
 }
 
 /* ========================================
-   HERO CON IMAGEN DE FONDO - ESTILO PROFESIONAL PROELECTRONIC
+   HERO CON IMAGEN DE FONDO - ESTILO PROFESIONAL
 ======================================== */
 
 .hero-with-bg {
@@ -1053,7 +1513,7 @@ body.light-mode .moon-icon {
     overflow: hidden;
 }
 
-/* Overlay mejorado con gradiente más profesional */
+/* Overlay mejorado con gradiente más profesional - MODO OSCURO */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -1069,13 +1529,10 @@ body.light-mode .moon-icon {
     z-index: 1;
 }
 
+/* MODO CLARO - SIN OVERLAY para mostrar imagen original */
 body.light-mode .hero-overlay {
-    background: linear-gradient(
-        135deg, 
-        rgba(255, 255, 255, 0.65) 0%, 
-        rgba(255, 255, 255, 0.50) 50%,
-        rgba(255, 255, 255, 0.60) 100%
-    );
+    background: transparent !important;
+    opacity: 0 !important;
 }
 
 /* Contenido del hero mejorado */
@@ -1098,7 +1555,7 @@ body.light-mode .hero-overlay {
     }
 }
 
-/* Estilos específicos para el contenido dentro del hero con imagen */
+/* Estilos específicos para el contenido dentro del hero con imagen - MODO OSCURO */
 .hero-with-bg .hero-subtitle {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.95);
@@ -1109,9 +1566,11 @@ body.light-mode .hero-overlay {
     text-shadow: 0 3px 15px rgba(0, 0, 0, 0.6);
 }
 
+/* MODO CLARO - Texto blanco con sombra oscura para legibilidad */
 body.light-mode .hero-with-bg .hero-subtitle {
-    color: rgba(0, 0, 0, 0.75);
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9);
+    font-weight: 700;
 }
 
 .hero-with-bg h1 {
@@ -1124,9 +1583,11 @@ body.light-mode .hero-with-bg .hero-subtitle {
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
 }
 
+/* MODO CLARO - Texto blanco con sombra oscura para legibilidad */
 body.light-mode .hero-with-bg h1 {
-    color: #1a1a1a;
-    text-shadow: 0 2px 15px rgba(255, 255, 255, 0.7);
+    color: #ffffff !important;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9), 0 2px 10px rgba(0, 0, 0, 0.8);
+    font-weight: 700;
 }
 
 .hero-with-bg .hero-description {
@@ -1139,48 +1600,123 @@ body.light-mode .hero-with-bg h1 {
     text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* MODO CLARO - Texto blanco con sombra oscura para legibilidad */
 body.light-mode .hero-with-bg .hero-description {
-    color: rgba(0, 0, 0, 0.8);
-    text-shadow: 0 1px 5px rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.97) !important;
+    text-shadow: 0 3px 20px rgba(0, 0, 0, 0.8), 0 1px 8px rgba(0, 0, 0, 0.9);
+    font-weight: 400;
 }
 
 .hero-with-bg .cta-buttons {
     margin-top: 40px;
 }
 
-/* Variantes de altura opcionales */
-.hero-with-bg.full-height {
-    min-height: 100vh;
+/* ========================================
+   BOTONES CTA EN HERO
+======================================== */
+/* ========================================
+   BOTONES CTA EN HERO - TRANSPARENTES GLASSMORPHISM
+======================================== */
+
+.hero-with-bg .cta-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.hero-with-bg.medium-height {
-    min-height: 65vh;
+/* Botones base - AMBOS TRANSPARENTES */
+.hero-with-bg .cta-button,
+.hero-with-bg button,
+.cta-buttons a {
+    display: inline-block;
+    padding: 16px 40px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /* Estilo transparente con glassmorphism */
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.hero-with-bg.small-height {
-    min-height: 45vh;
-    padding: 120px 40px 80px;
+.hero-with-bg .cta-button:hover,
+.cta-buttons a:hover {
+    background: rgba(255, 255, 255, 0.20);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Efecto de zoom suave en hover (opcional) */
-.hero-with-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: inherit;
-    background-size: cover;
-    background-position: center;
-    transition: transform 8s ease-out;
-    z-index: 0;
+/* ==========================================
+   MODO CLARO - MISMO ESTILO TRANSPARENTE
+========================================== */
+
+body.light-mode .hero-with-bg .cta-button,
+body.light-mode .hero-with-bg button,
+body.light-mode .cta-buttons a {
+    background: rgba(255, 255, 255, 0.10) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    color: #ffffff !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.hero-with-bg:hover::before {
-    transform: scale(1.05);
+body.light-mode .hero-with-bg .cta-button:hover,
+body.light-mode .cta-buttons a:hover {
+    background: rgba(255, 255, 255, 0.20) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
 }
 
+/* Estados activos */
+.hero-with-bg .cta-button:active,
+.cta-buttons a:active {
+    transform: translateY(-1px);
+}
+
+.hero-with-bg .cta-button:focus,
+.cta-buttons a:focus {
+    outline: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-with-bg .cta-buttons {
+        gap: 15px;
+    }
+    
+    .hero-with-bg .cta-button,
+    .cta-buttons a {
+        padding: 14px 32px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-with-bg .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .hero-with-bg .cta-button,
+    .cta-buttons a {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 24px;
+        font-size: 14px;
+    }
+}
 /* ========================================
    SECTIONS
 ======================================== */
@@ -3143,5 +3679,321 @@ body:not(.light-mode) .tech-bento-card:nth-child(9) {
     
     .tech-image {
         max-width: 50%;
+    }
+}
+/* ========================================
+   FLIP CARDS - TECNOLOGÍAS CON EFECTO VOLTEAR
+   VERSIÓN MEJORADA - SIN BORDES CUADRADOS
+======================================== */
+
+.tech-card-flip-container {
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 32px; /* Importante */
+}
+
+.tech-card-flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0.0, 0.2, 1);
+    border-radius: 32px; /* Importante */
+}
+
+.tech-card-flip-container.flipped .tech-card-flipper {
+    transform: rotateY(180deg);
+}
+
+/* Frente y reverso de la card */
+.tech-card-front,
+.tech-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 32px;
+    overflow: hidden; /* Crucial para los bordes */
+}
+
+.tech-card-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+/* ===== REVERSO CON IMAGEN DIFUMINADA ===== */
+.tech-card-back {
+    transform: rotateY(180deg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border-radius: 32px; /* Asegurar bordes redondeados */
+    overflow: hidden; /* Crucial */
+}
+
+/* Imagen de fondo difuminada en el reverso */
+.tech-card-back-bg {
+    position: absolute;
+    top: -10px; /* Expandir ligeramente */
+    left: -10px;
+    width: calc(100% + 20px); /* Compensar expansión */
+    height: calc(100% + 20px);
+    object-fit: cover;
+    filter: blur(25px) brightness(0.35); /* Blur aumentado */
+    transform: scale(1.15); /* Evita bordes del blur */
+    z-index: 1;
+    border-radius: 32px; /* Importante */
+}
+
+/* Overlay adicional para mejor legibilidad */
+.tech-card-back-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.80) 0%,
+        rgba(0, 0, 0, 0.70) 50%,
+        rgba(0, 0, 0, 0.80) 100%
+    );
+    z-index: 2;
+    border-radius: 32px; /* Importante */
+}
+
+/* Contenido del reverso */
+.tech-back-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+.tech-back-content h3 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+    color: white;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
+}
+
+.tech-back-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.98);
+    font-weight: 400;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+/* ===== MEJORAS EN EL FRENTE ===== */
+
+/* Imagen del frente con border-radius */
+.tech-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 32px;
+    transition: transform 0.6s ease;
+}
+
+/* Efecto de aclarar imagen en hover */
+.tech-card-front .tech-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.70) 0%,
+        rgba(0, 0, 0, 0.50) 50%,
+        rgba(0, 0, 0, 0.65) 100%
+    );
+    transition: background 0.6s ease;
+    border-radius: 32px;
+    z-index: 1;
+}
+
+.tech-card-flip-container:hover .tech-card-front .tech-card-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.20) 0%,
+        rgba(0, 0, 0, 0.10) 50%,
+        rgba(0, 0, 0, 0.15) 100%
+    );
+}
+
+/* Zoom de imagen más suave */
+.tech-card-flip-container:hover .tech-card-bg {
+    transform: scale(1.08);
+}
+
+/* Contenido del frente encima del overlay */
+.tech-card-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Modo claro para el reverso */
+body.light-mode .tech-card-back-bg {
+    filter: blur(25px) brightness(0.75);
+}
+
+body.light-mode .tech-card-back-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.88) 0%,
+        rgba(255, 255, 255, 0.80) 50%,
+        rgba(255, 255, 255, 0.88) 100%
+    );
+}
+
+body.light-mode .tech-back-content h3 {
+    color: #1a1a1a;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
+}
+
+body.light-mode .tech-back-content p {
+    color: rgba(0, 0, 0, 0.95);
+    text-shadow: 0 1px 5px rgba(255, 255, 255, 0.7);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
+    .tech-card-flip-container,
+    .tech-card-flipper,
+    .tech-card-front,
+    .tech-card-back {
+        border-radius: 28px;
+    }
+    
+    .tech-card-back {
+        padding: 30px;
+    }
+    
+    .tech-back-content h3 {
+        font-size: 22px;
+    }
+    
+    .tech-back-content p {
+        font-size: 15px;
+    }
+    
+    .tech-card-back-bg {
+        filter: blur(20px) brightness(0.35);
+        border-radius: 28px;
+    }
+    
+    .tech-card-bg,
+    .tech-card-overlay,
+    .tech-card-back-overlay {
+        border-radius: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-card-flip-container,
+    .tech-card-flipper,
+    .tech-card-front,
+    .tech-card-back {
+        border-radius: 24px;
+    }
+    
+    .tech-card-back {
+        padding: 25px;
+    }
+    
+    .tech-back-content h3 {
+        font-size: 19px;
+        margin-bottom: 14px;
+    }
+    
+    .tech-back-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .tech-card-back-bg {
+        filter: blur(18px) brightness(0.35);
+        border-radius: 24px;
+    }
+    
+    .tech-card-bg,
+    .tech-card-overlay,
+    .tech-card-back-overlay {
+        border-radius: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-card-flip-container,
+    .tech-card-flipper,
+    .tech-card-front,
+    .tech-card-back {
+        border-radius: 20px;
+    }
+    
+    .tech-card-back {
+        padding: 20px;
+    }
+    
+    .tech-back-content h3 {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+    
+    .tech-back-content p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    
+    .tech-card-back-bg {
+        filter: blur(15px) brightness(0.35);
+        border-radius: 20px;
+    }
+    
+    .tech-card-bg,
+    .tech-card-overlay,
+    .tech-card-back-overlay {
+        border-radius: 20px;
+    }
+}
+
+/* Ajustes para cards grandes (mayor legibilidad) */
+.tech-bento-card:nth-child(1) .tech-back-content h3,
+.tech-bento-card:nth-child(5) .tech-back-content h3,
+.tech-bento-card:nth-child(8) .tech-back-content h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.tech-bento-card:nth-child(1) .tech-back-content p,
+.tech-bento-card:nth-child(5) .tech-back-content p,
+.tech-bento-card:nth-child(8) .tech-back-content p {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .tech-bento-card:nth-child(1) .tech-back-content h3,
+    .tech-bento-card:nth-child(5) .tech-back-content h3,
+    .tech-bento-card:nth-child(8) .tech-back-content h3 {
+        font-size: 22px;
+    }
+    
+    .tech-bento-card:nth-child(1) .tech-back-content p,
+    .tech-bento-card:nth-child(5) .tech-back-content p,
+    .tech-bento-card:nth-child(8) .tech-back-content p {
+        font-size: 15px;
     }
 }

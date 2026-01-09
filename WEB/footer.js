@@ -12,7 +12,7 @@ function loadFooter() {
             <div class="footer-container">
                 <!-- Columna 1: Proelectronic -->
                 <div class="footer-col footer-about">
-                    <h3>INDUSTRIAL AI</h3>
+                    <h3>AELNG SOLUTIONS</h3>
                     <p>Transformamos operaciones industriales con automatización, ingeniería y soluciones digitales. Integramos tecnología avanzada para optimizar procesos, reducir costos y escalar producción de forma inteligente.</p>
                 </div>
 
@@ -99,7 +99,7 @@ function loadFooter() {
                 <div class="footer-bottom-content">
                     <!-- Columna 1: Brand -->
                     <div class="footer-bottom-col">
-                        <h4>INDUSTRIAL AI</h4>
+                        <h4>AELNG SOLUTIONS</h4>
                         <p>Transformamos operaciones industriales con automatización, ingeniería y soluciones digitales. Integramos tecnología avanzada para optimizar procesos, reducir costos y escalar producción de forma inteligente.</p>
                     </div>
 
@@ -155,7 +155,7 @@ function loadFooter() {
 
                 <!-- Copyright -->
                 <div class="footer-copyright">
-                    <p>© 2025 Industrial AI. Todos los derechos reservados.</p>
+                    <p>© 2025 AELNG SOLUTIONS. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>

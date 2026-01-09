@@ -46,7 +46,6 @@ function initSmoothScroll() {
 // ========================================
 // HEADER SCROLL EFFECT
 // ========================================
-
 function initHeaderEffect() {
     const header = document.querySelector('header');
     if (!header) {
@@ -58,27 +57,17 @@ function initHeaderEffect() {
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
-        const isLightMode = document.body.classList.contains('light-mode');
         
+        // Agregar clase 'scrolled' cuando se hace scroll
         if (currentScroll > 50) {
-            if (isLightMode) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            } else {
-                header.style.background = 'rgba(0, 0, 0, 0.9)';
-            }
-            header.style.backdropFilter = 'blur(20px)';
+            header.classList.add('scrolled');
         } else {
-            if (isLightMode) {
-                header.style.background = 'rgba(255, 255, 255, 0.7)';
-            } else {
-                header.style.background = 'rgba(0, 0, 0, 0.7)';
-            }
+            header.classList.remove('scrolled');
         }
         
         lastScroll = currentScroll;
     });
 }
-
 // ========================================
 // FAQ ACCORDION
 // ========================================
@@ -448,3 +437,91 @@ document.addEventListener('click', (e) => {
         }
     });
 });
+
+// ========================================
+// FLIP CARDS - TECNOLOGÍAS
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        initTechFlipCards();
+    }, 200);
+});
+
+function initTechFlipCards() {
+    const flipCards = document.querySelectorAll('.tech-card-flip-container');
+    
+    if (flipCards.length === 0) {
+        console.warn('No se encontraron tech flip cards');
+        return;
+    }
+    
+    flipCards.forEach(card => {
+        let hoverTimeout = null;
+        let isFlipped = false;
+        
+        // Hover - esperar 2 segundos antes de voltear
+        card.addEventListener('mouseenter', function() {
+            if (!isFlipped) {
+                hoverTimeout = setTimeout(() => {
+                    this.classList.add('flipped');
+                    isFlipped = true;
+                }, 2000); // 2 segundos
+            }
+        });
+        
+        // Mouse sale - cancelar timeout si no se ha volteado
+        card.addEventListener('mouseleave', function() {
+            if (hoverTimeout) {
+                clearTimeout(hoverTimeout);
+                hoverTimeout = null;
+            }
+            
+            // Regresar al frente después de un breve delay
+            if (isFlipped) {
+                setTimeout(() => {
+                    this.classList.remove('flipped');
+                    isFlipped = false;
+                }, 300);
+            }
+        });
+        
+        // Click alternativo - voltear inmediatamente (útil en móviles)
+        card.addEventListener('click', function() {
+            if (hoverTimeout) {
+                clearTimeout(hoverTimeout);
+                hoverTimeout = null;
+            }
+            
+            this.classList.toggle('flipped');
+            isFlipped = !isFlipped;
+        });
+    });
+    
+    console.log(`${flipCards.length} tech flip cards initialized`);
+}
+
+// Touch devices - voltear con tap
+if ('ontouchstart' in window) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const flipCards = document.querySelectorAll('.tech-card-flip-container');
+        
+        flipCards.forEach(card => {
+            let touchStartTime = 0;
+            
+            card.addEventListener('touchstart', function() {
+                touchStartTime = Date.now();
+            });
+            
+            card.addEventListener('touchend', function(e) {
+                const touchDuration = Date.now() - touchStartTime;
+                
+                // Si es un tap rápido (no un scroll), voltear
+                if (touchDuration < 200) {
+                    e.preventDefault();
+                    this.classList.toggle('flipped');
+                }
+            });
+        });
+    });
+}
