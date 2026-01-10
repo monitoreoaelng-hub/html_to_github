@@ -109,14 +109,9 @@ function initThemeToggle() {
     function updateHeaderForTheme() {
         if (!header) return;
         
-        const currentScroll = window.pageYOffset;
-        const isLightMode = body.classList.contains('light-mode');
-        
-        if (currentScroll > 50) {
-            header.style.background = isLightMode ? 'rgba(255, 255, 255, 0.95)' : 'rgba(0, 0, 0, 0.9)';
-        } else {
-            header.style.background = isLightMode ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)';
-        }
+        // Modo claro = fondo blanco, Modo oscuro = fondo azul
+        // El CSS maneja los estilos, no sobrescribir aquí
+        header.style.background = '';
     }
 
     // Cargar tema guardado con proteccion de errores
