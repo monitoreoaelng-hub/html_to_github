@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AELNG</title>
+    <meta name="description" content="Transformamos tu operación con automatización industrial, ingeniería de procesos y soluciones digitales. SCADA, PLC, IoT y control avanzado.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ========================================
+   CAROUSEL STYLES - INICIO
+======================================== */
+
+.services-carousel-section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background: var(--bg-color);
+}
+
+.services-carousel-section h2 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 2;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.services-carousel-section .section-desc {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    border-radius: 24px;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Carousel Slide */
+.carousel-slide {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: var(--secondary-bg);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.carousel-slide:hover {
+    border-color: var(--border-color-hover);
+}
+
+/* Slide Image */
+.slide-image {
+    flex: 0 0 45%;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.carousel-slide:hover .slide-image img {
+    transform: scale(1.05);
+}
+
+.slide-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+body.light-mode .slide-image-overlay {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.6) 100%
+    );
+}
+
+/* Slide Content */
+.slide-content {
+    flex: 1;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.slide-number {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-tertiary);
+    opacity: 0.6;
+}
+
+.slide-content h3 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.slide-content p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.slide-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.slide-link:hover {
+    opacity: 1;
+    gap: 12px;
+}
+
+.slide-link svg {
+    transition: transform 0.3s ease;
+}
+
+.slide-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+}
+
+body.light-mode .carousel-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+.carousel-container:hover .carousel-btn {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+
+body.light-mode .carousel-btn:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.carousel-btn-prev {
+    left: -60px;
+}
+
+.carousel-btn-next {
+    right: -60px;
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Dots Indicators */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 40px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-dot:hover {
+    background: var(--border-color-hover);
+    transform: scale(1.2);
+}
+
+.carousel-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .carousel-btn-prev {
+        left: 10px;
+    }
+    
+    .carousel-btn-next {
+        right: 10px;
+    }
+    
+    .carousel-container:hover .carousel-btn {
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-carousel-section {
+        padding: 60px 20px;
+    }
+    
+    .services-carousel-section h2 {
+        font-size: 32px;
+    }
+    
+    .services-carousel-section .section-desc {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+    
+    .carousel-slide {
+        flex-direction: column;
+    }
+    
+    .slide-image {
+        flex: 0 0 auto;
+        min-height: 300px;
+        max-height: 300px;
+    }
+    
+    .slide-content {
+        padding: 40px 30px;
+    }
+    
+    .slide-content h3 {
+        font-size: 28px;
+    }
+    
+    .slide-content p {
+        font-size: 16px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        opacity: 0.8;
+        pointer-events: all;
+    }
+    
+    .carousel-btn-prev {
+        left: 15px;
+    }
+    
+    .carousel-btn-next {
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-carousel-section {
+        padding: 40px 15px;
+    }
+    
+    .slide-image {
+        min-height: 250px;
+        max-height: 250px;
+    }
+    
+    .slide-content {
+        padding: 30px 20px;
+    }
+    
+    .slide-content h3 {
+        font-size: 24px;
+    }
+    
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .carousel-btn-prev {
+        left: 10px;
+    }
+    
+    .carousel-btn-next {
+        right: 10px;
+    }
+}
+
+/* Animation Classes */
+.carousel-slide.slide-in-right {
+    animation: slideInRight 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.carousel-slide.slide-in-left {
+    animation: slideInLeft 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .carousel-btn {
+        opacity: 0.6;
+        pointer-events: all;
+    }
+    
+    .carousel-btn:active {
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   CORRECCIONES GLOBALES
+======================================== */
+
+/* Evitar que el parallax afecte secciones que no son hero */
+section:not(.hero) {
+    transform: none !important;
+}
+
+/* Asegurar visibilidad de títulos en todas las secciones */
+section h2 {
+    opacity: 1 !important;
+}
+
+section .section-desc {
+    opacity: 1 !important;
+}
+
+/* Corrección adicional para modo claro */
+body.light-mode .services-carousel-section {
+    background: var(--bg-color);
+}
+
+/* Hero ancho completo */
+.hero-with-bg {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.hero-content {
+    padding: 0 40px !important;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 30px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0 20px !important;
+    }
+}
+
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+.hero-with-bg {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    background-size: cover !important;
+    background-position: center center !important;
+}
+
+.hero-content {
+    padding: 0 40px !important;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+section.hero-with-bg {
+    max-width: none !important;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 30px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0 20px !important;
+    }
+}
+
+
+/* ========================================
+   TARJETAS DE TECNOLOGÍA CON IMÁGENES
+   Reemplaza la sección "BENTO BOX" en styles.css
+======================================== */
+
+.tech-stack-section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.tech-stack-section h2 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.tech-stack-section .section-desc {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 80px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid Bento Box */
+.tech-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 140px;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Layout específico para cada card */
+.tech-bento-card:nth-child(1) { grid-column: span 4; grid-row: span 3; }
+.tech-bento-card:nth-child(2) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(3) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(4) { grid-column: span 3; grid-row: span 2; }
+.tech-bento-card:nth-child(5) { grid-column: span 5; grid-row: span 3; }
+.tech-bento-card:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(7) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(8) { grid-column: span 4; grid-row: span 3; }
+.tech-bento-card:nth-child(9) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(10) { grid-column: span 4; grid-row: span 2; }
+
+/* Tarjeta con imagen de fondo */
+.tech-card-with-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    border: none;
+}
+
+/* Imagen de fondo que cubre toda la tarjeta */
+.tech-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* Overlay oscuro sobre la imagen para legibilidad */
+.tech-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.70) 0%,
+        rgba(0, 0, 0, 0.50) 50%,
+        rgba(0, 0, 0, 0.65) 100%
+    );
+    transition: background 0.3s ease;
+    z-index: 1;
+}
+
+/* Overlay más oscuro en hover para mejor legibilidad */
+.tech-card-with-image:hover .tech-card-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.80) 0%,
+        rgba(0, 0, 0, 0.65) 50%,
+        rgba(0, 0, 0, 0.75) 100%
+    );
+}
+
+/* Contenido (texto) encima de la imagen */
+.tech-card-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    color: white;
+}
+
+/* Nombre de la tecnología */
+.tech-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    color: white;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Cards grandes tienen texto más grande */
+.tech-bento-card:nth-child(1) .tech-name,
+.tech-bento-card:nth-child(5) .tech-name,
+.tech-bento-card:nth-child(8) .tech-name {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+/* Categoría */
+.tech-category {
+    font-size: 13px;
+    opacity: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Efecto hover sobre la tarjeta */
+.tech-card-with-image:hover {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+/* Zoom de la imagen en hover */
+.tech-card-with-image:hover .tech-card-bg {
+    transform: scale(1.1);
+}
+
+/* Animación de entrada */
+.tech-bento-card {
+    animation: fadeInScale 0.6s cubic-bezier(0.23, 1, 0.32, 1) backwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Delays escalonados para las animaciones */
+.tech-bento-card:nth-child(1) { animation-delay: 0.05s; }
+.tech-bento-card:nth-child(2) { animation-delay: 0.1s; }
+.tech-bento-card:nth-child(3) { animation-delay: 0.15s; }
+.tech-bento-card:nth-child(4) { animation-delay: 0.2s; }
+.tech-bento-card:nth-child(5) { animation-delay: 0.25s; }
+.tech-bento-card:nth-child(6) { animation-delay: 0.3s; }
+.tech-bento-card:nth-child(7) { animation-delay: 0.35s; }
+.tech-bento-card:nth-child(8) { animation-delay: 0.4s; }
+.tech-bento-card:nth-child(9) { animation-delay: 0.45s; }
+.tech-bento-card:nth-child(10) { animation-delay: 0.5s; }
+
+/* Patrón decorativo opcional */
+.tech-card-with-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Brillo sutil en hover */
+.tech-card-with-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 32px;
+    z-index: 2;
+}
+
+.tech-card-with-image:hover::after {
+    opacity: 1;
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+======================================== */
+@media (max-width: 1024px) {
+    .tech-bento-grid {
+        grid-template-columns: repeat(8, 1fr);
+        grid-auto-rows: 130px;
+        gap: 14px;
+    }
+    
+    .tech-bento-card:nth-child(1) { grid-column: span 4; grid-row: span 3; }
+    .tech-bento-card:nth-child(2) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(3) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(4) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(5) { grid-column: span 4; grid-row: span 3; }
+    .tech-bento-card:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(7) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(8) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(9) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(10) { grid-column: span 8; grid-row: span 2; }
+    
+    .tech-card-with-image {
+        border-radius: 28px;
+    }
+    
+    .tech-card-content {
+        padding: 25px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES
+======================================== */
+@media (max-width: 768px) {
+    .tech-stack-section {
+        padding: 80px 30px;
+    }
+    
+    .tech-stack-section h2 {
+        font-size: 36px;
+    }
+    
+    .tech-bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 120px;
+        gap: 12px;
+    }
+    
+    .tech-bento-card:nth-child(1) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(2) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(3) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(4) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(5) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(7) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(8) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(9) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(10) { grid-column: span 2; grid-row: span 2; }
+    
+    .tech-card-with-image {
+        border-radius: 24px;
+    }
+    
+    .tech-card-content {
+        padding: 20px;
+    }
+    
+    .tech-name {
+        font-size: 16px;
+    }
+    
+    .tech-bento-card:nth-child(1) .tech-name,
+    .tech-bento-card:nth-child(6) .tech-name {
+        font-size: 22px;
+    }
+    
+    .tech-category {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+======================================== */
+@media (max-width: 480px) {
+    .tech-stack-section {
+        padding: 60px 20px;
+    }
+    
+    .tech-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 140px;
+        gap: 10px;
+    }
+    
+    .tech-bento-card:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(6) { grid-column: span 2; grid-row: span 1; }
+    .tech-bento-card:nth-child(7) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(8) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(9) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(10) { grid-column: span 1; grid-row: span 1; }
+    
+    .tech-name {
+        font-size: 14px;
+    }
+    
+    .tech-bento-card:nth-child(1) .tech-name {
+        font-size: 20px;
+    }
+}
+/* ========================================
+   COLORES CORPORATIVOS AELNG SOLUTIONS
+======================================== */
+
+/* Card 1 - Azul Petróleo Oscuro */
+.tech-bento-card:nth-child(1) {
+    background: linear-gradient(135deg, #2C4A6B 0%, #3A5B7F 100%);
+    color: white;
+}
+
+/* Card 2 - Azul Acero */
+.tech-bento-card:nth-child(2) {
+    background: linear-gradient(135deg, #4A6B8A 0%, #5B7C9D 100%);
+    color: white;
+}
+
+/* Card 3 - Slate Azulado */
+.tech-bento-card:nth-child(3) {
+    background: linear-gradient(135deg, #516B87 0%, #627C98 100%);
+    color: white;
+}
+
+/* Card 4 - Azul Grisáceo Medio */
+.tech-bento-card:nth-child(4) {
+    background: linear-gradient(135deg, #6B8CAE 0%, #7B9BB8 100%);
+    color: white;
+}
+
+/* Card 5 - Petróleo Profundo */
+.tech-bento-card:nth-child(5) {
+    background: linear-gradient(135deg, #1F3A52 0%, #2C4A6B 100%);
+    color: white;
+}
+
+/* Card 6 - Azul Intermedio */
+.tech-bento-card:nth-child(6) {
+    background: linear-gradient(135deg, #3D5A7A 0%, #4E6B8B 100%);
+    color: white;
+}
+
+/* Card 7 - Gris Azulado */
+.tech-bento-card:nth-child(7) {
+    background: linear-gradient(135deg, #5A7590 0%, #6B86A1 100%);
+    color: white;
+}
+
+/* Card 8 - Azul Claro Grisáceo */
+.tech-bento-card:nth-child(8) {
+    background: linear-gradient(135deg, #7B9BB8 0%, #8BA5BE 100%);
+    color: white;
+}
+
+/* Card 9 - Steel Blue Claro */
+.tech-bento-card:nth-child(9) {
+    background: linear-gradient(135deg, #8BA5BE 0%, #9BB5CE 100%);
+    color: #1F3A52; /* Texto oscuro para contraste */
+}
+
+/* Card 10 - Azul Medio Oscuro */
+.tech-bento-card:nth-child(10) {
+    background: linear-gradient(135deg, #425A74 0%, #536B85 100%);
+    color: white;
+}
+
+/* Ajuste de texto para card 9 (la más clara) */
+body:not(.light-mode) .tech-bento-card:nth-child(9) {
+    color: #1F3A52;
+}
+
+/* Contenedor de la imagen */
+.tech-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Imagen dentro de la card */
+.tech-image {
+    max-width: 80%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Convierte a blanco */
+    opacity: 0.95;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Imagen negra para card amarilla */
+.tech-bento-card:nth-child(9) .tech-image {
+    filter: brightness(0); /* Negro para fondo amarillo */
+    opacity: 0.85;
+}
+
+/* Cards grandes tienen imágenes más grandes */
+.tech-bento-card:nth-child(1) .tech-image,
+.tech-bento-card:nth-child(5) .tech-image,
+.tech-bento-card:nth-child(8) .tech-image {
+    max-width: 60%;
+}
+
+/* Hover sobre la imagen */
+.tech-bento-card:hover .tech-image {
+    transform: scale(1.1) rotate(-3deg);
+    opacity: 1;
+}
+
+/* Contenedor del texto */
+.tech-content {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Texto - Nombres */
+.tech-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+/* Nombres más grandes para cards grandes */
+.tech-bento-card:nth-child(1) .tech-name,
+.tech-bento-card:nth-child(5) .tech-name,
+.tech-bento-card:nth-child(8) .tech-name {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+/* Categorías */
+.tech-category {
+    font-size: 13px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+/* Hover sobre la card */
+.tech-bento-card:hover {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* Patrón de fondo sutil */
+.tech-bento-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Brillo al hover */
+.tech-bento-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 32px;
+    z-index: 1;
+}
+
+.tech-bento-card:hover::after {
+    opacity: 1;
+}
+
+/* Animación de entrada */
+.tech-bento-card {
+    animation: fadeInScale 0.6s cubic-bezier(0.23, 1, 0.32, 1) backwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Delays escalonados */
+.tech-bento-card:nth-child(1) { animation-delay: 0.05s; }
+.tech-bento-card:nth-child(2) { animation-delay: 0.1s; }
+.tech-bento-card:nth-child(3) { animation-delay: 0.15s; }
+.tech-bento-card:nth-child(4) { animation-delay: 0.2s; }
+.tech-bento-card:nth-child(5) { animation-delay: 0.25s; }
+.tech-bento-card:nth-child(6) { animation-delay: 0.3s; }
+.tech-bento-card:nth-child(7) { animation-delay: 0.35s; }
+.tech-bento-card:nth-child(8) { animation-delay: 0.4s; }
+.tech-bento-card:nth-child(9) { animation-delay: 0.45s; }
+.tech-bento-card:nth-child(10) { animation-delay: 0.5s; }
+
+/* Si no hay imagen, usar icono fallback */
+.tech-icon-fallback {
+    font-size: 72px;
+    opacity: 0.9;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+.tech-bento-card:nth-child(1) .tech-icon-fallback,
+.tech-bento-card:nth-child(5) .tech-icon-fallback,
+.tech-bento-card:nth-child(8) .tech-icon-fallback {
+    font-size: 96px;
+}
+
+/* Responsive - Tablets */
+@media (max-width: 1024px) {
+    .tech-bento-grid {
+        grid-template-columns: repeat(8, 1fr);
+        grid-auto-rows: 130px;
+        gap: 14px;
+    }
+    
+    .tech-bento-card:nth-child(1) { grid-column: span 4; grid-row: span 3; }
+    .tech-bento-card:nth-child(2) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(3) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(4) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(5) { grid-column: span 4; grid-row: span 3; }
+    .tech-bento-card:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(7) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(8) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(9) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(10) { grid-column: span 8; grid-row: span 2; }
+    
+    .tech-bento-card {
+        padding: 28px;
+        border-radius: 28px;
+    }
+    
+    .tech-image {
+        max-width: 70%;
+    }
+}
+
+/* Responsive - Móviles */
+@media (max-width: 768px) {
+    .tech-stack-section {
+        padding: 80px 30px;
+    }
+    
+    .tech-stack-section h2 {
+        font-size: 36px;
+    }
+    
+    .tech-bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 120px;
+        gap: 12px;
+    }
+    
+    .tech-bento-card:nth-child(1) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(2) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(3) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(4) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(5) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+    .tech-bento-card:nth-child(7) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(8) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(9) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(10) { grid-column: span 2; grid-row: span 2; }
+    
+    .tech-bento-card {
+        padding: 20px;
+        border-radius: 24px;
+    }
+    
+    .tech-image {
+        max-width: 60%;
+    }
+    
+    .tech-image-container {
+        margin-bottom: 12px;
+    }
+    
+    .tech-name {
+        font-size: 15px;
+    }
+    
+    .tech-bento-card:nth-child(1) .tech-name,
+    .tech-bento-card:nth-child(6) .tech-name {
+        font-size: 20px;
+    }
+    
+    .tech-category {
+        font-size: 11px;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 480px) {
+    .tech-stack-section {
+        padding: 60px 20px;
+    }
+    
+    .tech-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 140px;
+        gap: 10px;
+    }
+    
+    .tech-bento-card:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .tech-bento-card:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(6) { grid-column: span 2; grid-row: span 1; }
+    .tech-bento-card:nth-child(7) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(8) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(9) { grid-column: span 1; grid-row: span 1; }
+    .tech-bento-card:nth-child(10) { grid-column: span 1; grid-row: span 1; }
+    
+    .tech-image {
+        max-width: 50%;
+    }
+}
+/* ========================================
+   FLIP CARDS - TECNOLOGÍAS CON EFECTO VOLTEAR
+   VERSIÓN MEJORADA - SIN BORDES CUADRADOS
+======================================== */
+
+.tech-card-flip-container {
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 32px; /* Importante */
+}
+
+.tech-card-flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0.0, 0.2, 1);
+    border-radius: 32px; /* Importante */
+}
+
+.tech-card-flip-container.flipped .tech-card-flipper {
+    transform: rotateY(180deg);
+}
+
+/* Frente y reverso de la card */
+.tech-card-front,
+.tech-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 32px;
+    overflow: hidden; /* Crucial para los bordes */
+}
+
+.tech-card-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+/* ===== REVERSO CON IMAGEN DIFUMINADA ===== */
+.tech-card-back {
+    transform: rotateY(180deg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border-radius: 32px; /* Asegurar bordes redondeados */
+    overflow: hidden; /* Crucial */
+}
+
+/* Imagen de fondo difuminada en el reverso */
+.tech-card-back-bg {
+    position: absolute;
+    top: -10px; /* Expandir ligeramente */
+    left: -10px;
+    width: calc(100% + 20px); /* Compensar expansión */
+    height: calc(100% + 20px);
+    object-fit: cover;
+    filter: blur(25px) brightness(0.35); /* Blur aumentado */
+    transform: scale(1.15); /* Evita bordes del blur */
+    z-index: 1;
+    border-radius: 32px; /* Importante */
+}
+
+/* Overlay adicional para mejor legibilidad */
+.tech-card-back-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.80) 0%,
+        rgba(0, 0, 0, 0.70) 50%,
+        rgba(0, 0, 0, 0.80) 100%
+    );
+    z-index: 2;
+    border-radius: 32px; /* Importante */
+}
+
+/* Contenido del reverso */
+.tech-back-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+.tech-back-content h3 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+    color: white;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
+}
+
+.tech-back-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.98);
+    font-weight: 400;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+/* ===== MEJORAS EN EL FRENTE ===== */
+
+/* Imagen del frente con border-radius */
+.tech-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 32px;
+    transition: transform 0.6s ease;
+}
+
+/* Efecto de aclarar imagen en hover */
+.tech-card-front .tech-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.70) 0%,
+        rgba(0, 0, 0, 0.50) 50%,
+        rgba(0, 0, 0, 0.65) 100%
+    );
+    transition: background 0.6s ease;
+    border-radius: 32px;
+    z-index: 1;
+}
+
+.tech-card-flip-container:hover .tech-card-front .tech-card-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.20) 0%,
+        rgba(0, 0, 0, 0.10) 50%,
+        rgba(0, 0, 0, 0.15) 100%
+    );
+}
+
+/* Zoom de imagen más suave */
+.tech-card-flip-container:hover .tech-card-bg {
+    transform: scale(1.08);
+}
+
+/* Contenido del frente encima del overlay */
+.tech-card-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Modo claro para el reverso */
+body.light-mode .tech-card-back-bg {
+    filter: blur(25px) brightness(0.75);
+}
+
+body.light-mode .tech-card-back-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.88) 0%,
+        rgba(255, 255, 255, 0.80) 50%,
+        rgba(255, 255, 255, 0.88) 100%
+    );
+}
+
+body.light-mode .tech-back-content h3 {
+    color: #1a1a1a;
+    text-shadow: 0 1px 5px rgba(255, 255, 255, 0.7);
+}
+
+body.light-mode .tech-back-content p {
+    color: rgba(0, 0, 0, 0.95);
+    text-shadow: 0 1px 5px rgba(255, 255, 255, 0.7);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
+    .tech-card-flip-container,
+    .tech-card-flipper,
+    .tech-card-front,
+    .tech-card-back {
+        border-radius: 28px;
+    }
+    
+    .tech-card-back {
+        padding: 30px;
+    }
+    
+    .tech-back-content h3 {
+        font-size: 22px;
+    }
+    
+    .tech-back-content p {
+        font-size: 15px;
+    }
+    
+    .tech-card-back-bg {
+        filter: blur(20px) brightness(0.35);
+        border-radius: 28px;
+    }
+    
+    .tech-card-bg,
+    .tech-card-overlay,
+    .tech-card-back-overlay {
+        border-radius: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-card-flip-container,
+    .tech-card-flipper,
+    .tech-card-front,
+    .tech-card-back {
+        border-radius: 24px;
+    }
+    
+    .tech-card-back {
+        padding: 25px;
+    }
+    
+    .tech-back-content h3 {
+        font-size: 19px;
+        margin-bottom: 14px;
+    }
+    
+    .tech-back-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .tech-card-back-bg {
+        filter: blur(18px) brightness(0.35);
+        border-radius: 24px;
+    }
+    
+    .tech-card-bg,
+    .tech-card-overlay,
+    .tech-card-back-overlay {
+        border-radius: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-card-flip-container,
+    .tech-card-flipper,
+    .tech-card-front,
+    .tech-card-back {
+        border-radius: 20px;
+    }
+    
+    .tech-card-back {
+        padding: 20px;
+    }
+    
+    .tech-back-content h3 {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+    
+    .tech-back-content p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    
+    .tech-card-back-bg {
+        filter: blur(15px) brightness(0.35);
+        border-radius: 20px;
+    }
+    
+    .tech-card-bg,
+    .tech-card-overlay,
+    .tech-card-back-overlay {
+        border-radius: 20px;
+    }
+}
+
+/* Ajustes para cards grandes (mayor legibilidad) */
+.tech-bento-card:nth-child(1) .tech-back-content h3,
+.tech-bento-card:nth-child(5) .tech-back-content h3,
+.tech-bento-card:nth-child(8) .tech-back-content h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.tech-bento-card:nth-child(1) .tech-back-content p,
+.tech-bento-card:nth-child(5) .tech-back-content p,
+.tech-bento-card:nth-child(8) .tech-back-content p {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .tech-bento-card:nth-child(1) .tech-back-content h3,
+    .tech-bento-card:nth-child(5) .tech-back-content h3,
+    .tech-bento-card:nth-child(8) .tech-back-content h3 {
+        font-size: 22px;
+    }
+    
+    .tech-bento-card:nth-child(1) .tech-back-content p,
+    .tech-bento-card:nth-child(5) .tech-back-content p,
+    .tech-bento-card:nth-child(8) .tech-back-content p {
+        font-size: 15px;
+    }
+}
+
+
+
+
+/* ========================================
+   CAROUSEL STYLES - iPhone Style
+   Minimalista y elegante
+======================================== */
+
+.services-carousel-section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background: var(--bg-color);
+}
+
+.services-carousel-section h2 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 2;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.services-carousel-section .section-desc {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    border-radius: 24px;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Carousel Slide */
+.carousel-slide {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: var(--secondary-bg);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.carousel-slide:hover {
+    border-color: var(--border-color-hover);
+}
+
+/* Slide Image */
+.slide-image {
+    flex: 0 0 45%;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.carousel-slide:hover .slide-image img {
+    transform: scale(1.05);
+}
+
+.slide-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+body.light-mode .slide-image-overlay {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.6) 100%
+    );
+}
+
+/* Slide Content */
+.slide-content {
+    flex: 1;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.slide-number {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-tertiary);
+    opacity: 0.6;
+}
+
+.slide-content h3 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.slide-content p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.slide-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.slide-link:hover {
+    opacity: 1;
+    gap: 12px;
+}
+
+.slide-link svg {
+    transition: transform 0.3s ease;
+}
+
+.slide-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+}
+
+body.light-mode .carousel-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+.carousel-container:hover .carousel-btn {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+
+body.light-mode .carousel-btn:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.carousel-btn-prev {
+    left: -60px;
+}
+
+.carousel-btn-next {
+    right: -60px;
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Dots Indicators */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 40px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-dot:hover {
+    background: var(--border-color-hover);
+    transform: scale(1.2);
+}
+
+.carousel-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .carousel-btn-prev {
+        left: 10px;
+    }
+    
+    .carousel-btn-next {
+        right: 10px;
+    }
+    
+    .carousel-container:hover .carousel-btn {
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-carousel-section {
+        padding: 60px 20px;
+    }
+    
+    .services-carousel-section h2 {
+        font-size: 32px;
+    }
+    
+    .services-carousel-section .section-desc {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+    
+    .carousel-slide {
+        flex-direction: column;
+    }
+    
+    .slide-image {
+        flex: 0 0 auto;
+        min-height: 300px;
+        max-height: 300px;
+    }
+    
+    .slide-content {
+        padding: 40px 30px;
+    }
+    
+    .slide-content h3 {
+        font-size: 28px;
+    }
+    
+    .slide-content p {
+        font-size: 16px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        opacity: 0.8;
+        pointer-events: all;
+    }
+    
+    .carousel-btn-prev {
+        left: 15px;
+    }
+    
+    .carousel-btn-next {
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-carousel-section {
+        padding: 40px 15px;
+    }
+    
+    .slide-image {
+        min-height: 250px;
+        max-height: 250px;
+    }
+    
+    .slide-content {
+        padding: 30px 20px;
+    }
+    
+    .slide-content h3 {
+        font-size: 24px;
+    }
+    
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .carousel-btn-prev {
+        left: 10px;
+    }
+    
+    .carousel-btn-next {
+        right: 10px;
+    }
+}
+
+/* Animation Classes */
+.carousel-slide.slide-in-right {
+    animation: slideInRight 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.carousel-slide.slide-in-left {
+    animation: slideInLeft 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .carousel-btn {
+        opacity: 0.6;
+        pointer-events: all;
+    }
+    
+    .carousel-btn:active {
+        opacity: 1;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- El header se carga automáticamente desde menu.js -->
+    
+    <!-- Hero Section -->
+
+    <section class="hero hero-with-bg proelectronic-style" style="background-image: url('img/HERO1.png');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">SERVICIOS DE</p>
+            <h1>Ingeniería y Tecnología<br>para el desarrollo<br>Industrial</h1>
+            <p class="hero-description">Transformamos operaciones industriales con soluciones de automatización, control y digitalización de última generación.</p>
+            <div class="cta-buttons">
+                <a href="contacto.html" class="btn-primary">Contactar</a>
+                <a href="servicios.html" class="btn-secondary">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Carousel Section -->
+    <section class="services-carousel-section">
+        <h2>Servicios</h2>
+        <p class="section-desc">Áreas de servicio orientadas a valor para tu operación industrial</p>
+        
+        <div class="carousel-container">
+            <!-- Carousel Wrapper -->
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    
+                    <!-- Slide 1: Automatización Industrial -->
+                    <div class="carousel-slide active">
+                        <div class="slide-image">
+                            <img src="img/Automatizacion.jpeg" alt="Automatización Industrial" onerror="this.src='img/FONDO1.jpg'">
+                            <div class="slide-image-overlay"></div>
+                        </div>
+                        <div class="slide-content">
+                            <div class="slide-number">01</div>
+                            <h3>Automatización Industrial</h3>
+                            <p>Implementamos sistemas de control, PLC, SCADA, instrumentación y telemetría para garantizar procesos estables, eficientes y seguros.</p>
+                            <a href="automatizacion-control.html" class="slide-link">
+                                Ver más 
+                                <svg width="17" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2: Ingeniería y Proyectos -->
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="img/IngenieríayProyectos.jpeg" alt="Ingeniería y Proyectos" onerror="this.src='img/FONDO1.jpg'">
+                            <div class="slide-image-overlay"></div>
+                        </div>
+                        <div class="slide-content">
+                            <div class="slide-number">02</div>
+                            <h3>Ingeniería y Proyectos</h3>
+                            <p>Diseñamos y ejecutamos soluciones industriales llave en mano: ingeniería conceptual, básica y de detalle, integración eléctrica y control de procesos.</p>
+                            <a href="ingenieria-procesos.html" class="slide-link">
+                                Ver más 
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3: Oil & Gas -->
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="https://media.istockphoto.com/id/2167761164/es/foto/planta-de-refiner%C3%ADa-de-petr%C3%B3leo-f%C3%A1brica-qu%C3%ADmica-zona-industrial-de-petr%C3%B3leo-y-gas-oleoducto.jpg?s=612x612&w=0&k=20&c=RksJGPAZOtuhBlpssRTAfhm6R7kd9NqES390375DB9w=" alt="OIL" onerror="this.src='img/FONDO1.jpg'">
+                            <div class="slide-image-overlay"></div>
+                        </div>
+                        <div class="slide-content">
+                            <div class="slide-number">03</div>
+                            <h3>Oil & Gas</h3>
+                            <p>Sistemas de medición, control de pozos, telemetría, automatización de facilidades, monitoreo remoto y cumplimiento normativo para toda la cadena energética.</p>
+                            <a href="oil-gas.html" class="slide-link">
+                                Ver más 
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 4: Digitalización y Tecnología -->
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="https://img.freepik.com/fotos-premium/transformacion-digital-estrategia-tecnologica-digitalizacion-digitalizacion-procesos-datos-negocio-optimizar-automatizar-operaciones-gestion-servicio-al-cliente-internet-computacion-nube_265022-12781.jpg" alt="Digitalización" onerror="this.src='img/FONDO1.jpg'">
+                            <div class="slide-image-overlay"></div>
+                        </div>
+                        <div class="slide-content">
+                            <div class="slide-number">04</div>
+                            <h3>Digitalización y Tecnología</h3>
+                            <p>Soluciones IoT, Machine Learning, analítica de datos, LoRaWAN, dashboards operativos y plataformas a medida para transformar tu operación en tiempo real.</p>
+                            <a href="proyectos-iot.html" class="slide-link">
+                                Ver más 
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <button class="carousel-btn carousel-btn-prev" aria-label="Anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="carousel-btn carousel-btn-next" aria-label="Siguiente">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+            
+            <!-- Dots Indicators -->
+            <div class="carousel-dots">
+                <button class="carousel-dot active" aria-label="Ir a slide 1"></button>
+                <button class="carousel-dot" aria-label="Ir a slide 2"></button>
+                <button class="carousel-dot" aria-label="Ir a slide 3"></button>
+                <button class="carousel-dot" aria-label="Ir a slide 4"></button>
+            </div>
+        </div>
+
+        <div class="cta-buttons" style="margin-top: 50px;">
+            <a href="servicios.html" class="btn-secondary">Ver Todos los Servicios</a>
+        </div>
+    </section>
+<!-- Tech Stack Section -->
+<section class="tech-stack-section">
+    <h2>Tecnologías Clave</h2>
+    <p class="section-desc">Integramos las mejores tecnologías industriales para construir sistemas del futuro</p>
+    
+    <div class="tech-bento-grid">
+ <!-- 1. SCADA -->
+<div class="tech-bento-card tech-card-flip-container">
+    <div class="tech-card-flipper">
+        <!-- Frente -->
+        <div class="tech-card-front tech-card-with-image">
+            <img src="https://www.autex-open.com/wp-content/uploads/2022/07/scada_portada2-768x442.webp" alt="SCADA" class="tech-card-bg">
+            <div class="tech-card-overlay"></div>
+            <div class="tech-card-content">
+                <div class="tech-name">SCADA</div>
+                <div class="tech-category">Supervisión</div>
+            </div>
+        </div>
+        <!-- Reverso -->
+        <div class="tech-card-back">
+            <img src="https://www.autex-open.com/wp-content/uploads/2022/07/scada_portada2-768x442.webp" alt="SCADA Background" class="tech-card-back-bg">
+            <div class="tech-card-back-overlay"></div>
+            <div class="tech-back-content">
+                <h3>SCADA</h3>
+                <p>Sistemas de supervisión y adquisición de datos en tiempo real para control centralizado de procesos industriales complejos.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 2. PLC -->
+<div class="tech-bento-card tech-card-flip-container">
+    <div class="tech-card-flipper">
+        <div class="tech-card-front tech-card-with-image">
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80" alt="PLC" class="tech-card-bg">
+            <div class="tech-card-overlay"></div>
+            <div class="tech-card-content">
+                <div class="tech-name">PLC</div>
+                <div class="tech-category">Control</div>
+            </div>
+        </div>
+        <div class="tech-card-back">
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80" alt="PLC Background" class="tech-card-back-bg">
+            <div class="tech-card-back-overlay"></div>
+            <div class="tech-back-content">
+                <h3>PLC</h3>
+                <p>Controladores lógicos programables para automatización robusta y confiable de procesos industriales.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 3. Telemetría -->
+<div class="tech-bento-card tech-card-flip-container">
+    <div class="tech-card-flipper">
+        <div class="tech-card-front tech-card-with-image">
+            <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&q=80" alt="Telemetría" class="tech-card-bg">
+            <div class="tech-card-overlay"></div>
+            <div class="tech-card-content">
+                <div class="tech-name">Telemetría</div>
+                <div class="tech-category">Comunicación</div>
+            </div>
+        </div>
+        <div class="tech-card-back">
+            <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&q=80" alt="Telemetría Background" class="tech-card-back-bg">
+            <div class="tech-card-back-overlay"></div>
+            <div class="tech-back-content">
+                <h3>Telemetría</h3>
+                <p>Sistemas de medición y transmisión remota de datos para monitoreo continuo de instalaciones distribuidas.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 4. LoRaWAN -->
+<div class="tech-bento-card tech-card-flip-container">
+    <div class="tech-card-flipper">
+        <div class="tech-card-front tech-card-with-image">
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80" alt="LoRaWAN" class="tech-card-bg">
+            <div class="tech-card-overlay"></div>
+            <div class="tech-card-content">
+                <div class="tech-name">LoRaWAN</div>
+                <div class="tech-category">IoT</div>
+            </div>
+        </div>
+        <div class="tech-card-back">
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80" alt="LoRaWAN Background" class="tech-card-back-bg">
+            <div class="tech-card-back-overlay"></div>
+            <div class="tech-back-content">
+                <h3>LoRaWAN</h3>
+                <p>Redes de largo alcance y bajo consumo para conectar sensores IoT en grandes extensiones industriales.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 5. Machine Learning -->
+<div class="tech-bento-card tech-card-flip-container">
+    <div class="tech-card-flipper">
+        <div class="tech-card-front tech-card-with-image">
+            <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&q=80" alt="Machine Learning" class="tech-card-bg">
+            <div class="tech-card-overlay"></div>
+            <div class="tech-card-content">
+                <div class="tech-name">Machine Learning</div>
+                <div class="tech-category">IA</div>
+            </div>
+        </div>
+        <div class="tech-card-back">
+            <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&q=80" alt="Machine Learning Background" class="tech-card-back-bg">
+            <div class="tech-card-back-overlay"></div>
+            <div class="tech-back-content">
+                <h3>Machine Learning</h3>
+                <p>Algoritmos de aprendizaje automático para predicción de fallas, optimización y mantenimiento predictivo.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 6. IoT Industrial -->
+<div class="tech-bento-card tech-card-flip-container">
+    <div class="tech-card-flipper">
+        <div class="tech-card-front tech-card-with-image">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="IoT Industrial" class="tech-card-bg">
+            <div class="tech-card-overlay"></div>
+            <div class="tech-card-content">
+                <div class="tech-name">IoT Industrial</div>
+                <div class="tech-category">Conectividad</div>
+            </div>
+        </div>
+        <div class="tech-card-back">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="IoT Industrial Background" class="tech-card-back-bg">
+            <div class="tech-card-back-overlay"></div>
+            <div class="tech-back-content">
+                <h3>IoT Industrial</h3>
+                <p>Ecosistema de dispositivos conectados para recopilación y análisis de datos en tiempo real.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 7. Modelado 3D -->
+<div class="tech-bento-card tech-card-flip-container">
+    <div class="tech-card-flipper">
+        <div class="tech-card-front tech-card-with-image">
+            <img src="img/modelado3d.png" alt="Modelado 3D" class="tech-card-bg">
+            <div class="tech-card-overlay"></div>
+            <div class="tech-card-content">
+                <div class="tech-name">Modelado 3D</div>
+                <div class="tech-category">Diseño</div>
+            </div>
+        </div>
+        <div class="tech-card-back">
+            <img src="" alt="Modelado 3D Background" class="tech-card-back-bg">
+            <div class="tech-card-back-overlay"></div>
+            <div class="tech-back-content">
+                <h3>Modelado 3D</h3>
+                <p>Diseño y simulación tridimensional de plantas, equipos y sistemas para visualización previa.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 8. Gemelos Digitales -->
+<div class="tech-bento-card tech-card-flip-container">
+    <div class="tech-card-flipper">
+        <div class="tech-card-front tech-card-with-image">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80" alt="Gemelos Digitales" class="tech-card-bg">
+            <div class="tech-card-overlay"></div>
+            <div class="tech-card-content">
+                <div class="tech-name">Gemelos Digitales</div>
+                <div class="tech-category">Simulación</div>
+            </div>
+        </div>
+        <div class="tech-card-back">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80" alt="Gemelos Digitales Background" class="tech-card-back-bg">
+            <div class="tech-card-back-overlay"></div>
+            <div class="tech-back-content">
+                <h3>Gemelos Digitales</h3>
+                <p>Réplicas virtuales de activos físicos para simulación, análisis y optimización de operaciones.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 9. Control Avanzado -->
+<div class="tech-bento-card tech-card-flip-container">
+    <div class="tech-card-flipper">
+        <div class="tech-card-front tech-card-with-image">
+            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Control Avanzado" class="tech-card-bg">
+            <div class="tech-card-overlay"></div>
+            <div class="tech-card-content">
+                <div class="tech-name">Control Avanzado</div>
+                <div class="tech-category">Automatización</div>
+            </div>
+        </div>
+        <div class="tech-card-back">
+            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Control Avanzado Background" class="tech-card-back-bg">
+            <div class="tech-card-back-overlay"></div>
+            <div class="tech-back-content">
+                <h3>Control Avanzado</h3>
+                <p>Algoritmos sofisticados de control multivariable para optimizar procesos complejos en tiempo real.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 10. Big Data -->
+<div class="tech-bento-card tech-card-flip-container">
+    <div class="tech-card-flipper">
+        <div class="tech-card-front tech-card-with-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Big Data" class="tech-card-bg">
+            <div class="tech-card-overlay"></div>
+            <div class="tech-card-content">
+                <div class="tech-name">Big Data</div>
+                <div class="tech-category">Analítica</div>
+            </div>
+        </div>
+        <div class="tech-card-back">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Big Data Background" class="tech-card-back-bg">
+            <div class="tech-card-back-overlay"></div>
+            <div class="tech-back-content">
+                <h3>Big Data</h3>
+                <p>Procesamiento y análisis de grandes volúmenes de datos industriales para insights accionables.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+    <!-- Featured Projects -->
+    <section class="how-section">
+        <h2>Trayectoria Validada en Proyectos de Alta Exigencia</h2>
+        <p class="section-desc">Proyectos implementados en automatización, control y digitalización en diferentes sectores industriales</p>
+        
+        <div class="features-simple">
+            <div class="feature-simple">
+                <h3>Automatización de Planta Industrial</h3>
+                <p>Implementación de sistemas de control distribuido y SCADA para optimización de procesos de manufactura.</p>
+            </div>
+            
+            <div class="feature-simple">
+                <h3>Sistema SCADA Regional</h3>
+                <p>Supervisión y control centralizado de múltiples instalaciones con telemetría y monitoreo en tiempo real.</p>
+            </div>
+            
+            <div class="feature-simple">
+                <h3>Modernización de Líneas de Producción</h3>
+                <p>Upgrade tecnológico de sistemas legacy a plataformas modernas con integración de datos y mejora de eficiencia.</p>
+            </div>
+        </div>
+
+        <div class="cta-buttons" style="margin-top: 50px;">
+            <a href="proyectos.html" class="btn-primary">Ver Más Proyectos</a>
+        </div>
+    </section>
+
+    <!-- Competitive Difference -->
+    <section>
+        <h2>Nuestro Aporte Estratégico</h2>
+        <p class="section-desc" style="max-width: 900px; margin: 0 auto; font-size: 1.1em; line-height: 1.8;">
+            Combinamos ingeniería, automatización y ciencia de datos para ofrecer soluciones integrales y orientadas a resultados. No solo instalamos tecnología: transformamos tu operación con sistemas que producen, predicen y se adaptan.
+        </p>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <h2>Listos para optimizar tu operación</h2>
+        <p>Impulsa tu productividad con ingeniería de precisión y tecnología inteligente</p>
+        <div class="cta-buttons">
+            <a href="contacto.html" class="btn-primary">Agendar Reunión</a>
+            <a href="contacto.html" class="btn-secondary">Solicitar Cotización</a>
+        </div>
+    </section>
+    <!-- Scripts de AELNG -->
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
+    <script src="whatsapp.js"></script>
+    
+
+</body>
+</html>

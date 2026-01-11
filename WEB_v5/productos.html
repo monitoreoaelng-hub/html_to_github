@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Válvulas y Actuadores</title>
+    <meta name="description" content="Suministro de válvulas y actuadores industriales según requerimiento técnico.">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* ========================================
+           PÁGINA PRODUCTOS
+        ======================================== */
+        
+        .valvulas-page {
+            background: #ffffff !important;
+            min-height: 100vh;
+        }
+        
+        /* ========================================
+           HERO - PORTADA ANCHO COMPLETO
+        ======================================== */
+        .hero-valvulas {
+            position: relative;
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 80px;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            max-width: 100vw;
+        }
+        
+        .hero-valvulas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.8);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        /* Descripción debajo del hero */
+        .hero-description {
+            background: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .hero-description p {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #444444;
+        }
+        
+        /* ========================================
+           SECCIÓN NUESTRAS REPRESENTADAS
+        ======================================== */
+        .representadas-section {
+            padding: 50px 20px 30px;
+            background: #ffffff;
+            text-align: center;
+        }
+        
+        .representadas-btn {
+            display: inline-block;
+            background: #0099dd;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            padding: 18px 60px;
+            border-radius: 50px;
+            border: none;
+            margin-bottom: 40px;
+        }
+        
+        /* Carrusel de Marcas */
+        .marcas-carousel-wrapper {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 50px;
+            overflow: hidden;
+        }
+        
+        .marcas-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .marcas-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .marca-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            height: 60px;
+        }
+        
+        .marca-item span {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 36px;
+            color: #cccccc;
+            cursor: pointer;
+            padding: 10px;
+            transition: color 0.3s;
+            z-index: 5;
+        }
+        
+        .carousel-nav:hover {
+            color: #0099dd;
+        }
+        
+        .carousel-nav.prev { left: 5px; }
+        .carousel-nav.next { right: 5px; }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        
+        .carousel-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #dddddd;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .carousel-dots span.active {
+            background: #333333;
+        }
+        
+        /* ========================================
+           CATÁLOGO DE PRODUCTOS - CENTRADO
+        ======================================== */
+        .catalogo-section {
+            padding: 30px 20px 60px;
+            background: #ffffff;
+        }
+        
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 220px);
+            gap: 30px;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Producto Card con Flip */
+        .producto-item {
+            perspective: 1000px;
+            height: 300px;
+            width: 220px;
+        }
+        
+        .producto-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .producto-item:hover .producto-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .producto-front,
+        .producto-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        
+        /* FRENTE - Solo imagen y título */
+        .producto-front {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px;
+            background: #ffffff;
+        }
+        
+        .producto-front .producto-img {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .producto-front .producto-img img {
+            max-width: 85%;
+            max-height: 200px;
+            object-fit: contain;
+        }
+        
+        .producto-front h3 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 0.3px;
+            margin: 0;
+        }
+        
+        /* REVERSO - Cuadro informativo */
+        .producto-back {
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+        }
+        
+        .info-card {
+            width: 100%;
+            padding: 20px 15px;
+            border: 2px solid #0099dd;
+            border-radius: 15px;
+            text-align: center;
+            background: #ffffff;
+        }
+        
+        .info-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 12px;
+        }
+        
+        .info-card p {
+            font-size: 11px;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .info-card .ver-mas-btn {
+            display: inline-block;
+            background: #0099dd;
+            color: #ffffff;
+            padding: 10px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .info-card .ver-mas-btn:hover {
+            background: #007bb5;
+            transform: translateY(-2px);
+        }
+        
+        /* ========================================
+           CTA FINAL
+        ======================================== */
+        .cta-section {
+            background: linear-gradient(135deg, #0099dd 0%, #006699 100%);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-section .cta-btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #0099dd;
+            padding: 16px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .cta-section .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 800px) {
+            .productos-grid {
+                grid-template-columns: repeat(2, 220px);
+            }
+        }
+        
+        @media (max-width: 550px) {
+            .hero-valvulas {
+                height: 200px;
+                margin-top: 70px;
+            }
+            
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            
+            .hero-description {
+                padding: 25px 15px;
+            }
+            
+            .hero-description p {
+                font-size: 13px;
+            }
+            
+            .representadas-btn {
+                font-size: 16px;
+                padding: 12px 35px;
+            }
+            
+            .marcas-slide {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            
+            .marca-item span {
+                font-size: 16px;
+            }
+            
+            .productos-grid {
+                grid-template-columns: 200px;
+            }
+            
+            .producto-item {
+                width: 200px;
+                height: 280px;
+            }
+            
+            .cta-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="valvulas-page">
+        
+        <!-- HERO - PORTADA -->
+        <section class="hero-valvulas">
+            <div class="hero-content">
+                <h1>Válvulas y Actuadores</h1>
+            </div>
+        </section>
+        
+        <!-- DESCRIPCIÓN -->
+        <section class="hero-description">
+            <p>En AELNG Solutions ofrecemos soluciones integrales en válvulas y actuadores para sus procesos, incluyendo una amplia gama de válvulas de control, bola, mariposa, compuerta, check y guillotina, así como actuadores neumáticos y eléctricos, todos de alta precisión, confiables y adaptados a las exigencias de la industria, garantizando eficiencia operativa y resultados consistentes.</p>
+        </section>
+        
+        <!-- NUESTRAS REPRESENTADAS -->
+        <section class="representadas-section">
+            <div class="representadas-btn">Nuestras Representadas</div>
+            
+            <div class="marcas-carousel-wrapper">
+                <button class="carousel-nav prev" onclick="prevSlide()">‹</button>
+                
+                <div class="marcas-track" id="marcasTrack">
+                    <!-- Slide 1 -->
+                    <div class="marcas-slide">
+                        <div class="marca-item"><span style="color:#cc0000;">CHEM<span style="color:#0066aa;">SURE</span></span></div>
+                        <div class="marca-item"><span style="color:#444;">METALSEAL</span></div>
+                        <div class="marca-item"><span style="color:#0044aa; font-weight:900;">KITZ</span></div>
+                        <div class="marca-item"><span style="color:#003399;">MGA</span></div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="marcas-slide">
+                        <div class="marca-item"><span style="color:#003366; font-weight:900;">DNOX</span></div>
+                        <div class="marca-item"><span style="color:#0077aa;">FY-LOK</span></div>
+                        <div class="marca-item"><span style="color:#cc3300;">MECH</span></div>
+                        <div class="marca-item"><span style="color:#555;">ROKE</span></div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="marcas-slide">
+                        <div class="marca-item"><span style="color:#0066aa;">MEIDE</span></div>
+                        <div class="marca-item"><span style="color:#006699;">BONNEY FORGE</span></div>
+                        <div class="marca-item"><span style="color:#0055aa;">VELAN</span></div>
+                        <div class="marca-item"><span style="color:#333;">NEWCO</span></div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="marcas-slide">
+                        <div class="marca-item"><span style="color:#0044aa;">FLOWSERVE</span></div>
+                        <div class="marca-item"><span style="color:#cc0000;">ROTORK</span></div>
+                        <div class="marca-item"><span style="color:#006699;">AUMA</span></div>
+                        <div class="marca-item"><span style="color:#333;">EMERSON</span></div>
+                    </div>
+                </div>
+                
+                <button class="carousel-nav next" onclick="nextSlide()">›</button>
+            </div>
+            
+            <div class="carousel-dots" id="carouselDots">
+                <span class="active" onclick="goToSlide(0)"></span>
+                <span onclick="goToSlide(1)"></span>
+                <span onclick="goToSlide(2)"></span>
+                <span onclick="goToSlide(3)"></span>
+            </div>
+        </section>
+        
+        <!-- CATÁLOGO DE PRODUCTOS -->
+        <section class="catalogo-section">
+            <div class="productos-grid">
+                
+                <!-- SENSORES-->
+                <div class="producto-item">
+                    <div class="producto-inner">
+                        <div class="producto-front">
+                            <div class="producto-img">
+                                <img src="https://sensores-de-medida.es/wp-content/uploads/2017/08/sensor_de_presion_industrial_aep_tp3.jpg" alt="Sensor">
+                            </div>
+                            <h3>SENSORES</h3>
+                        </div>
+                        <div class="producto-back">
+                            <div class="info-card">
+                                <h3>Sensores</h3>
+                                <p>Aplicaciones: Dispositivos que miden variables como temperatura, presión o nivel y envían datos para controlar y optimizar procesos.</p>
+                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PLCs(Controladores Lógicos Programables) -->
+                <div class="producto-item">
+                    <div class="producto-inner">
+                        <div class="producto-front">
+                            <div class="producto-img">
+                                <img src="https://www.eaton.com/content/dam/eaton/products/industrialcontrols-drives-automation-sensors/en-globalprime/programmable-logic-controllers-(plc)/ec4p-programmable-logic-controllers/eaton-ec4p-compact-plc-with-display-1000x1000.jpg" alt="PLCs">
+                            </div>
+                            <h3>PLCs(Controladores Lógicos Programables)</h3>
+                        </div>
+                        <div class="producto-back">
+                            <div class="info-card">
+                                <h3>PLCs(Controladores Lógicos Programables)</h3>
+                                <p>Aplicaciones: Equipos industriales programables que controlan y automatizan procesos y maquinaria de forma segura y confiable.</p>
+                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HMI y SCADA -->
+                <div class="producto-item">
+                    <div class="producto-inner">
+                        <div class="producto-front">
+                            <div class="producto-img">
+                                <img src="https://instrumcontrol.com/wp-content/uploads/2021/12/CP600-1024x737.jpg" alt="HIM y SCADA">
+                            </div>
+                            <h3>HMI y SCADA</h3>
+                        </div>
+                        <div class="producto-back">
+                            <div class="info-card">
+                                <h3>HMI y SCADA</h3>
+                                <p>HMI: interfaz que permite al operador visualizar y controlar procesos en tiempo real. SCADA: sistema que supervisa, controla y registra datos de procesos industriales de forma centralizada.</p>
+                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- REDES INDUSTRIALES -->
+                <div class="producto-item">
+                    <div class="producto-inner">
+                        <div class="producto-front">
+                            <div class="producto-img">
+                                <img src="https://cdn.prod.website-files.com/608fe4335740ea3362292486/679c96e61c4efa9454d98f8e_64410c64b2af2d051f5e203e_RedesIndustriales.jpeg" alt="Redes Industriales">
+                            </div>
+                            <h3>REDES INDUSTRIALES </h3>
+                        </div>
+                        <div class="producto-back">
+                            <div class="info-card">
+                                <h3>Redes Industriales</h3>
+                                <p>Aplicaciones: Sistemas de comunicación que conectan PLCs, sensores, HMIs y SCADA para intercambiar datos en tiempo real.</p>
+                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instrumentación-->
+                <div class="producto-item">
+                    <div class="producto-inner">
+                        <div class="producto-front">
+                            <div class="producto-img">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzlRobpQYS7hVUdgZRAKcZD3zYRcW3mgqciQ&s" alt="Instrumentación">
+                            </div>
+                            <h3>INSTRUMENTACIÓN</h3>
+                        </div>
+                        <div class="producto-back">
+                            <div class="info-card">
+                                <h3>Instrumentación</h3>
+                                <p>Aplicaciones: Conjunto de dispositivos y técnicas para medir, controlar y monitorear variables de procesos industriales.</p>
+                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Partes mecánicas y eléctricas -->
+                <div class="producto-item">
+                    <div class="producto-inner">
+                        <div class="producto-front">
+                            <div class="producto-img">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBoQmVR2331i4qbOn6JFEWw6CyXMZJdJRE7w&s" alt="Mecánicas">
+                            </div>
+                            <h3>PARTES MECÁNICAS Y ELÉCTRICAS</h3>
+                        </div>
+                        <div class="producto-back">
+                            <div class="info-card">
+                                <h3>Partes mecánicas y eléctricas</h3>
+                                <p>Aplicaciones: Componentes que permiten el movimiento, la transmisión de energía y el control eléctrico de sistemas y maquinaria industrial.</p>
+                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controladores-->
+                <div class="producto-item">
+                    <div class="producto-inner">
+                        <div class="producto-front">
+                            <div class="producto-img">
+                                <img src="https://www.danfoss.com/media/1349/compressors-and-condenser-controllers-danfoss.jpg?anchor=center&mode=crop&width=1050" alt="Controladores">
+                            </div>
+                            <h3>CONTROLADORES</h3>
+                        </div>
+                        <div class="producto-back">
+                            <div class="info-card">
+                                <h3>Controladores</h3>
+                                <p>Aplicaciones: Dispositivos que procesan señales y toman decisiones para regular y automatizar procesos industriales.</p>
+                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Equipos de medición -->
+                <div class="producto-item">
+                    <div class="producto-inner">
+                        <div class="producto-front">
+                            <div class="producto-img">
+                                <img src="https://globaltec.com.pe/img/contenido/aparatos-de-medicion524323796.jpg" alt="Equipos de medición">
+                            </div>
+                            <h3>EQUIPOS DE MEDICIÓN</h3>
+                        </div>
+                        <div class="producto-back">
+                            <div class="info-card">
+                                <h3>Equipos de medición</h3>
+                                <p>Aplicaciones: Instrumentos que miden y verifican magnitudes físicas o eléctricas para control y diagnóstico en procesos industriales.</p>
+                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- EQUIPOS IOT- LORAWAN -->
+                <div class="producto-item">
+                    <div class="producto-inner">
+                        <div class="producto-front">
+                            <div class="producto-img">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJxLGzNVyAOdlZGFMWjhsspvel_TdJm1V4xA&s" alt="LORAWAN">
+                            </div>
+                            <h3>EQUIPOS IOT/LORAWAN</h3>
+                        </div>
+                        <div class="producto-back">
+                            <div class="info-card">
+                                <h3>Equipos Iot/ LoraWan</h3>
+                                <p>Aplicaciones: Dispositivos que capturan datos y los transmiten a larga distancia con bajo consumo de energía para monitoreo y control remoto.</p>
+                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- VARIADORES DE FRECUENCIA-->
+                <div class="producto-item">
+                    <div class="producto-inner">
+                        <div class="producto-front">
+                            <div class="producto-img">
+                                <img src="https://sdindustrial.com.mx/wp-content/uploads/2021/08/variadores-de-frecuencia.jpeg" alt="VARIADORES DE FRECUENCIA">
+                            </div>
+                            <h3>VARIADORES DE FRECUENCIA</h3>
+                        </div>  
+                        <div class="producto-back">
+                            <div class="info-card">
+                                <h3>Variasdores de frecuencia</h3>
+                                <p>Aplicaciones: Equipos que regulan la velocidad y el par de motores eléctricos ajustando la frecuencia y el voltaje.</p>
+                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>¿Necesitas una cotización?</h2>
+            <p>Contáctanos con tus especificaciones técnicas y te enviaremos una propuesta personalizada</p>
+            <a href="contacto.html" class="cta-btn">Solicitar Cotización</a>
+        </section>
+        
+    </div>
+    
+    <script>
+        // ========================================
+        // CARRUSEL DE MARCAS - FUNCIONAL
+        // ========================================
+        let currentSlide = 0;
+        const totalSlides = 4;
+        const track = document.getElementById('marcasTrack');
+        const dots = document.querySelectorAll('#carouselDots span');
+        
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Actualizar dots
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+        
+        // Auto-play cada 5 segundos
+        setInterval(() => {
+            nextSlide();
+        }, 5000);
+    </script>
+    
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
+    <script src="whatsapp.js"></script>
+</body>
+</html>

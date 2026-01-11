@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - AELNG Solutions</title>
+    <meta name="description" content="Conoce AELNG Solutions - Especialistas en automatización industrial, ingeniería de procesos y soluciones digitales.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           PÁGINA NOSOTROS - ESTILO AELNG
+        ======================================== */
+        :root {
+            --primary-blue: #1a5276;
+            --secondary-blue: #3498db;
+            --bg-color: #ffffff;
+            --secondary-bg: #ebebeb;
+            --text-color: #262626;
+            --text-secondary: rgba(94, 94, 94, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ========================================
+           HERO NOSOTROS
+        ======================================== */
+        .hero-nosotros {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #154360 100%);
+            overflow: hidden;
+            margin-top: 0px;
+        }
+
+        .hero-nosotros::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.03"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.03"/><circle cx="50" cy="50" r="0.5" fill="white" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .hero-nosotros::after {
+            content: '';
+            position: absolute;
+            /* top: -50%;
+            left: -50%; */
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+            animation: pulse-bg 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-bg {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 40;
+        }
+
+        .hero-nosotros h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            margin: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            margin: 15px auto 0;
+            border-radius: 2px;
+            animation: expandLine 1s ease 0.5s forwards;
+            transform: scaleX(0);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes expandLine {
+            to { transform: scaleX(1); }
+        }
+
+        /* ========================================
+           MISIÓN Y VISIÓN
+        ======================================== */
+        .section-mv {
+            padding: 80px 0;
+            background: var(--bg-color);
+        }
+
+        .mv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .mv-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .mv-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .mv-row.reverse {
+            direction: rtl;
+        }
+
+        .mv-row.reverse > * {
+            direction: ltr;
+        }
+
+        .mv-image {
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .mv-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 82, 118, 0.2) 0%, transparent 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .mv-image:hover::before {
+            opacity: 1;
+        }
+
+        .mv-image img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .mv-image:hover img {
+            transform: scale(1.08);
+        }
+
+        .mv-content h4 {
+            font-size: 13px;
+            color: #3498db;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .mv-content h4::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #3498db;
+        }
+
+        .mv-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font-weight: 700;
+        }
+
+        .mv-content p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.9;
+        }
+
+        /* ========================================
+           ESTADÍSTICAS
+        ======================================== */
+        .stats-section {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #0d3d56 100%);
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="white" opacity="0.05"/><circle cx="90" cy="90" r="1" fill="white" opacity="0.05"/></svg>');
+        }
+
+        .stats-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number span {
+            color: #3498db;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+/* ========================================
+           NUESTRA ESENCIA
+        ======================================== */
+        .esencia-section {
+            padding: 50px 0;
+            background: var(--secondary-bg);
+            transition: background 0.3s ease;
+        }
+
+        .esencia-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .esencia-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .esencia-header h2 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .esencia-header p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        body.light-mode .esencia-header p {
+            color: #6c757d;
+        }
+
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .valor-card {
+            background: var(--bg-color);
+            padding: 22px 18px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        body.light-mode .valor-card {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .valor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), #3498db);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .valor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        body.light-mode .valor-card:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .valor-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .valor-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(52, 152, 219, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .valor-card:hover .valor-icon {
+            background: linear-gradient(135deg, var(--primary-blue), #2980b9);
+        }
+
+        .valor-icon svg {
+            width: 20px;
+            height: 20px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+
+        .valor-card:hover .valor-icon svg {
+            color: #ffffff;
+        }
+
+        .valor-card h4 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .valor-card p {
+            font-size: 12px;
+            color: rgba(36, 35, 35, 0.6);
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        body.light-mode .valor-card p {
+            color: #6c757d;
+        }
+
+        /* ========================================
+           CONTACTO
+        ======================================== */
+        .contacto-section {
+            padding: 80px 0;
+            background: var(--bg-color);
+        }
+
+        .contacto-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .contacto-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contacto-header h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            font-weight: 700;
+        }
+
+        .contacto-header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+        }
+
+        .contacto-form {
+            background: var(--secondary-bg);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            background: var(--bg-color);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px 30px;
+            background: linear-gradient(135deg, var(--primary-blue), #2980b9);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(26, 82, 118, 0.5);
+        }
+
+        .contacto-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: var(--secondary-bg);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(52, 152, 219, 0.3);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), #3498db);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-icon svg {
+            width: 22px;
+            height: 22px;
+            color: #ffffff;
+        }
+
+        .info-content h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .info-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 1024px) {
+            .valores-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .valores-grid .valor-card:nth-child(4),
+            .valores-grid .valor-card:nth-child(5) {
+                margin-left: 0;
+                max-width: 100%;
+            }
+
+            .valores-grid .valor-card:last-child {
+                grid-column: 1 / -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-nosotros {
+                height: 150px;
+                margin-top: 70px;
+            }
+
+            .hero-nosotros h1 {
+                font-size: 28px;
+            }
+
+            .mv-row,
+            .mv-row.reverse {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                direction: ltr;
+            }
+
+            .mv-image img {
+                height: 250px;
+            }
+
+            .mv-content h2 {
+                font-size: 28px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .stat-item {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 20px;
+            }
+
+            .stat-item:last-child {
+                border-bottom: none;
+            }
+
+            .stat-number {
+                font-size: 42px;
+            }
+
+            .valores-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .valores-grid .valor-card:last-child {
+                max-width: 100%;
+            }
+
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-mv,
+            .esencia-section,
+            .contacto-section {
+                padding: 50px 0;
+            }
+
+            .esencia-header h2,
+            .contacto-header h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-nosotros {
+                height: 120px;
+            }
+
+            .mv-container,
+            .esencia-container,
+            .contacto-container {
+                padding: 0 20px;
+            }
+
+            .valor-card {
+                padding: 25px 20px;
+            }
+
+            .contacto-form {
+                padding: 25px 20px;
+            }
+
+            .info-card {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+        }
+
+        /* ========================================
+           ANIMACIONES
+        ======================================== */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delay para animaciones en cascada */
+        .valor-card:nth-child(1) { transition-delay: 0.1s; }
+        .valor-card:nth-child(2) { transition-delay: 0.2s; }
+        .valor-card:nth-child(3) { transition-delay: 0.3s; }
+        .valor-card:nth-child(4) { transition-delay: 0.4s; }
+        .valor-card:nth-child(5) { transition-delay: 0.5s; }
+
+        .stat-item:nth-child(1) { transition-delay: 0.1s; }
+        .stat-item:nth-child(2) { transition-delay: 0.2s; }
+        .stat-item:nth-child(3) { transition-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- El menú se carga desde menu.js -->
+
+    <!-- HERO - NOSOTROS -->
+    <section class="hero-nosotros">
+        <div class="hero-content">
+            <h1>Nosotros</h1>
+            <div class="hero-line"></div>
+        </div>
+    </section>
+
+    <!-- MISIÓN Y VISIÓN -->
+    <section class="section-mv">
+        <div class="mv-container">
+            
+            <!-- Misión -->
+            <div class="mv-row animate-on-scroll">
+                <div class="mv-image">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80" alt="Misión AELNG Solutions">
+                </div>
+                <div class="mv-content">
+                    <h4>Nuestro Propósito</h4>
+                    <h2>Misión</h2>
+                    <p>Nuestra misión es prestar servicios de consultoría técnica, legal y financiera en la industria de las telecomunicaciones. Brindando soluciones efectivas mediante la constante innovación tecnológica en nuestras operaciones, para que esto represente un gran impacto en la industria al generar valor agregado y mayor rentabilidad para nuestros clientes.</p>
+                </div>
+            </div>
+
+            <!-- Visión -->
+            <div class="mv-row reverse animate-on-scroll">
+                <div class="mv-image">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80" alt="Visión AELNG Solutions">
+                </div>
+                <div class="mv-content">
+                    <h4>Nuestro Futuro</h4>
+                    <h2>Visión</h2>
+                    <p>Consolidarnos como la empresa líder en la prestación de servicios de consultoría técnica, legal y financiera en la industria de las telecomunicaciones.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item animate-on-scroll">
+                <div class="stat-number"><span>+</span>50</div>
+                <div class="stat-label">Proyectos Ejecutados</div>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <div class="stat-number"><span>+</span>100</div>
+                <div class="stat-label">Permisos Obtenidos</div>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <div class="stat-number"><span>+</span>30</div>
+                <div class="stat-label">Clientes Satisfechos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUESTRA ESENCIA -->
+    <section class="esencia-section">
+        <div class="esencia-container">
+            <div class="esencia-header animate-on-scroll">
+                <h2>NUESTRA ESENCIA</h2>
+                <p>Los valores que guían cada proyecto que emprendemos</p>
+            </div>
+
+            <div class="valores-grid">
+                
+                <div class="valor-card animate-on-scroll">
+                    <div class="valor-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4>Orientación al Cliente</h4>
+                    <p>Escuchamos a nuestros clientes y mantenemos con ellos una relación cercana, ágil y resolutiva. Más que un proveedor de servicios, queremos ser su Socio Estratégico en la prestación de servicios de Telecomunicaciones.</p>
+                </div>
+
+                <div class="valor-card animate-on-scroll">
+                    <div class="valor-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <h4>Espíritu Innovador</h4>
+                    <p>Aplicamos la investigación + desarrollo + innovación a todos los servicios que comercializamos, para poder plantear a nuestros clientes propuestas eficaces que contribuyan a una sociedad más próspera.</p>
+                </div>
+
+                <div class="valor-card animate-on-scroll">
+                    <div class="valor-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h4>Capital Humano</h4>
+                    <p>Nuestro personal tiene una sólida formación académica y un perfil técnico avanzado. Somos flexibles y dinámicos para adaptarnos a las necesidades de cada Proyecto.</p>
+                </div>
+
+                <div class="valor-card animate-on-scroll">
+                    <div class="valor-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <h4>Comprometidos con la Calidad</h4>
+                    <p>La calidad es nuestro compromiso con las empresas que confían en nosotros. En AELNG evaluamos todo, nuestros procesos están sometidos a una constante evaluación, así como nuestros servicios, empleados, gestión documental y comunicación externa e interna.</p>
+                </div>
+
+                <div class="valor-card animate-on-scroll">
+                    <div class="valor-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h4>Valor Agregado</h4>
+                    <p>Ofrecer valor agregado es uno de nuestros principales objetivos. Por lo cual el desarrollo de cada proyecto o servicio está fundamentado en elevar la competitividad de nuestros clientes.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto-section">
+        <div class="contacto-container">
+            <div class="contacto-header animate-on-scroll">
+                <h2>Contáctenos</h2>
+                <p>Estamos listos para ayudarte con tu próximo proyecto</p>
+            </div>
+
+            <div class="contacto-grid">
+                
+                <form class="contacto-form animate-on-scroll">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" name="direccion" placeholder="Tu dirección">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+
+                <div class="contacto-info">
+                    <div class="info-card animate-on-scroll">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h4>Oficina</h4>
+                            <p>Calle Alfonso Borrero y R. Ramirez<br>Cuenca, Azuay, Ecuador</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card animate-on-scroll">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes - Viernes: 8am – 18pm<br>Sábados: 9am – 13pm</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card animate-on-scroll">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h4>Contacto</h4>
+                            <p>(+593) 99 597 5729<br>monitoreo_es1@aelngsolutions.com</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+    // Animación de scroll
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Animación de números
+    function animateNumbers() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach(stat => {
+            const text = stat.textContent;
+            const hasPlus = text.includes('+');
+            const number = parseInt(text.replace(/[^0-9]/g, ''));
+            
+            let current = 0;
+            const duration = 2000;
+            const increment = number / (duration / 16);
+            
+            const updateNumber = () => {
+                current += increment;
+                if (current < number) {
+                    stat.innerHTML = hasPlus ? `<span>+</span>${Math.floor(current)}` : Math.floor(current);
+                    requestAnimationFrame(updateNumber);
+                } else {
+                    stat.innerHTML = hasPlus ? `<span>+</span>${number}` : number;
+                }
+            };
+            
+            updateNumber();
+        });
+    }
+
+    const statsSection = document.querySelector('.stats-section');
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateNumbers();
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
+
+    // Efecto parallax suave en hero
+    window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero-nosotros');
+        if (hero) {
+            const scrolled = window.pageYOffset;
+            hero.style.backgroundPosition = `center ${scrolled * 0.3}px`;
+        }
+    });
+    </script>
+
+    <!-- Scripts de AELNG -->
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
+    <script src="whatsapp.js"></script>
+</body>
+</html>

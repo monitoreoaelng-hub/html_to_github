@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AELNG Solutions - Automatización Industrial y Válvulas</title>
+    <meta name="description" content="Soluciones industriales en válvulas, automatización e ingeniería aplicada.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           RESET Y BASE - ESTILO FORTYTEC EXACTO
+        ======================================== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           HERO SLIDER - ESTILO FORTYTEC EXACTO
+        ======================================== */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            margin-top: 0;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.7s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Imágenes de fondo para cada slide */
+        .slide:nth-child(1) .slide-image {
+            background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        }
+
+        .slide:nth-child(2) .slide-image {
+            background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        }
+
+        .slide:nth-child(3) .slide-image {
+            background-image: url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        }
+
+        /* Overlay oscuro sobre la imagen */
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        /* Contenido del slide */
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        .slide-content h1 {
+            font-size: 42px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
+        }
+
+        .slide-content p {
+            font-size: 17px;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .slide-btn {
+            display: inline-block;
+            background: #2196F3;
+            color: #ffffff;
+            padding: 14px 32px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .slide-btn:hover {
+            background: #1976D2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(33, 150, 243, 0.4);
+        }
+
+        /* Flechas de navegación - Estilo Fortytec */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 80px;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+        }
+
+        .slider-arrow:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .slider-arrow.prev {
+            left: 10px;
+        }
+
+        .slider-arrow.next {
+            right: 10px;
+        }
+
+        /* ========================================
+           SECCIÓN NUESTRAS REPRESENTADAS
+        ======================================== */
+        .representadas-section {
+            padding: 50px 20px 60px;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .representadas-title {
+            display: inline-block;
+            background: #2196F3;
+            color: #ffffff;
+            padding: 16px 55px;
+            font-size: 22px;
+            font-weight: 500;
+            border-radius: 50px;
+            margin-bottom: 45px;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .logos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo-item img {
+            max-width: 140px;
+            max-height: 55px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Texto de marca cuando no hay logo */
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #555;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover .logo-text {
+            color: #2196F3;
+        }
+
+        /* ========================================
+           SECCIÓN SOBRE NOSOTROS
+        ======================================== */
+        .about-section {
+            padding: 70px 20px;
+            background: #f5f5f5;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: 32px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .about-btn {
+            display: inline-block;
+            background: #2196F3;
+            color: #ffffff;
+            padding: 12px 28px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .about-btn:hover {
+            background: #1976D2;
+        }
+
+        /* ========================================
+           SECCIÓN SERVICIOS
+        ======================================== */
+        .services-section {
+            padding: 70px 20px;
+            background: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .service-card-content {
+            padding: 25px 20px;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .service-link {
+            color: #2196F3;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 10px;
+        }
+
+        /* ========================================
+           SECCIÓN UNIDADES DE NEGOCIO
+        ======================================== */
+        .unidades-section {
+            padding: 70px 20px;
+            background: #f5f5f5;
+        }
+
+        .unidades-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .unidad-card {
+            background: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .unidad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .unidad-icon {
+            width: 70px;
+            height: 70px;
+            background: #2196F3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .unidad-icon svg {
+            width: 35px;
+            height: 35px;
+            stroke: #ffffff;
+        }
+
+        .unidad-card h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .unidad-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           SECCIÓN CTA
+        ======================================== */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover fixed;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 34px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #2196F3;
+            color: #ffffff;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #1976D2;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .unidades-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-slider {
+                height: 100vh;
+                min-height: 500px;
+            }
+
+            .slide-content h1 {
+                font-size: 28px;
+            }
+
+            .slide-content p {
+                font-size: 15px;
+            }
+
+            .slider-arrow {
+                width: 40px;
+                height: 60px;
+                font-size: 30px;
+            }
+
+            .representadas-title {
+                font-size: 18px;
+                padding: 14px 40px;
+            }
+
+            .logos-container {
+                gap: 30px 40px;
+            }
+
+            .logo-text {
+                font-size: 18px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-image img {
+                height: 280px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .unidades-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-slider {
+                height: 100vh;
+                min-height: 450px;
+            }
+
+            .slide-content h1 {
+                font-size: 24px;
+            }
+
+            .slide-content p {
+                font-size: 14px;
+            }
+
+            .slide-btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+
+            .slider-arrow {
+                width: 35px;
+                font-size: 26px;
+            }
+
+            .representadas-title {
+                font-size: 16px;
+                padding: 12px 30px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+            }
+
+            .cta-section h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- El menú se carga automáticamente por menu.js -->
+
+    <!-- ========================================
+         HERO SLIDER
+    ======================================== -->
+    <section class="hero-slider">
+        <div class="slider-container">
+            <div class="slider-track" id="sliderTrack">
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <div class="slide-image"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1>Soluciones industriales en válvulas, Automatización e Ingeniería Aplicada</h1>
+                        <p>En AELNG Solutions desarrollamos proyectos industriales personalizados, integrando válvulas de proceso, actuadores, instrumentación y sistemas automatizados.</p>
+                        <a href="servicios.html" class="slide-btn">Ver servicios</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <div class="slide-image"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1>Automatización y Control de Procesos Industriales</h1>
+                        <p>Diseñamos e implementamos sistemas de control avanzados con PLCs, SCADA y HMI para optimizar la eficiencia de su planta.</p>
+                        <a href="servicios.html#sistemas-control" class="slide-btn">Conocer más</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <div class="slide-image"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1>Ingeniería de Proyectos y Commissioning</h1>
+                        <p>Acompañamos su proyecto desde la ingeniería de detalle hasta la puesta en marcha, garantizando resultados óptimos.</p>
+                        <a href="contacto.html" class="slide-btn">Solicitar cotización</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flechas -->
+            <button class="slider-arrow prev" onclick="moveSlider(-1)">‹</button>
+            <button class="slider-arrow next" onclick="moveSlider(1)">›</button>
+        </div>
+    </section>
+
+    <!-- ========================================
+         NUESTRAS REPRESENTADAS
+    ======================================== -->
+    <section class="representadas-section">
+        <div class="representadas-title">Nuestras Representadas</div>
+        
+        <div class="logos-container">
+            <div class="logo-item">
+                <span class="logo-text">RITTAL</span>
+            </div>
+            <div class="logo-item">
+                <span class="logo-text">SIEMENS</span>
+            </div>
+            <div class="logo-item">
+                <span class="logo-text">FISHER</span>
+            </div>
+            <div class="logo-item">
+                <span class="logo-text">EMERSON</span>
+            </div>
+            <div class="logo-item">
+                <span class="logo-text">FESTO</span>
+            </div>
+            <div class="logo-item">
+                <span class="logo-text">SCHNEIDER</span>
+            </div>
+            <div class="logo-item">
+                <span class="logo-text">ABB</span>
+            </div>
+            <div class="logo-item">
+                <span class="logo-text">HONEYWELL</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SOBRE NOSOTROS
+    ======================================== -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AELNG Solutions">
+            </div>
+            <div class="about-content">
+                <h2>Sobre Nosotros</h2>
+                <p>AELNG Solutions es una empresa ecuatoriana especializada en soluciones de ingeniería industrial, automatización y control de procesos. Contamos con un equipo de profesionales altamente capacitados y comprometidos con la excelencia.</p>
+                <p>Nuestra experiencia nos permite ofrecer servicios integrales que van desde el suministro de equipos hasta la implementación de proyectos llave en mano, garantizando siempre la satisfacción de nuestros clientes.</p>
+                <a href="nosotros.html" class="about-btn">Conocer más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SERVICIOS
+    ======================================== -->
+    <section class="services-section">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Automatización">
+                <div class="service-card-content">
+                    <h3>Automatización Industrial</h3>
+                    <p>Diseño e implementación de sistemas de control con PLCs, SCADA y HMI de última generación.</p>
+                    <a href="servicios.html#sistemas-control" class="service-link">Ver más →</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Válvulas">
+                <div class="service-card-content">
+                    <h3>Válvulas y Actuadores</h3>
+                    <p>Suministro, calibración y reparación de válvulas de control, on-off y seguridad.</p>
+                    <a href="productos.html" class="service-link">Ver más →</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ingeniería">
+                <div class="service-card-content">
+                    <h3>Ingeniería de Proyectos</h3>
+                    <p>Desarrollo de ingeniería básica y de detalle, diagramas P&ID y documentación técnica.</p>
+                    <a href="servicios.html#diseno-planos" class="service-link">Ver más →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         UNIDADES DE NEGOCIO
+    ======================================== -->
+    <section class="unidades-section">
+        <h2 class="section-title">Unidades de Negocio</h2>
+        
+        <div class="unidades-grid">
+            <div class="unidad-card">
+                <div class="unidad-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="4" y="4" width="16" height="16" rx="2"/>
+                        <rect x="9" y="9" width="6" height="6"/>
+                        <line x1="9" y1="1" x2="9" y2="4"/>
+                        <line x1="15" y1="1" x2="15" y2="4"/>
+                        <line x1="9" y1="20" x2="9" y2="23"/>
+                        <line x1="15" y1="20" x2="15" y2="23"/>
+                    </svg>
+                </div>
+                <h3>Automatización</h3>
+                <p>Sistemas de control industrial y automatización de procesos.</p>
+            </div>
+
+            <div class="unidad-card">
+                <div class="unidad-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                    </svg>
+                </div>
+                <h3>Instrumentación</h3>
+                <p>Equipos de medición y control para procesos industriales.</p>
+            </div>
+
+            <div class="unidad-card">
+                <div class="unidad-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3>Ingeniería</h3>
+                <p>Diseño y desarrollo de proyectos de ingeniería industrial.</p>
+            </div>
+
+            <div class="unidad-card">
+                <div class="unidad-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                </div>
+                <h3>Mantenimiento</h3>
+                <p>Servicios de mantenimiento preventivo y correctivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CTA
+    ======================================== -->
+    <section class="cta-section">
+        <h2>¿Tiene un proyecto en mente?</h2>
+        <p>Contáctenos y nuestro equipo de ingenieros le brindará la mejor solución para su necesidad.</p>
+        <a href="contacto.html" class="cta-btn">Contáctenos</a>
+    </section>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
+    <script src="whatsapp.js"></script>
+
+    <script>
+        // ========================================
+        // SLIDER HERO
+        // ========================================
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const sliderTrack = document.getElementById('sliderTrack');
+        let autoPlayInterval;
+
+        function updateSlider() {
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function moveSlider(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            
+            updateSlider();
+            resetAutoPlay();
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                moveSlider(1);
+            }, 5000);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // Iniciar
+        startAutoPlay();
+
+        // Pausar en hover
+        document.querySelector('.hero-slider').addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+
+        document.querySelector('.hero-slider').addEventListener('mouseleave', () => {
+            startAutoPlay();
+        });
+
+        // Teclas de flecha
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') moveSlider(-1);
+            if (e.key === 'ArrowRight') moveSlider(1);
+        });
+    </script>
+</body>
+</html>
