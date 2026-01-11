@@ -5088,7 +5088,7 @@ body.light-mode .whatsapp-panel-expanded {
             color: var(--text-color);
             transition: background 0.3s ease, color 0.3s ease;
         }
-
+        
         .nosotros-page h1, 
         .nosotros-page h2, 
         .nosotros-page h3, 
@@ -5895,3 +5895,5 @@ body.light-mode .whatsapp-panel-expanded {
                 font-size: 26px;
             }
         }
+
+        

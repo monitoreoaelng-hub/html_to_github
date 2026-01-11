@@ -14,7 +14,7 @@ function loadMenu() {
         
         <nav>
             <a href="index.html">Inicio</a>
-            <a href="sobre-nosotros.html">Nosotros</a>
+            <a href="nosotros.html">Nosotros</a>
             
             <!-- Dropdown SERVICIOS con link clickeable -->
             <div class="nav-dropdown">
