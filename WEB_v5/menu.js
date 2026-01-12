@@ -25,12 +25,15 @@ function loadMenu() {
                     </svg>
                 </a>
                 <div class="dropdown-menu">
-                    <a href="automatizacion-control.html">Automatización y Control Industrial</a>
-                    <a href="ingenieria-procesos.html">Ingeniería de Procesos</a>
-                    <a href="ingenieria-diseno.html">Ingeniería de Diseño</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="proyectos-iot.html">Proyectos IoT / Industria 4.0</a>
-                    <a href="oil-gas.html">Oil & Gas / GNL</a>
+                    <a href="servicios.html">Automatización y Control Industrial</a>
+                    <a href="servicios.html">Ingeniería de Procesos</a>
+                    <a href="servicios.html">Ingeniería de Diseño</a>
+                    <a href="servicios.html">Proyectos IoT / Industria 4.0</a>
+                    <a href="servicios.html">Oil & Gas / GNL</a>
+                    <a href="servicios.html">Puesta en Marcha de Instalaciones Industriales</a>
+                    <a href="servicios.html">Modelado 3D Industrial</a>
+                    <a href="servicios.html">Integración de Maquinaria Industrial</a>
+
                 </div>
             </div>
             
