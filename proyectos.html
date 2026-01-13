@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios e Ingeniería - AELNG Solutions</title>
+    <meta name="description" content="Servicios especializados de ingeniería industrial, automatización, control de procesos y soluciones tecnológicas.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"> -->
+    
+    <style>
+        /* ========================================
+           PÁGINA SERVICIOS E INGENIERÍA
+           Estilo Fortytec
+        ======================================== */
+        
+        :root {
+            --primary: #0099dd;
+            --primary-dark: #007bb5;
+            --text: #333333;
+            --text-soft: #555555;
+            --bg: #ffffff;
+            --bullet-color: #0099dd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero-servicios {
+            position: relative;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 80px;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            max-width: 100vw;
+        }
+
+        .hero-servicios::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-servicios h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+        ======================================== */
+        .servicios-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* ========================================
+           SECCIÓN DE SERVICIO
+        ======================================== */
+        .servicio-seccion {
+            margin-bottom: 80px;
+        }
+
+        .servicio-seccion:last-child {
+            margin-bottom: 0;
+        }
+
+        .servicio-titulo {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        /* Lista de bullets */
+        .servicio-lista {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .servicio-lista li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .servicio-lista li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--bullet-color);
+            border-radius: 50%;
+        }
+
+        /* Párrafo descriptivo */
+        .servicio-descripcion {
+            font-size: 15px;
+            color: var(--text-soft);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        /* Imagen simple debajo del contenido */
+        .servicio-imagen-simple {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        .servicio-imagen-simple img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ========================================
+           CARRUSEL
+        ======================================== */
+        .carrusel-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .carrusel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carrusel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carrusel-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Overlay oscuro sobre la imagen */
+        .carrusel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .carrusel-overlay h3 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+        }
+
+        .carrusel-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #ffffff;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .carrusel-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 153, 221, 0.4);
+        }
+
+        /* Flechas de navegación */
+        .carrusel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .carrusel-nav:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .carrusel-nav.prev {
+            left: 15px;
+        }
+
+        .carrusel-nav.next {
+            right: 15px;
+        }
+
+        /* Dots de navegación */
+        .carrusel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .carrusel-dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carrusel-dot.active {
+            background: #ffffff;
+            transform: scale(1.2);
+        }
+
+        /* ========================================
+           TEXTO DE CIERRE
+        ======================================== */
+        .texto-cierre {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 40px;
+            font-size: 15px;
+            color: var(--text-soft);
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .texto-cierre strong {
+            color: var(--text);
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 768px) {
+            .hero-servicios {
+                height: 250px;
+                margin-top: 60px;
+            }
+
+            .hero-servicios h1 {
+                font-size: 32px;
+            }
+
+            .servicios-container {
+                padding: 40px 20px;
+            }
+
+            .servicio-titulo {
+                font-size: 22px;
+            }
+
+            .carrusel-slide img {
+                height: 300px;
+            }
+
+            .carrusel-overlay h3 {
+                font-size: 20px;
+            }
+
+            .carrusel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .texto-cierre {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-servicios {
+                height: 200px;
+            }
+
+            .hero-servicios h1 {
+                font-size: 26px;
+            }
+
+            .servicio-titulo {
+                font-size: 20px;
+            }
+
+            .servicio-lista li {
+                font-size: 14px;
+            }
+
+            .carrusel-slide img {
+                height: 250px;
+            }
+
+            .carrusel-overlay h3 {
+                font-size: 18px;
+            }
+
+            .carrusel-btn {
+                padding: 12px 25px;
+                font-size: 13px;
+            }
+
+            .carrusel-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- El menú se carga automáticamente por menu.js -->
+
+    <!-- HERO -->
+    <section class="hero-servicios">
+        <div class="hero-content">
+            <h1>Servicios e Ingeniería</h1>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="servicios-container">
+
+        <!-- ========================================
+             SERVICIO 1: Desarrollo de Ingeniería
+        ======================================== -->
+        <div class="servicio-seccion">
+            <h2 class="servicio-titulo">Desarrollo de Ingeniería de detalle y P&ID</h2>
+            
+            <ul class="servicio-lista">
+                <li>Levantamiento técnico en campo para validar equipos, tuberías y condiciones de operación.</li>
+                <li>Elaboración de diagramas P&ID bajo estándares internacionales, con identificación de válvulas, sensores y líneas de proceso.</li>
+                <li>Diseño de rutas de piping, cálculos de líneas, soportes y balance hidráulico.</li>
+                <li>Especificación técnica de componentes como válvulas, actuadores, transmisores y sistemas de control.</li>
+                <li>Listado de instrumentos (Instrument Index), hojas de datos, planos de montaje y listas de materiales (BOM).</li>
+                <li>Entrega de documentación completa con memoria descriptiva y planos listos para construcción.</li>
+            </ul>
+
+            <!-- Imagen simple -->
+            <div class="servicio-imagen-simple">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ingeniería de detalle">
+            </div>
+
+            <!-- Carrusel -->
+            <div class="carrusel-container" id="carrusel1">
+                <div class="carrusel-track">
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Diagramas P&ID">
+                        <div class="carrusel-overlay">
+                            <h3>Elaboración de diagramas P&ID</h3>
+                            <a href="contacto.html" class="carrusel-btn">Agendar Evaluación en Planta</a>
+                        </div>
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Diseño de tuberías">
+                        <div class="carrusel-overlay">
+                            <h3>Diseño de rutas de piping y soportería</h3>
+                            <a href="contacto.html" class="carrusel-btn">Solicitar Cotización</a>
+                        </div>
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Documentación técnica">
+                        <div class="carrusel-overlay">
+                            <h3>Documentación técnica completa</h3>
+                            <a href="contacto.html" class="carrusel-btn">Contactar Ahora</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carrusel-nav prev" onclick="moverCarrusel('carrusel1', -1)">‹</button>
+                <button class="carrusel-nav next" onclick="moverCarrusel('carrusel1', 1)">›</button>
+                <div class="carrusel-dots" id="dots1"></div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SERVICIO 2: Evaluación Técnica de Aire
+        ======================================== -->
+        <div class="servicio-seccion">
+            <h2 class="servicio-titulo">Evaluación Técnica de red de Aire comprimido</h2>
+            
+            <p class="servicio-descripcion">
+                El servicio consiste en la inspección técnica de la red de aire comprimido con énfasis en los parámetros que afectan la calidad del aire según la norma ISO 8573. Se realiza el análisis de contaminantes sólidos, presencia de humedad y contenido de aceite, así como la verificación del estado de elementos filtrantes, secadores, trampas de condensado y puntos críticos de la red. Se incluyen mediciones de presión, caudal, punto de rocío y pruebas puntuales de pureza del aire para determinar el cumplimiento con los requisitos de cada proceso productivo. El objetivo es identificar riesgos operativos asociados a la calidad del aire y proponer medidas correctivas que garanticen la confiabilidad del sistema y la integridad de los equipos neumáticos conectados.
+            </p>
+
+            <!-- Carrusel -->
+            <div class="carrusel-container" id="carrusel2">
+                <div class="carrusel-track">
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Calidad del aire">
+                        <div class="carrusel-overlay">
+                            <h3>Calidad del aire según la norma ISO 8573.</h3>
+                            <a href="contacto.html" class="carrusel-btn">Solicitar Visita Técnica</a>
+                        </div>
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Medición de presión">
+                        <div class="carrusel-overlay">
+                            <h3>Mediciones de presión y punto de rocío</h3>
+                            <a href="contacto.html" class="carrusel-btn">Agendar Evaluación</a>
+                        </div>
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Análisis de red">
+                        <div class="carrusel-overlay">
+                            <h3>Análisis integral de la red neumática</h3>
+                            <a href="contacto.html" class="carrusel-btn">Contactar Especialista</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carrusel-nav prev" onclick="moverCarrusel('carrusel2', -1)">‹</button>
+                <button class="carrusel-nav next" onclick="moverCarrusel('carrusel2', 1)">›</button>
+                <div class="carrusel-dots" id="dots2"></div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SERVICIO 3: Gabinetes y Válvulas
+        ======================================== -->
+        <div class="servicio-seccion">
+            <h2 class="servicio-titulo">Ensamble de Gabinetes eléctricos, calibración y reparación de Válvulas</h2>
+            
+            <p class="servicio-descripcion">
+                Ofrecemos soluciones integrales en el armado de gabinetes eléctricos de control y automatización Neumática cumpliendo con estándares industriales y especificaciones del cliente. Nuestro servicio incluye la instalación de módulos de E/S, PLCs, protecciones, etiquetado y pruebas funcionales. Además, realizamos calibración y reparación de válvulas de control, válvulas on-off y válvulas de seguridad, incluyendo pruebas hidrostáticas, verificación de actuadores eléctricos y neumáticos, cambio de sellos y ajuste de parámetros de operación. Garantizamos la confiabilidad operativa y prolongamos la vida útil de los equipos.
+            </p>
+
+            <!-- Carrusel -->
+            <div class="carrusel-container" id="carrusel3">
+                <div class="carrusel-track">
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Calibración de válvulas">
+                        <div class="carrusel-overlay">
+                            <h3>Calibración y reparación de Válvulas</h3>
+                            <a href="contacto.html" class="carrusel-btn">Agendar Evaluación en Planta</a>
+                        </div>
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Gabinetes eléctricos">
+                        <div class="carrusel-overlay">
+                            <h3>Ensamble de gabinetes eléctricos</h3>
+                            <a href="contacto.html" class="carrusel-btn">Solicitar Cotización</a>
+                        </div>
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Pruebas funcionales">
+                        <div class="carrusel-overlay">
+                            <h3>Pruebas funcionales y verificación</h3>
+                            <a href="contacto.html" class="carrusel-btn">Contactar Ahora</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carrusel-nav prev" onclick="moverCarrusel('carrusel3', -1)">‹</button>
+                <button class="carrusel-nav next" onclick="moverCarrusel('carrusel3', 1)">›</button>
+                <div class="carrusel-dots" id="dots3"></div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SERVICIO 4: Automatización Industrial
+        ======================================== -->
+        <div class="servicio-seccion">
+            <h2 class="servicio-titulo">Automatización y Control de Procesos Industriales</h2>
+            
+            <ul class="servicio-lista">
+                <li>Programación de PLCs Siemens, Allen Bradley, Schneider Electric y otras marcas líderes.</li>
+                <li>Desarrollo de interfaces HMI y sistemas SCADA para supervisión en tiempo real.</li>
+                <li>Integración de redes industriales: Profibus, Profinet, Modbus, Ethernet/IP.</li>
+                <li>Diseño e implementación de lazos de control PID y sistemas de control avanzado.</li>
+                <li>Configuración de sistemas de seguridad funcional (SIS) según IEC 61511.</li>
+                <li>Puesta en marcha, commissioning y pruebas SAT/FAT de sistemas de automatización.</li>
+            </ul>
+
+            <!-- Carrusel -->
+            <div class="carrusel-container" id="carrusel4">
+                <div class="carrusel-track">
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Automatización PLC">
+                        <div class="carrusel-overlay">
+                            <h3>Programación de PLCs y Sistemas de Control</h3>
+                            <a href="contacto.html" class="carrusel-btn">Solicitar Asesoría</a>
+                        </div>
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Sistemas SCADA">
+                        <div class="carrusel-overlay">
+                            <h3>Desarrollo de sistemas SCADA</h3>
+                            <a href="contacto.html" class="carrusel-btn">Ver Proyectos</a>
+                        </div>
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Redes industriales">
+                        <div class="carrusel-overlay">
+                            <h3>Integración de redes industriales</h3>
+                            <a href="contacto.html" class="carrusel-btn">Contactar Especialista</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carrusel-nav prev" onclick="moverCarrusel('carrusel4', -1)">‹</button>
+                <button class="carrusel-nav next" onclick="moverCarrusel('carrusel4', 1)">›</button>
+                <div class="carrusel-dots" id="dots4"></div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SERVICIO 5: Instrumentación Industrial
+        ======================================== -->
+        <div class="servicio-seccion">
+            <h2 class="servicio-titulo">Instrumentación Industrial y Calibración</h2>
+            
+            <p class="servicio-descripcion">
+                Brindamos servicios especializados de instrumentación para procesos industriales, incluyendo la selección, instalación y calibración de transmisores de presión, temperatura, nivel y flujo. Nuestro equipo cuenta con laboratorio certificado para calibración de instrumentos según estándares trazables. Realizamos mantenimiento preventivo y correctivo de instrumentos de medición, así como verificación de lazos de control y pruebas de integridad. Trabajamos con las principales marcas del mercado: Emerson, Endress+Hauser, Honeywell, Yokogawa y Siemens.
+            </p>
+
+            <!-- Carrusel -->
+            <div class="carrusel-container" id="carrusel5">
+                <div class="carrusel-track">
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Instrumentación">
+                        <div class="carrusel-overlay">
+                            <h3>Calibración de instrumentos de proceso</h3>
+                            <a href="contacto.html" class="carrusel-btn">Solicitar Servicio</a>
+                        </div>
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Transmisores">
+                        <div class="carrusel-overlay">
+                            <h3>Instalación de transmisores y sensores</h3>
+                            <a href="contacto.html" class="carrusel-btn">Cotizar Ahora</a>
+                        </div>
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Mantenimiento">
+                        <div class="carrusel-overlay">
+                            <h3>Mantenimiento de instrumentación</h3>
+                            <a href="contacto.html" class="carrusel-btn">Agendar Visita</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carrusel-nav prev" onclick="moverCarrusel('carrusel5', -1)">‹</button>
+                <button class="carrusel-nav next" onclick="moverCarrusel('carrusel5', 1)">›</button>
+                <div class="carrusel-dots" id="dots5"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TEXTO DE CIERRE -->
+    <div class="texto-cierre">
+        <p>
+            En <strong>AELNG Solutions</strong>, no solo brindamos servicios; construimos relaciones técnicas de largo plazo. Nuestro compromiso es ofrecer soluciones confiables, seguras y adaptadas a las condiciones reales de planta. Desde el armado de gabinetes hasta la calibración y reparación de válvulas, cada intervención está respaldada por experiencia, rigurosidad y una visión enfocada en la mejora continua. Confía en nosotros para asegurar la operatividad y eficiencia de tus procesos industriales.
+        </p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
+    <script src="whatsapp.js"></script>
+
+    <script>
+        // ========================================
+        // CARRUSELES - Sistema de control
+        // ========================================
+        
+        const carruseles = {
+            carrusel1: { currentSlide: 0, totalSlides: 3, autoPlay: null },
+            carrusel2: { currentSlide: 0, totalSlides: 3, autoPlay: null },
+            carrusel3: { currentSlide: 0, totalSlides: 3, autoPlay: null },
+            carrusel4: { currentSlide: 0, totalSlides: 3, autoPlay: null },
+            carrusel5: { currentSlide: 0, totalSlides: 3, autoPlay: null }
+        };
+
+        // Inicializar dots para cada carrusel
+        document.addEventListener('DOMContentLoaded', () => {
+            Object.keys(carruseles).forEach((carruselId, index) => {
+                const dotsContainer = document.getElementById(`dots${index + 1}`);
+                const carrusel = carruseles[carruselId];
+                
+                if (dotsContainer) {
+                    for (let i = 0; i < carrusel.totalSlides; i++) {
+                        const dot = document.createElement('span');
+                        dot.className = `carrusel-dot${i === 0 ? ' active' : ''}`;
+                        dot.onclick = () => irASlide(carruselId, i);
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+
+                // Auto-play cada 5 segundos
+                carrusel.autoPlay = setInterval(() => {
+                    moverCarrusel(carruselId, 1);
+                }, 5000);
+            });
+        });
+
+        function moverCarrusel(carruselId, direccion) {
+            const carrusel = carruseles[carruselId];
+            carrusel.currentSlide += direccion;
+
+            if (carrusel.currentSlide >= carrusel.totalSlides) {
+                carrusel.currentSlide = 0;
+            } else if (carrusel.currentSlide < 0) {
+                carrusel.currentSlide = carrusel.totalSlides - 1;
+            }
+
+            actualizarCarrusel(carruselId);
+        }
+
+        function irASlide(carruselId, slideIndex) {
+            carruseles[carruselId].currentSlide = slideIndex;
+            actualizarCarrusel(carruselId);
+        }
+
+        function actualizarCarrusel(carruselId) {
+            const carrusel = carruseles[carruselId];
+            const track = document.querySelector(`#${carruselId} .carrusel-track`);
+            const dotsContainer = document.querySelector(`#${carruselId}`).parentElement.querySelector('.carrusel-dots');
+            
+            if (track) {
+                track.style.transform = `translateX(-${carrusel.currentSlide * 100}%)`;
+            }
+
+            // Actualizar dots
+            if (dotsContainer) {
+                const dots = dotsContainer.querySelectorAll('.carrusel-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === carrusel.currentSlide);
+                });
+            }
+        }
+
+        // Pausar auto-play al hacer hover
+        document.querySelectorAll('.carrusel-container').forEach(container => {
+            const carruselId = container.id;
+            
+            container.addEventListener('mouseenter', () => {
+                if (carruseles[carruselId]) {
+                    clearInterval(carruseles[carruselId].autoPlay);
+                }
+            });
+
+            container.addEventListener('mouseleave', () => {
+                if (carruseles[carruselId]) {
+                    carruseles[carruselId].autoPlay = setInterval(() => {
+                        moverCarrusel(carruselId, 1);
+                    }, 5000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

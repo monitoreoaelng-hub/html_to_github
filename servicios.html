@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - AELNG Solutions</title>
+    <meta name="description" content="Servicios especializados de ingeniería industrial, automatización, control de procesos y soluciones tecnológicas.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           PÁGINA SERVICIOS - ESTILO PROELECTRONIC
+        ======================================== */
+        
+        :root {
+            --primary: #0099dd;
+            --primary-dark: #007bb5;
+            --secondary: #1a5276;
+            --text: #333333;
+            --text-soft: #666666;
+            --text-light: #888888;
+            --bg: #ffffff;
+            --bg-alt: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero-servicios {
+            position: relative;
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 80px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%);
+        }
+
+        .hero-servicios::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-servicios .hero-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero-servicios h1 {
+            font-size: clamp(40px, 6vw, 60px);
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        /* ========================================
+           SECCIÓN DE SERVICIO ALTERNADA
+        ======================================== */
+        .servicio-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 80px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .servicio-row:nth-child(even) {
+            background: var(--bg-alt);
+        }
+
+        .servicio-row.reverse .servicio-content {
+            order: 2;
+        }
+
+        .servicio-row.reverse .servicio-image {
+            order: 1;
+        }
+
+        /* Contenido */
+        .servicio-content {
+            padding: 20px 0;
+        }
+
+        .servicio-label {
+            font-size: 14px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .servicio-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .servicio-description {
+            font-size: 16px;
+            color: var(--text-soft);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .servicio-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .servicio-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: var(--text-soft);
+        }
+
+        .servicio-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .servicio-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #ffffff;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .servicio-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 153, 221, 0.3);
+        }
+
+        /* Imagen */
+        .servicio-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .servicio-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .servicio-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ========================================
+           CTA FINAL
+        ======================================== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%);
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .servicio-btn {
+            background: #ffffff;
+            color: var(--secondary);
+        }
+
+        .cta-section .servicio-btn:hover {
+            background: var(--bg-alt);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 968px) {
+            .servicio-row {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 60px 5%;
+            }
+
+            .servicio-row.reverse .servicio-content,
+            .servicio-row.reverse .servicio-image {
+                order: unset;
+            }
+
+            .servicio-image {
+                order: -1 !important;
+            }
+
+            .servicio-image img {
+                height: 300px;
+            }
+
+            .servicio-title {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-servicios {
+                height: 280px;
+                margin-top: 60px;
+            }
+
+            .hero-servicios h1 {
+                font-size: 36px;
+            }
+
+            .servicio-row {
+                padding: 50px 20px;
+            }
+
+            .servicio-title {
+                font-size: 24px;
+            }
+
+            .servicio-description {
+                font-size: 15px;
+            }
+
+            .servicio-image img {
+                height: 250px;
+            }
+
+            .cta-section {
+                padding: 60px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-servicios {
+                height: 220px;
+            }
+
+            .hero-servicios h1 {
+                font-size: 28px;
+            }
+
+            .servicio-title {
+                font-size: 22px;
+            }
+
+            .servicio-image img {
+                height: 200px;
+            }
+        }
+
+        /* Scroll suave para anclas */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Offset para anclas por el header fijo */
+        .servicio-row[id] {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- El menú se carga automáticamente por menu.js -->
+
+    <!-- HERO -->
+    <section class="hero-servicios">
+        <div class="hero-content">
+            <p class="hero-subtitle">Nuestros Servicios</p>
+            <h1>Servicios</h1>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SERVICIO 1: Automatización y Control Industrial
+    ======================================== -->
+    <section class="servicio-row" id="modernizacion">
+        <div class="servicio-content">
+            <!-- <p class="servicio-label">Modernización de Maquinaria Industrial</p> -->
+            <h2 class="servicio-title">Automatización y Control Industrial</h2>
+            <p class="servicio-description">
+                Nuestro equipo cuenta con amplia experiencia en el diseño, implementación y modernización de sistemas de automatización y control industrial, orientados a mejorar la eficiencia operativa, la seguridad y la confiabilidad de los procesos productivos.
+            </p>
+            <ul class="servicio-list">
+                <li>Programación de PLC, HMI y SCADA</li>
+                <li>Integración de sistemas de control industrial</li>
+                <li>Modernización de sistemas de automatización existentes</li>
+                <li>Optimización y monitoreo de procesos industriales</li>
+            </ul>
+            <a href="contacto.html" class="servicio-btn">Solicitar Evaluación</a>
+        </div>
+        <div class="servicio-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD4R1-UCOoASpHjwqnI1ks4nh4Zr_56USjIA&s">
+        </div>
+    </section>
+
+    <!-- ========================================
+         SERVICIO 2: Ingeniería de Procesos
+    ======================================== -->
+    <section class="servicio-row reverse" id="sistemas-control">
+        <div class="servicio-content">
+            <h2 class="servicio-title">Ingeniería de Procesos</h2>
+            <p class="servicio-description">
+                Brindamos soluciones de ingeniería de procesos enfocadas en el análisis, mejora y optimización de operaciones industriales, garantizando mayor productividad, reducción de costos y cumplimiento de estándares técnicos y operativos.
+            </p>
+            <ul class="servicio-list">
+                <li>Análisis y optimización de procesos industriales</li>
+                <li>Balance de materia y energía</li>
+                <li>Mejora de eficiencia operativa</li>
+                <li>Documentación técnica y diagramas de proceso</li>
+            </ul>
+            <a href="contacto.html" class="servicio-btn">Consultar Ahora</a>
+        </div>
+        <div class="servicio-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnwi-t6-CoYpXr72gfk25MDYKHPLxMX2m3Nw&s" alt="Sistemas de Control Industrial">
+        </div>
+    </section>
+
+    <!-- ========================================
+         SERVICIO 3: Ingeniería de Diseño
+    ======================================== -->
+    <section class="servicio-row" id="programacion-plc">
+        <div class="servicio-content">
+            <h2 class="servicio-title">Ingeniería de Diseño</h2>
+            <p class="servicio-description">
+                Desarrollamos ingeniería de diseño orientada a soluciones industriales confiables, seguras y eficientes, abarcando desde la conceptualización hasta el detalle técnico para la correcta ejecución de proyectos.
+            </p>
+            <ul class="servicio-list">
+                <li>Ingeniería conceptual, básica y de detalle</li>
+                <li>Diseño mecánico, eléctrico e instrumental</li>
+                <li>Elaboración de planos y especificaciones técnicas</li>
+                <li>Cumplimiento de normas y estándares internacionales</li>
+            </ul>
+            <a href="contacto.html" class="servicio-btn">Solicitar Cotización</a>
+        </div>
+        <div class="servicio-image">
+            <img src="https://static.vecteezy.com/system/resources/previews/007/359/569/non_2x/architect-engineer-design-working-on-blueprint-planning-concept-construction-concept-free-photo.JPG" alt="Programación de PLCs">
+        </div>
+    </section>
+
+    <!-- ========================================
+         SERVICIO 4: Proyectos IoT Industriales
+    ======================================== -->
+    <section class="servicio-row reverse" id="sistemas-scada">
+        <div class="servicio-content">
+            <h2 class="servicio-title">Proyectos IoT Industriales</h2>
+            <p class="servicio-description">
+                Implementamos soluciones IoT industriales que permiten la digitalización, monitoreo remoto y análisis de datos en tiempo real, facilitando la toma de decisiones y el mantenimiento predictivo.
+            </p>
+            <ul class="servicio-list">
+                <li>Monitoreo remoto de variables de proceso</li>
+                <li>Integración de sensores y dispositivos inteligentes</li>
+                <li>Plataformas de visualización y análisis de datos</li>
+                <li>Soluciones de mantenimiento predictivo</li>
+            </ul>
+            <a href="contacto.html" class="servicio-btn">Ver Proyectos</a>
+        </div>
+        <div class="servicio-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNJQUeyPUH52-kGJsgl6DlVd2A8kfy25semw&s" alt="Sistemas SCADA">
+        </div>
+    </section>
+
+    <!-- ========================================
+         SERVICIO 5: Oil & Gas
+    ======================================== -->
+    <section class="servicio-row" id="diseno-planos">
+        <div class="servicio-content">
+            <h2 class="servicio-title">Diseño Técnico de Sistemas Eléctricos y Electrónicos</h2>
+            <p class="servicio-description">
+                Ofrecemos servicios especializados para la industria Oil & Gas, enfocados en la automatización, control y optimización de instalaciones, cumpliendo con altos estándares de seguridad y confiabilidad operativa.
+                <li>Automatización de procesos Oil & Gas</li>
+                <li>Sistemas de instrumentación y control</li>
+                <li>Cumplimiento de normativas y estándares del sector</li>
+                <li>Optimización y confiabilidad operativa</li>
+            </ul>
+            <a href="contacto.html" class="servicio-btn">Solicitar Diseño</a>
+        </div>
+        <div class="servicio-image">
+            <img src="https://statics.forbesargentina.com/2021/08/610ad414b9ecc.jpg" alt="Diseño de Planos">
+        </div>
+    </section>
+
+    <!-- ========================================
+         SERVICIO 6: Modelado 3D Industrial
+    ======================================== -->
+    <section class="servicio-row reverse" id="integracion-energetica">
+        <div class="servicio-content">
+            <h2 class="servicio-title">Modelado 3D Industrial</h2>
+            <p class="servicio-description">
+                Desarrollamos modelos 3D industriales que facilitan la visualización, análisis y planificación de proyectos, reduciendo errores y optimizando tiempos de diseño e implementación.
+            </p>
+            <ul class="servicio-list">
+                <li>Modelado 3D de equipos e instalaciones</li>
+                <li>Simulación y validación de diseños</li>
+                <li>Integración con ingeniería de detalle</li>
+                <li>Soporte para fabricación y montaje</li>
+            </ul>
+            <a href="contacto.html" class="servicio-btn">Más Información</a>
+        </div>
+        <div class="servicio-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRUMLUAVcvEzsZh8f2Tq4yog1qTig4r6SOA&s" alt="Gestión Energética">
+        </div>
+    </section>
+
+    <!-- ========================================
+         SERVICIO 7: Puesta en Marcha de Instalaciones Industriales
+    ======================================== -->
+    <section class="servicio-row" id="calibracion-sensores">
+        <div class="servicio-content">
+            <h2 class="servicio-title">Puesta en Marcha de Instalaciones Industriales</h2>
+            <p class="servicio-description">
+                Acompañamos a nuestros clientes en la puesta en marcha de instalaciones industriales, asegurando que los sistemas operen correctamente, de forma segura y conforme a los objetivos del proyecto.
+            </p>
+            <ul class="servicio-list">
+                <li>Comisionamiento de equipos y sistemas</li>
+                <li>Pruebas funcionales y de rendimiento</li>
+                <li>Ajuste y calibración de instrumentos</li>
+                <li>Capacitación operativa al personal</li>
+            </ul>
+            <a href="contacto.html" class="servicio-btn">Asesoría Gratuita</a>
+        </div>
+        <div class="servicio-image">
+            <img src="https://media.licdn.com/dms/image/v2/D4D12AQGHuHvPV2cHXA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693819574047?e=2147483647&v=beta&t=TT9RUbR3Magfi3Pus4wYnq2YbWzyReBGFV0b_9-fFmA" alt="Sensores e Instrumentación">
+        </div>
+    </section>
+ <!-- ========================================
+         SERVICIO 8: Integración de Maquinaria Industrial
+    ======================================== -->
+    <section class="servicio-row reverse" id="integracion-energetica">
+        <div class="servicio-content">
+            <h2 class="servicio-title">Integración de Maquinaria Industrial</h2>
+            <p class="servicio-description">
+                Integramos maquinaria industrial nueva o existente dentro de líneas de producción, garantizando compatibilidad, eficiencia operativa y comunicación efectiva entre sistemas.
+            </p>
+            <ul class="servicio-list">
+                <li>Integración de maquinaria y líneas de producción</li>
+                <li>Comunicación entre equipos y sistemas de control</li>
+                <li>Adaptación a procesos existentes</li>
+                <li>Optimización del flujo productivo</li>
+            </ul>
+            <a href="contacto.html" class="servicio-btn">Más Información</a>
+        </div>
+        <div class="servicio-image">
+            <img src="https://www.azumuta.com/wp-content/uploads/2024/05/industry-machinery-industrial-equipment-scaled-e1727360748458.jpeg" alt="Gestión Energética">
+        </div>
+    </section>
+
+    <!-- ========================================
+         CTA FINAL
+    ======================================== -->
+    <section class="cta-section">
+        <h2>¿Tienes un proyecto en mente?</h2>
+        <p>Contáctanos y nuestro equipo de ingenieros te brindará la mejor solución para tu necesidad.</p>
+        <a href="contacto.html" class="servicio-btn">Solicitar Asesoría Gratuita</a>
+    </section>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script src="footer.js"></script>
+    <script src="whatsapp.js"></script>
+
+    <script>
+        // Animación de entrada al hacer scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.servicio-row').forEach(row => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateY(30px)';
+            row.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(row);
+        });
+
+        // Activar primer elemento visible
+        setTimeout(() => {
+            document.querySelectorAll('.servicio-row').forEach(row => {
+                const rect = row.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    row.style.opacity = '1';
+                    row.style.transform = 'translateY(0)';
+                }
+            });
+        }, 100);
+    </script>
+</body>
+</html>
