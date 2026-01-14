@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Válvulas y Actuadores</title>
-    <meta name="description" content="Suministro de válvulas y actuadores industriales según requerimiento técnico.">
+    <title>Productos - AELNG Solutions</title>
+    <meta name="description" content="Catálogo de productos: Repuestos de automatización, instrumentación y control de procesos industriales.">
     <link rel="stylesheet" href="styles.css">
     
     <style>
@@ -173,6 +173,62 @@
         .catalogo-section {
             padding: 30px 20px 60px;
             background: #ffffff;
+        }
+        
+        /* Pestañas de Categorías */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .category-tab {
+            background: #f5f5f5;
+            color: #333333;
+            padding: 16px 40px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .category-tab:hover {
+            background: #e8f4f8;
+            border-color: #0099dd;
+            color: #0099dd;
+        }
+        
+        .category-tab.active {
+            background: #0099dd;
+            color: #ffffff;
+            border-color: #0099dd;
+            box-shadow: 0 4px 15px rgba(0, 153, 221, 0.3);
+        }
+        
+        /* Contenedor de contenido por categoría */
+        .category-content {
+            display: none;
+        }
+        
+        .category-content.active {
+            display: block;
+        }
+        
+        /* Título de categoría */
+        .category-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #0099dd;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
         
         .productos-grid {
@@ -402,13 +458,13 @@
         <!-- HERO - PORTADA -->
         <section class="hero-valvulas">
             <div class="hero-content">
-                <h1>Válvulas y Actuadores</h1>
+                <h1>Nuestros Productos</h1>
             </div>
         </section>
         
         <!-- DESCRIPCIÓN -->
         <section class="hero-description">
-            <p>En AELNG Solutions ofrecemos soluciones integrales en válvulas y actuadores para sus procesos, incluyendo una amplia gama de válvulas de control, bola, mariposa, compuerta, check y guillotina, así como actuadores neumáticos y eléctricos, todos de alta precisión, confiables y adaptados a las exigencias de la industria, garantizando eficiencia operativa y resultados consistentes.</p>
+            <p>Ofrecemos una amplia gama de productos organizados en dos categorías principales: Repuestos de automatización y control industrial, e Instrumentación para medición y control de procesos. Todos nuestros productos son de alta calidad, confiables y adaptados a las exigencias de la industria moderna.</p>
         </section>
         
         <!-- NUESTRAS REPRESENTADAS -->
@@ -462,195 +518,215 @@
         
         <!-- CATÁLOGO DE PRODUCTOS -->
         <section class="catalogo-section">
-            <div class="productos-grid">
-                
-                <!-- SENSORES-->
-                <div class="producto-item">
-                    <div class="producto-inner">
-                        <div class="producto-front">
-                            <div class="producto-img">
-                                <img src="https://sensores-de-medida.es/wp-content/uploads/2017/08/sensor_de_presion_industrial_aep_tp3.jpg" alt="Sensor">
+            <!-- Pestañas de Categorías -->
+            <div class="category-tabs">
+                <button class="category-tab active" onclick="showCategory('repuestos')">Repuestos</button>
+                <button class="category-tab" onclick="showCategory('instrumentacion')">Instrumentación</button>
+            </div>
+            
+            <!-- CATEGORÍA: REPUESTOS -->
+            <div id="repuestos" class="category-content active">
+                <h2 class="category-title">Repuestos - Automatización y Control</h2>
+                <div class="productos-grid">
+                    
+                    <!-- PLCs(Controladores Lógicos Programables) -->
+                    <div class="producto-item">
+                        <div class="producto-inner">
+                            <div class="producto-front">
+                                <div class="producto-img">
+                                    <img src="https://www.eaton.com/content/dam/eaton/products/industrialcontrols-drives-automation-sensors/en-globalprime/programmable-logic-controllers-(plc)/ec4p-programmable-logic-controllers/eaton-ec4p-compact-plc-with-display-1000x1000.jpg" alt="PLCs">
+                                </div>
+                                <h3>PLCs</h3>
                             </div>
-                            <h3>SENSORES</h3>
-                        </div>
-                        <div class="producto-back">
-                            <div class="info-card">
-                                <h3>Sensores</h3>
-                                <p>Aplicaciones: Dispositivos que miden variables como temperatura, presión o nivel y envían datos para controlar y optimizar procesos.</p>
-                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- PLCs(Controladores Lógicos Programables) -->
-                <div class="producto-item">
-                    <div class="producto-inner">
-                        <div class="producto-front">
-                            <div class="producto-img">
-                                <img src="https://www.eaton.com/content/dam/eaton/products/industrialcontrols-drives-automation-sensors/en-globalprime/programmable-logic-controllers-(plc)/ec4p-programmable-logic-controllers/eaton-ec4p-compact-plc-with-display-1000x1000.jpg" alt="PLCs">
-                            </div>
-                            <h3>PLCs(Controladores Lógicos Programables)</h3>
-                        </div>
-                        <div class="producto-back">
-                            <div class="info-card">
-                                <h3>PLCs(Controladores Lógicos Programables)</h3>
-                                <p>Aplicaciones: Equipos industriales programables que controlan y automatizan procesos y maquinaria de forma segura y confiable.</p>
-                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            <div class="producto-back">
+                                <div class="info-card">
+                                    <h3>PLCs (Controladores Lógicos Programables)</h3>
+                                    <p>Equipos industriales programables que controlan y automatizan procesos y maquinaria de forma segura y confiable.</p>
+                                    <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- HMI y SCADA -->
-                <div class="producto-item">
-                    <div class="producto-inner">
-                        <div class="producto-front">
-                            <div class="producto-img">
-                                <img src="https://instrumcontrol.com/wp-content/uploads/2021/12/CP600-1024x737.jpg" alt="HIM y SCADA">
-                            </div>
-                            <h3>HMI y SCADA</h3>
-                        </div>
-                        <div class="producto-back">
-                            <div class="info-card">
+                    
+                    <!-- HMI y SCADA -->
+                    <div class="producto-item">
+                        <div class="producto-inner">
+                            <div class="producto-front">
+                                <div class="producto-img">
+                                    <img src="https://instrumcontrol.com/wp-content/uploads/2021/12/CP600-1024x737.jpg" alt="HMI y SCADA">
+                                </div>
                                 <h3>HMI y SCADA</h3>
-                                <p>HMI: interfaz que permite al operador visualizar y controlar procesos en tiempo real. SCADA: sistema que supervisa, controla y registra datos de procesos industriales de forma centralizada.</p>
-                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            </div>
+                            <div class="producto-back">
+                                <div class="info-card">
+                                    <h3>HMI y SCADA</h3>
+                                    <p>HMI: interfaz que permite al operador visualizar y controlar procesos. SCADA: sistema que supervisa, controla y registra datos de procesos industriales.</p>
+                                    <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- REDES INDUSTRIALES -->
+                    <div class="producto-item">
+                        <div class="producto-inner">
+                            <div class="producto-front">
+                                <div class="producto-img">
+                                    <img src="https://cdn.prod.website-files.com/608fe4335740ea3362292486/679c96e61c4efa9454d98f8e_64410c64b2af2d051f5e203e_RedesIndustriales.jpeg" alt="Redes Industriales">
+                                </div>
+                                <h3>REDES INDUSTRIALES</h3>
+                            </div>
+                            <div class="producto-back">
+                                <div class="info-card">
+                                    <h3>Redes Industriales</h3>
+                                    <p>Sistemas de comunicación que conectan PLCs, sensores, HMIs y SCADA para intercambiar datos en tiempo real.</p>
+                                    <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Controladores-->
+                    <div class="producto-item">
+                        <div class="producto-inner">
+                            <div class="producto-front">
+                                <div class="producto-img">
+                                    <img src="https://www.danfoss.com/media/1349/compressors-and-condenser-controllers-danfoss.jpg?anchor=center&mode=crop&width=1050" alt="Controladores">
+                                </div>
+                                <h3>CONTROLADORES</h3>
+                            </div>
+                            <div class="producto-back">
+                                <div class="info-card">
+                                    <h3>Controladores</h3>
+                                    <p>Dispositivos que procesan señales y toman decisiones para regular y automatizar procesos industriales.</p>
+                                    <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- VARIADORES DE FRECUENCIA-->
+                    <div class="producto-item">
+                        <div class="producto-inner">
+                            <div class="producto-front">
+                                <div class="producto-img">
+                                    <img src="https://sdindustrial.com.mx/wp-content/uploads/2021/08/variadores-de-frecuencia.jpeg" alt="VARIADORES DE FRECUENCIA">
+                                </div>
+                                <h3>VARIADORES DE FRECUENCIA</h3>
+                            </div>  
+                            <div class="producto-back">
+                                <div class="info-card">
+                                    <h3>Variadores de frecuencia</h3>
+                                    <p>Equipos que regulan la velocidad y el par de motores eléctricos ajustando la frecuencia y el voltaje.</p>
+                                    <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- EQUIPOS IOT- LORAWAN -->
+                    <div class="producto-item">
+                        <div class="producto-inner">
+                            <div class="producto-front">
+                                <div class="producto-img">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJxLGzNVyAOdlZGFMWjhsspvel_TdJm1V4xA&s" alt="LORAWAN">
+                                </div>
+                                <h3>EQUIPOS IOT/LORAWAN</h3>
+                            </div>
+                            <div class="producto-back">
+                                <div class="info-card">
+                                    <h3>Equipos IoT / LoRaWAN</h3>
+                                    <p>Dispositivos que capturan datos y los transmiten a larga distancia con bajo consumo de energía para monitoreo y control remoto.</p>
+                                    <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Partes mecánicas y eléctricas -->
+                    <div class="producto-item">
+                        <div class="producto-inner">
+                            <div class="producto-front">
+                                <div class="producto-img">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBoQmVR2331i4qbOn6JFEWw6CyXMZJdJRE7w&s" alt="Mecánicas">
+                                </div>
+                                <h3>PARTES MECÁNICAS Y ELÉCTRICAS</h3>
+                            </div>
+                            <div class="producto-back">
+                                <div class="info-card">
+                                    <h3>Partes mecánicas y eléctricas</h3>
+                                    <p>Componentes que permiten el movimiento, la transmisión de energía y el control eléctrico de sistemas y maquinaria industrial.</p>
+                                    <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
-                
-                <!-- REDES INDUSTRIALES -->
-                <div class="producto-item">
-                    <div class="producto-inner">
-                        <div class="producto-front">
-                            <div class="producto-img">
-                                <img src="https://cdn.prod.website-files.com/608fe4335740ea3362292486/679c96e61c4efa9454d98f8e_64410c64b2af2d051f5e203e_RedesIndustriales.jpeg" alt="Redes Industriales">
+            </div>
+            
+            <!-- CATEGORÍA: INSTRUMENTACIÓN -->
+            <div id="instrumentacion" class="category-content">
+                <h2 class="category-title">Instrumentación - Medición y Control</h2>
+                <div class="productos-grid">
+                    
+                    <!-- SENSORES-->
+                    <div class="producto-item">
+                        <div class="producto-inner">
+                            <div class="producto-front">
+                                <div class="producto-img">
+                                    <img src="https://sensores-de-medida.es/wp-content/uploads/2017/08/sensor_de_presion_industrial_aep_tp3.jpg" alt="Sensor">
+                                </div>
+                                <h3>SENSORES</h3>
                             </div>
-                            <h3>REDES INDUSTRIALES </h3>
-                        </div>
-                        <div class="producto-back">
-                            <div class="info-card">
-                                <h3>Redes Industriales</h3>
-                                <p>Aplicaciones: Sistemas de comunicación que conectan PLCs, sensores, HMIs y SCADA para intercambiar datos en tiempo real.</p>
-                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Instrumentación-->
-                <div class="producto-item">
-                    <div class="producto-inner">
-                        <div class="producto-front">
-                            <div class="producto-img">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzlRobpQYS7hVUdgZRAKcZD3zYRcW3mgqciQ&s" alt="Instrumentación">
-                            </div>
-                            <h3>INSTRUMENTACIÓN</h3>
-                        </div>
-                        <div class="producto-back">
-                            <div class="info-card">
-                                <h3>Instrumentación</h3>
-                                <p>Aplicaciones: Conjunto de dispositivos y técnicas para medir, controlar y monitorear variables de procesos industriales.</p>
-                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            <div class="producto-back">
+                                <div class="info-card">
+                                    <h3>Sensores</h3>
+                                    <p>Dispositivos que miden variables como temperatura, presión o nivel y envían datos para controlar y optimizar procesos.</p>
+                                    <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Partes mecánicas y eléctricas -->
-                <div class="producto-item">
-                    <div class="producto-inner">
-                        <div class="producto-front">
-                            <div class="producto-img">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBoQmVR2331i4qbOn6JFEWw6CyXMZJdJRE7w&s" alt="Mecánicas">
+                    
+                    <!-- Instrumentación-->
+                    <div class="producto-item">
+                        <div class="producto-inner">
+                            <div class="producto-front">
+                                <div class="producto-img">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzlRobpQYS7hVUdgZRAKcZD3zYRcW3mgqciQ&s" alt="Instrumentación">
+                                </div>
+                                <h3>INSTRUMENTACIÓN</h3>
                             </div>
-                            <h3>PARTES MECÁNICAS Y ELÉCTRICAS</h3>
-                        </div>
-                        <div class="producto-back">
-                            <div class="info-card">
-                                <h3>Partes mecánicas y eléctricas</h3>
-                                <p>Aplicaciones: Componentes que permiten el movimiento, la transmisión de energía y el control eléctrico de sistemas y maquinaria industrial.</p>
-                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Controladores-->
-                <div class="producto-item">
-                    <div class="producto-inner">
-                        <div class="producto-front">
-                            <div class="producto-img">
-                                <img src="https://www.danfoss.com/media/1349/compressors-and-condenser-controllers-danfoss.jpg?anchor=center&mode=crop&width=1050" alt="Controladores">
-                            </div>
-                            <h3>CONTROLADORES</h3>
-                        </div>
-                        <div class="producto-back">
-                            <div class="info-card">
-                                <h3>Controladores</h3>
-                                <p>Aplicaciones: Dispositivos que procesan señales y toman decisiones para regular y automatizar procesos industriales.</p>
-                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            <div class="producto-back">
+                                <div class="info-card">
+                                    <h3>Instrumentación</h3>
+                                    <p>Conjunto de dispositivos y técnicas para medir, controlar y monitorear variables de procesos industriales.</p>
+                                    <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Equipos de medición -->
-                <div class="producto-item">
-                    <div class="producto-inner">
-                        <div class="producto-front">
-                            <div class="producto-img">
-                                <img src="https://globaltec.com.pe/img/contenido/aparatos-de-medicion524323796.jpg" alt="Equipos de medición">
+                    
+                    <!-- Equipos de medición -->
+                    <div class="producto-item">
+                        <div class="producto-inner">
+                            <div class="producto-front">
+                                <div class="producto-img">
+                                    <img src="https://globaltec.com.pe/img/contenido/aparatos-de-medicion524323796.jpg" alt="Equipos de medición">
+                                </div>
+                                <h3>EQUIPOS DE MEDICIÓN</h3>
                             </div>
-                            <h3>EQUIPOS DE MEDICIÓN</h3>
-                        </div>
-                        <div class="producto-back">
-                            <div class="info-card">
-                                <h3>Equipos de medición</h3>
-                                <p>Aplicaciones: Instrumentos que miden y verifican magnitudes físicas o eléctricas para control y diagnóstico en procesos industriales.</p>
-                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- EQUIPOS IOT- LORAWAN -->
-                <div class="producto-item">
-                    <div class="producto-inner">
-                        <div class="producto-front">
-                            <div class="producto-img">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJxLGzNVyAOdlZGFMWjhsspvel_TdJm1V4xA&s" alt="LORAWAN">
-                            </div>
-                            <h3>EQUIPOS IOT/LORAWAN</h3>
-                        </div>
-                        <div class="producto-back">
-                            <div class="info-card">
-                                <h3>Equipos Iot/ LoraWan</h3>
-                                <p>Aplicaciones: Dispositivos que capturan datos y los transmiten a larga distancia con bajo consumo de energía para monitoreo y control remoto.</p>
-                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                            <div class="producto-back">
+                                <div class="info-card">
+                                    <h3>Equipos de medición</h3>
+                                    <p>Instrumentos que miden y verifican magnitudes físicas o eléctricas para control y diagnóstico en procesos industriales.</p>
+                                    <a href="contacto.html" class="ver-mas-btn">Ver más</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- VARIADORES DE FRECUENCIA-->
-                <div class="producto-item">
-                    <div class="producto-inner">
-                        <div class="producto-front">
-                            <div class="producto-img">
-                                <img src="https://sdindustrial.com.mx/wp-content/uploads/2021/08/variadores-de-frecuencia.jpeg" alt="VARIADORES DE FRECUENCIA">
-                            </div>
-                            <h3>VARIADORES DE FRECUENCIA</h3>
-                        </div>  
-                        <div class="producto-back">
-                            <div class="info-card">
-                                <h3>Variasdores de frecuencia</h3>
-                                <p>Aplicaciones: Equipos que regulan la velocidad y el par de motores eléctricos ajustando la frecuencia y el voltaje.</p>
-                                <a href="contacto.html" class="ver-mas-btn">Ver más</a>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -704,6 +780,35 @@
         setInterval(() => {
             nextSlide();
         }, 5000);
+        
+        // ========================================
+        // CAMBIO DE CATEGORÍAS - TABS
+        // ========================================
+        function showCategory(categoryId) {
+            // Ocultar todos los contenidos
+            const contents = document.querySelectorAll('.category-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Desactivar todos los tabs
+            const tabs = document.querySelectorAll('.category-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Mostrar el contenido seleccionado
+            document.getElementById(categoryId).classList.add('active');
+            
+            // Activar el tab seleccionado
+            event.target.classList.add('active');
+            
+            // Scroll suave hacia los productos
+            document.querySelector('.category-content.active').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     </script>
     
     <script src="script.js"></script>
