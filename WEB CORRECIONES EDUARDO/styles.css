@@ -422,12 +422,100 @@ body.light-mode .services-carousel-section {
     background: var(--bg-color);
 }
 
-/* Hero ancho completo */
+/* ========================================
+   FIX PARA HERO EN iOS SAFARI
+   Agregar/reemplazar en styles.css
+   ======================================== */
+
+/* Hero con imagen de fondo - CORREGIDO para iOS */
 .hero-with-bg {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    width: 100% !important;
-    margin: 0 !important;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* CAMBIADO de 'fixed' a 'scroll' para compatibilidad iOS */
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 40px 100px;
+    overflow: hidden;
+    /* Fix adicional para iOS */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* Solo en desktop (no móviles) permitimos el efecto parallax */
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+    .hero-with-bg {
+        background-attachment: fixed; /* Parallax solo en desktop */
+    }
+}
+
+/* Asegurar que en móviles NO haya parallax */
+@media (max-width: 1024px), (hover: none) {
+    .hero-with-bg {
+        background-attachment: scroll !important;
+        /* Ajuste adicional de altura para móviles */
+        min-height: 60vh;
+    }
+}
+
+/* Fix específico para iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .hero-with-bg {
+        background-attachment: scroll !important;
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;
+    }
+}
+
+/* Overlay mejorado con gradiente - mantener igual */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg, 
+        rgba(0, 0, 0, 0.40) 0%, 
+        rgba(0, 0, 0, 0.20) 50%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+    z-index: 1;
+}
+
+/* Modo claro - sin overlay */
+body.light-mode .hero-overlay {
+    background: transparent !important;
+    opacity: 0 !important;
+}
+
+/* Contenido del hero */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Responsive móviles */
+@media (max-width: 768px) {
+    .hero-with-bg {
+        min-height: 50vh;
+        padding: 120px 30px 80px;
+        background-position: center center; /* Centrar bien en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-with-bg {
+        min-height: 45vh;
+        padding: 100px 20px 60px;
+    }
 }
 
 .hero-content {
@@ -1402,7 +1490,7 @@ nav > a.active {
 }
 
 .hero-description {
-    font-size: clamp(16px, 2vw, 20px);
+    font-size: clamp(18px, 2vw, 28px);
     color: var(--text-secondary);
     max-width: 700px;
     margin-bottom: 60px;
@@ -2062,6 +2150,8 @@ body.light-mode .whatsapp-panel-expanded {
 /* NUEVAS CARDS */
 .tech-bento-card:nth-child(11) { grid-column: span 4; grid-row: span 2; }
 .tech-bento-card:nth-child(12) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(13) { grid-column: span 4; grid-row: span 2; }
+.tech-bento-card:nth-child(14) { grid-column: span 4; grid-row: span 2; }
 
 /* Tarjeta con imagen de fondo */
 .tech-card-with-image {

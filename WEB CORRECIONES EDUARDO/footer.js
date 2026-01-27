@@ -17,16 +17,7 @@ function loadFooter() {
                         <p class="fortytec-tagline">Transformamos operaciones industriales con automatización, ingeniería y soluciones digitales de vanguardia</p>
                     </div>
                     
-                    <!-- PRODUCTOS aquí -->
-                    <div class="fortytec-section">
-                        <h4 class="fortytec-section-title">Productos:</h4>
-                        <ul class="fortytec-list">
-                            <li><a href="productos.html">Válvulas y Actuadores</a></li>
-                            <li><a href="productos.html">Instrumentación y Automatización</a></li>
-                            <li><a href="productos.html">Tuberías, Fittings & Piping</a></li>
-                            <li><a href="productos.html">Neumática e Hidráulica</a></li>
-                        </ul>
-                    </div>
+
                 </div>
                 
                 <!-- Columna 2: ÁREAS DE ESPECIALIZACIÓN -->

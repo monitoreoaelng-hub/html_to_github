@@ -1,7 +1,6 @@
 // ==========================================
 // ARCHIVO: menu.js
-// Guardar en la raíz del proyecto
-// Versión: Dropdown en hover + Click directo a página + SUBMENÚS MULTINIVEL
+// Versión: 2 CATEGORÍAS + HMI
 // ==========================================
 
 // Función que carga el menú automáticamente
@@ -33,11 +32,10 @@ function loadMenu() {
                     <a href="servicios.html">Puesta en Marcha de Instalaciones Industriales</a>
                     <a href="servicios.html">Modelado 3D Industrial</a>
                     <a href="servicios.html">Integración de Maquinaria Industrial</a>
-
                 </div>
             </div>
             
-            <!-- Dropdown PRODUCTOS con SUBMENÚS MULTINIVEL -->
+            <!-- Dropdown PRODUCTOS - 2 CATEGORÍAS + HMI -->
             <div class="nav-dropdown">
                 <a href="productos.html" class="nav-link">
                     Productos
@@ -46,51 +44,32 @@ function loadMenu() {
                     </svg>
                 </a>
                 <div class="dropdown-menu">
-                    <!-- REPUESTOS Y COMPONENTES -->
-                    <div class="dropdown-item-with-submenu">
-                        <a href="#repuestos" class="dropdown-item-link">
-                            <span>Repuestos y Componentes</span>
-                            <svg class="submenu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </a>
-                        <div class="submenu-level-2">
-                            <a href="productos.html#plcs">PLCs</a>
-                            <a href="productos.html#hmi-scada">HMI y SCADA</a>
-                            <a href="productos.html#controladores">Controladores Programables</a>
-                            <a href="productos.html#modulos">Módulos de E/S</a>
-                            <a href="productos.html#redes">Redes Industriales</a>
-                            <a href="productos.html#fuentes">Fuentes de Alimentación</a>
-                        </div>
-                    </div>
                     
-                    <div class="dropdown-divider"></div>
-                    
-                    <!-- INSTRUMENTACIÓN Y MEDICIÓN -->
+                    <!-- INSTRUMENTACIÓN Y MEDIDA -->
                     <div class="dropdown-item-with-submenu">
                         <a href="#instrumentacion" class="dropdown-item-link">
-                            <span>Instrumentación y Medición</span>
+                            <span>Instrumentación y Medida</span>
                             <svg class="submenu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="9 18 15 12 9 6"></polyline>
                             </svg>
                         </a>
                         <div class="submenu-level-2">
                             <a href="productos.html#sensores">Sensores</a>
-                            <a href="productos.html#valvulas-control">Válvulas de Control</a>
-                            <a href="productos.html#actuadores">Actuadores</a>
-                            <a href="productos.html#valvulas-manuales">Válvulas Manuales</a>
-                            <a href="productos.html#medidores">Medidores de Flujo</a>
                             <a href="productos.html#transmisores">Transmisores</a>
+                            <a href="productos.html#medidores">Medidores de Flujo</a>
                             <a href="productos.html#manometros">Manómetros</a>
+                            <a href="productos.html#valvulas-control">Válvulas de Control</a>
+                            <a href="productos.html#valvulas-manuales">Válvulas Manuales</a>
+                            <a href="productos.html#actuadores">Actuadores</a>
                         </div>
                     </div>
                     
                     <div class="dropdown-divider"></div>
                     
-                    <!-- VARIADORES Y POTENCIA -->
+                    <!-- VARIADORES Y ACCIONAMIENTOS -->
                     <div class="dropdown-item-with-submenu">
                         <a href="#variadores" class="dropdown-item-link">
-                            <span>Variadores y Potencia</span>
+                            <span>Variadores y Accionamientos</span>
                             <svg class="submenu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="9 18 15 12 9 6"></polyline>
                             </svg>
@@ -100,31 +79,16 @@ function loadMenu() {
                             <a href="productos.html#arrancadores">Arrancadores Suaves</a>
                             <a href="productos.html#servomotores">Servomotores y Drivers</a>
                             <a href="productos.html#contactores">Contactores y Relés</a>
+                            <a href="productos.html#plcs">PLCs</a>
+                            <a href="productos.html#hmi-scada">HMI y SCADA</a>
+                            <a href="productos.html#controladores">Controladores</a>
                         </div>
                     </div>
                     
-                    <div class="dropdown-divider"></div>
-                    
-                    <!-- CONECTIVIDAD IoT -->
-                    <div class="dropdown-item-with-submenu">
-                        <a href="#iot" class="dropdown-item-link">
-                            <span>Conectividad IoT</span>
-                            <span class="category-badge-menu">NUEVO</span>
-                            <svg class="submenu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </a>
-                        <div class="submenu-level-2">
-                            <a href="productos.html#iot-lorawan">Equipos IoT / LoRaWAN</a>
-                            <a href="productos.html#gateways">Gateways Industriales</a>
-                            <a href="productos.html#modulos-comunicacion">Módulos de Comunicación</a>
-                            <a href="productos.html#monitoreo">Sistemas de Monitoreo Remoto</a>
-                        </div>
-                    </div>
                 </div>
             </div>
             
-            <a href="sectores.html">Sectores</a>
+           
             <a href="blog.html">Blog</a>
             <a href="proyectos.html">Proyectos</a>
             <a href="contacto.html">Contacto</a>
@@ -175,77 +139,3 @@ document.addEventListener('DOMContentLoaded', loadMenu);
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { loadMenu, initializeMenu };
 }
-
-/* ========================================
-   FUNCIONALIDAD ADICIONAL PARA MENÚ MULTINIVEL
-   Agregar este código al final de tu archivo menu.js
-   o después de la función initializeMenu()
-   ======================================== */
-
-// Función para manejar submenús en móviles
-function initSubmenusMobile() {
-    // Solo en dispositivos móviles
-    if (window.innerWidth <= 968) {
-        const itemsConSubmenu = document.querySelectorAll('.dropdown-item-with-submenu');
-        
-        itemsConSubmenu.forEach(item => {
-            const link = item.querySelector('.dropdown-item-link');
-            
-            if (link) {
-                // Remover eventos anteriores para evitar duplicados
-                link.removeEventListener('click', handleSubmenuClick);
-                
-                // Agregar nuevo evento
-                link.addEventListener('click', handleSubmenuClick);
-            }
-        });
-    }
-}
-
-// Manejador de clicks en items con submenu
-function handleSubmenuClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const parentItem = e.currentTarget.closest('.dropdown-item-with-submenu');
-    
-    if (parentItem) {
-        // Toggle del submenu
-        parentItem.classList.toggle('active');
-        
-        // Cerrar otros submenus abiertos
-        const allItems = document.querySelectorAll('.dropdown-item-with-submenu');
-        allItems.forEach(item => {
-            if (item !== parentItem) {
-                item.classList.remove('active');
-            }
-        });
-    }
-}
-
-// Inicializar al cargar el DOM
-document.addEventListener('DOMContentLoaded', () => {
-    // Esperar a que el menú se cargue
-    setTimeout(() => {
-        initSubmenusMobile();
-    }, 100);
-});
-
-// Re-inicializar al cambiar tamaño de ventana
-let resizeTimeout;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        // Cerrar todos los submenus al cambiar de móvil a desktop
-        if (window.innerWidth > 968) {
-            const allItems = document.querySelectorAll('.dropdown-item-with-submenu');
-            allItems.forEach(item => {
-                item.classList.remove('active');
-            });
-        } else {
-            initSubmenusMobile();
-        }
-    }, 250);
-});
-
-console.log('Funcionalidad de submenús multinivel inicializada');
