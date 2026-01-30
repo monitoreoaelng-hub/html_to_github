@@ -34,7 +34,13 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// Configuración del correo
+// ========================================
+// CONFIGURACIÓN SMTP TITAN EMAIL
+// ========================================
+$smtp_host = 'smtp.titan.email';
+$smtp_port = 587; // Puerto TLS
+$smtp_user = 'jpardo@aelngsolutions.com'; // Tu correo de Titan
+$smtp_pass = '&[PedT\'Gi*{g9:V'; // IMPORTANTE: Cambia esto por tu contraseña real
 $para = 'jpardo@aelngsolutions.com';
 $asunto = 'Nuevo mensaje de contacto - AELNG Solutions';
 
@@ -97,15 +103,83 @@ $contenido_html = "
 </html>
 ";
 
-// Headers del correo
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-$headers .= "From: AELNG Web <noreply@aelngsolutions.com>" . "\r\n";
-$headers .= "Reply-To: " . $email . "\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
+// Función para enviar correo vía SMTP
+function enviarSMTP($host, $port, $user, $pass, $para, $asunto, $contenido_html, $email_cliente) {
+    $socket = @fsockopen($host, $port, $errno, $errstr, 30);
+    
+    if (!$socket) {
+        return false;
+    }
+    
+    // Leer respuesta del servidor
+    $response = fgets($socket, 515);
+    
+    // EHLO
+    fputs($socket, "EHLO " . $_SERVER['SERVER_NAME'] . "\r\n");
+    $response = fgets($socket, 515);
+    
+    // STARTTLS
+    fputs($socket, "STARTTLS\r\n");
+    $response = fgets($socket, 515);
+    
+    // Habilitar encriptación TLS
+    stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
+    
+    // EHLO después de TLS
+    fputs($socket, "EHLO " . $_SERVER['SERVER_NAME'] . "\r\n");
+    $response = fgets($socket, 515);
+    
+    // AUTH LOGIN
+    fputs($socket, "AUTH LOGIN\r\n");
+    $response = fgets($socket, 515);
+    
+    // Usuario
+    fputs($socket, base64_encode($user) . "\r\n");
+    $response = fgets($socket, 515);
+    
+    // Contraseña
+    fputs($socket, base64_encode($pass) . "\r\n");
+    $response = fgets($socket, 515);
+    
+    if (substr($response, 0, 3) != "235") {
+        fclose($socket);
+        return false;
+    }
+    
+    // MAIL FROM
+    fputs($socket, "MAIL FROM: <" . $user . ">\r\n");
+    $response = fgets($socket, 515);
+    
+    // RCPT TO
+    fputs($socket, "RCPT TO: <" . $para . ">\r\n");
+    $response = fgets($socket, 515);
+    
+    // DATA
+    fputs($socket, "DATA\r\n");
+    $response = fgets($socket, 515);
+    
+    // Headers y contenido
+    $headers = "From: AELNG Solutions <" . $user . ">\r\n";
+    $headers .= "Reply-To: " . $email_cliente . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $headers .= "Subject: " . $asunto . "\r\n";
+    
+    fputs($socket, $headers . "\r\n");
+    fputs($socket, $contenido_html . "\r\n");
+    fputs($socket, ".\r\n");
+    
+    $response = fgets($socket, 515);
+    
+    // QUIT
+    fputs($socket, "QUIT\r\n");
+    fclose($socket);
+    
+    return true;
+}
 
-// Enviar el correo
-if (mail($para, $asunto, $contenido_html, $headers)) {
+// Intentar enviar el correo
+if (enviarSMTP($smtp_host, $smtp_port, $smtp_user, $smtp_pass, $para, $asunto, $contenido_html, $email)) {
     http_response_code(200);
     echo json_encode([
         'success' => true, 
@@ -115,7 +189,7 @@ if (mail($para, $asunto, $contenido_html, $headers)) {
     http_response_code(500);
     echo json_encode([
         'success' => false, 
-        'message' => 'Error al enviar el mensaje. Por favor, intenta nuevamente.'
+        'message' => 'Error al enviar el mensaje. Por favor, intenta nuevamente o contacta directamente.'
     ]);
 }
 ?>
