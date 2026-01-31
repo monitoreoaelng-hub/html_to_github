@@ -1,4 +1,11 @@
 <?php
+// IMPORTANTE: Cambia estas configuraciones
+define('SMTP_HOST', 'smtp.titan.email');
+define('SMTP_PORT', 587);
+define('SMTP_USER', 'jpardo@aelngsolutions.com'); // Tu correo de Titan
+define('SMTP_PASS', '&[PedT\'Gi*{g9:V'); // CAMBIAR POR TU CONTRASEÑA REAL
+define('EMAIL_DESTINO', 'jpardo@aelngsolutions.com'); // Donde recibirás los mensajes
+
 // Configuración de seguridad
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
@@ -33,16 +40,6 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo json_encode(['success' => false, 'message' => 'Email no válido']);
     exit;
 }
-
-// ========================================
-// CONFIGURACIÓN SMTP TITAN EMAIL
-// ========================================
-$smtp_host = 'smtp.titan.email';
-$smtp_port = 587; // Puerto TLS
-$smtp_user = 'jpardo@aelngsolutions.com'; // Tu correo de Titan
-$smtp_pass = '&[PedT\'Gi*{g9:V'; // IMPORTANTE: Cambia esto por tu contraseña real
-$para = 'jpardo@aelngsolutions.com';
-$asunto = 'Nuevo mensaje de contacto - AELNG Solutions';
 
 // Crear el contenido del email en HTML
 $contenido_html = "
@@ -103,83 +100,134 @@ $contenido_html = "
 </html>
 ";
 
-// Función para enviar correo vía SMTP
-function enviarSMTP($host, $port, $user, $pass, $para, $asunto, $contenido_html, $email_cliente) {
-    $socket = @fsockopen($host, $port, $errno, $errstr, 30);
+// Función para enviar email via SMTP
+function enviarEmailSMTP($destinatario, $asunto, $cuerpoHTML, $emailCliente) {
+    $boundary = md5(time());
     
-    if (!$socket) {
-        return false;
+    // Preparar mensaje
+    $mensaje = "Subject: =?UTF-8?B?" . base64_encode($asunto) . "?=\r\n";
+    $mensaje .= "From: AELNG Solutions <" . SMTP_USER . ">\r\n";
+    $mensaje .= "Reply-To: " . $emailCliente . "\r\n";
+    $mensaje .= "MIME-Version: 1.0\r\n";
+    $mensaje .= "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\"\r\n";
+    $mensaje .= "\r\n";
+    $mensaje .= "--" . $boundary . "\r\n";
+    $mensaje .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $mensaje .= "Content-Transfer-Encoding: 8bit\r\n";
+    $mensaje .= "\r\n";
+    $mensaje .= $cuerpoHTML . "\r\n";
+    $mensaje .= "--" . $boundary . "--\r\n";
+    
+    // Conectar al servidor SMTP
+    $smtp = @fsockopen(SMTP_HOST, SMTP_PORT, $errno, $errstr, 30);
+    
+    if (!$smtp) {
+        return ['success' => false, 'error' => "No se pudo conectar: $errstr ($errno)"];
     }
     
-    // Leer respuesta del servidor
-    $response = fgets($socket, 515);
+    // Leer respuesta inicial
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '220') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en respuesta inicial: $response"];
+    }
     
     // EHLO
-    fputs($socket, "EHLO " . $_SERVER['SERVER_NAME'] . "\r\n");
-    $response = fgets($socket, 515);
+    fputs($smtp, "EHLO " . $_SERVER['HTTP_HOST'] . "\r\n");
+    $response = fread($smtp, 2048);
     
     // STARTTLS
-    fputs($socket, "STARTTLS\r\n");
-    $response = fgets($socket, 515);
+    fputs($smtp, "STARTTLS\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '220') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en STARTTLS: $response"];
+    }
     
-    // Habilitar encriptación TLS
-    stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
+    // Activar TLS
+    if (!stream_socket_enable_crypto($smtp, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+        fclose($smtp);
+        return ['success' => false, 'error' => "No se pudo activar TLS"];
+    }
     
     // EHLO después de TLS
-    fputs($socket, "EHLO " . $_SERVER['SERVER_NAME'] . "\r\n");
-    $response = fgets($socket, 515);
+    fputs($smtp, "EHLO " . $_SERVER['HTTP_HOST'] . "\r\n");
+    $response = fread($smtp, 2048);
     
     // AUTH LOGIN
-    fputs($socket, "AUTH LOGIN\r\n");
-    $response = fgets($socket, 515);
+    fputs($smtp, "AUTH LOGIN\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '334') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en AUTH: $response"];
+    }
     
-    // Usuario
-    fputs($socket, base64_encode($user) . "\r\n");
-    $response = fgets($socket, 515);
+    // Enviar usuario
+    fputs($smtp, base64_encode(SMTP_USER) . "\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '334') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en usuario: $response"];
+    }
     
-    // Contraseña
-    fputs($socket, base64_encode($pass) . "\r\n");
-    $response = fgets($socket, 515);
-    
-    if (substr($response, 0, 3) != "235") {
-        fclose($socket);
-        return false;
+    // Enviar contraseña
+    fputs($smtp, base64_encode(SMTP_PASS) . "\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '235') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error de autenticación. Verifica usuario y contraseña"];
     }
     
     // MAIL FROM
-    fputs($socket, "MAIL FROM: <" . $user . ">\r\n");
-    $response = fgets($socket, 515);
+    fputs($smtp, "MAIL FROM: <" . SMTP_USER . ">\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '250') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en MAIL FROM: $response"];
+    }
     
     // RCPT TO
-    fputs($socket, "RCPT TO: <" . $para . ">\r\n");
-    $response = fgets($socket, 515);
+    fputs($smtp, "RCPT TO: <" . $destinatario . ">\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '250') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en RCPT TO: $response"];
+    }
     
     // DATA
-    fputs($socket, "DATA\r\n");
-    $response = fgets($socket, 515);
+    fputs($smtp, "DATA\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '354') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en DATA: $response"];
+    }
     
-    // Headers y contenido
-    $headers = "From: AELNG Solutions <" . $user . ">\r\n";
-    $headers .= "Reply-To: " . $email_cliente . "\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    $headers .= "Subject: " . $asunto . "\r\n";
+    // Enviar mensaje
+    fputs($smtp, $mensaje);
+    fputs($smtp, "\r\n.\r\n");
     
-    fputs($socket, $headers . "\r\n");
-    fputs($socket, $contenido_html . "\r\n");
-    fputs($socket, ".\r\n");
-    
-    $response = fgets($socket, 515);
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '250') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error al enviar: $response"];
+    }
     
     // QUIT
-    fputs($socket, "QUIT\r\n");
-    fclose($socket);
+    fputs($smtp, "QUIT\r\n");
+    fclose($smtp);
     
-    return true;
+    return ['success' => true];
 }
 
 // Intentar enviar el correo
-if (enviarSMTP($smtp_host, $smtp_port, $smtp_user, $smtp_pass, $para, $asunto, $contenido_html, $email)) {
+$resultado = enviarEmailSMTP(
+    EMAIL_DESTINO, 
+    'Nuevo mensaje de contacto - AELNG Solutions',
+    $contenido_html,
+    $email
+);
+
+if ($resultado['success']) {
     http_response_code(200);
     echo json_encode([
         'success' => true, 
@@ -189,7 +237,11 @@ if (enviarSMTP($smtp_host, $smtp_port, $smtp_user, $smtp_pass, $para, $asunto, $
     http_response_code(500);
     echo json_encode([
         'success' => false, 
-        'message' => 'Error al enviar el mensaje. Por favor, intenta nuevamente o contacta directamente.'
+        'message' => 'Error al enviar el mensaje: ' . $resultado['error']
     ]);
 }
 ?>
+
+
+
+

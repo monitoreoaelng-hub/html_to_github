@@ -97,15 +97,19 @@ $contenido_html = "
 </html>
 ";
 
-// Headers del correo
+// Headers del correo - CRÍTICO: usar un correo válido del servidor
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-$headers .= "From: AELNG Web <noreply@aelngsolutions.com>" . "\r\n";
+$headers .= "From: Formulario Web AELNG <formulario@aelngsolutions.com>" . "\r\n";
 $headers .= "Reply-To: " . $email . "\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
+$headers .= "Return-Path: formulario@aelngsolutions.com" . "\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+$headers .= "X-Priority: 3" . "\r\n";
 
 // Enviar el correo
-if (mail($para, $asunto, $contenido_html, $headers)) {
+$enviado = mail($para, $asunto, $contenido_html, $headers);
+
+if ($enviado) {
     http_response_code(200);
     echo json_encode([
         'success' => true, 
