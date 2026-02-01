@@ -1,4 +1,11 @@
 <?php
+// IMPORTANTE: Cambia estas configuraciones
+define('SMTP_HOST', 'smtp.titan.email');
+define('SMTP_PORT', 587);
+define('SMTP_USER', 'jpardo@aelngsolutions.com'); // Tu correo de Titan
+define('SMTP_PASS', '&[PedT\'Gi*{g9:V'); // CAMBIAR POR TU CONTRASEÑA REAL
+define('EMAIL_DESTINO', 'jpardo@aelngsolutions.com'); // Donde recibirás los mensajes
+
 // Configuración de seguridad
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
@@ -34,10 +41,13 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+<<<<<<< HEAD:WEB CORRECIONES EDUARDO/send_contact_old.php
 // Configuración del correo
 $para = 'jpardo@aelngsolutions.com';
 $asunto = 'Nuevo mensaje de contacto - AELNG Solutions';
 
+=======
+>>>>>>> d7aaab743cfb50b7e93a20445ef922e0dd567535:WEB CORRECIONES EDUARDO/send_contact_smtp.php
 // Crear el contenido del email en HTML
 $contenido_html = "
 <!DOCTYPE html>
@@ -97,6 +107,7 @@ $contenido_html = "
 </html>
 ";
 
+<<<<<<< HEAD:WEB CORRECIONES EDUARDO/send_contact_old.php
 // Headers del correo
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
@@ -106,6 +117,136 @@ $headers .= "X-Mailer: PHP/" . phpversion();
 
 // Enviar el correo
 if (mail($para, $asunto, $contenido_html, $headers)) {
+=======
+// Función para enviar email via SMTP
+function enviarEmailSMTP($destinatario, $asunto, $cuerpoHTML, $emailCliente) {
+    $boundary = md5(time());
+    
+    // Preparar mensaje
+    $mensaje = "Subject: =?UTF-8?B?" . base64_encode($asunto) . "?=\r\n";
+    $mensaje .= "From: AELNG Solutions <" . SMTP_USER . ">\r\n";
+    $mensaje .= "Reply-To: " . $emailCliente . "\r\n";
+    $mensaje .= "MIME-Version: 1.0\r\n";
+    $mensaje .= "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\"\r\n";
+    $mensaje .= "\r\n";
+    $mensaje .= "--" . $boundary . "\r\n";
+    $mensaje .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $mensaje .= "Content-Transfer-Encoding: 8bit\r\n";
+    $mensaje .= "\r\n";
+    $mensaje .= $cuerpoHTML . "\r\n";
+    $mensaje .= "--" . $boundary . "--\r\n";
+    
+    // Conectar al servidor SMTP
+    $smtp = @fsockopen(SMTP_HOST, SMTP_PORT, $errno, $errstr, 30);
+    
+    if (!$smtp) {
+        return ['success' => false, 'error' => "No se pudo conectar: $errstr ($errno)"];
+    }
+    
+    // Leer respuesta inicial
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '220') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en respuesta inicial: $response"];
+    }
+    
+    // EHLO
+    fputs($smtp, "EHLO " . $_SERVER['HTTP_HOST'] . "\r\n");
+    $response = fread($smtp, 2048);
+    
+    // STARTTLS
+    fputs($smtp, "STARTTLS\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '220') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en STARTTLS: $response"];
+    }
+    
+    // Activar TLS
+    if (!stream_socket_enable_crypto($smtp, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+        fclose($smtp);
+        return ['success' => false, 'error' => "No se pudo activar TLS"];
+    }
+    
+    // EHLO después de TLS
+    fputs($smtp, "EHLO " . $_SERVER['HTTP_HOST'] . "\r\n");
+    $response = fread($smtp, 2048);
+    
+    // AUTH LOGIN
+    fputs($smtp, "AUTH LOGIN\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '334') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en AUTH: $response"];
+    }
+    
+    // Enviar usuario
+    fputs($smtp, base64_encode(SMTP_USER) . "\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '334') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en usuario: $response"];
+    }
+    
+    // Enviar contraseña
+    fputs($smtp, base64_encode(SMTP_PASS) . "\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '235') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error de autenticación. Verifica usuario y contraseña"];
+    }
+    
+    // MAIL FROM
+    fputs($smtp, "MAIL FROM: <" . SMTP_USER . ">\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '250') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en MAIL FROM: $response"];
+    }
+    
+    // RCPT TO
+    fputs($smtp, "RCPT TO: <" . $destinatario . ">\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '250') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en RCPT TO: $response"];
+    }
+    
+    // DATA
+    fputs($smtp, "DATA\r\n");
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '354') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error en DATA: $response"];
+    }
+    
+    // Enviar mensaje
+    fputs($smtp, $mensaje);
+    fputs($smtp, "\r\n.\r\n");
+    
+    $response = fgets($smtp, 515);
+    if (substr($response, 0, 3) != '250') {
+        fclose($smtp);
+        return ['success' => false, 'error' => "Error al enviar: $response"];
+    }
+    
+    // QUIT
+    fputs($smtp, "QUIT\r\n");
+    fclose($smtp);
+    
+    return ['success' => true];
+}
+
+// Intentar enviar el correo
+$resultado = enviarEmailSMTP(
+    EMAIL_DESTINO, 
+    'Nuevo mensaje de contacto - AELNG Solutions',
+    $contenido_html,
+    $email
+);
+
+if ($resultado['success']) {
+>>>>>>> d7aaab743cfb50b7e93a20445ef922e0dd567535:WEB CORRECIONES EDUARDO/send_contact_smtp.php
     http_response_code(200);
     echo json_encode([
         'success' => true, 
@@ -115,7 +256,15 @@ if (mail($para, $asunto, $contenido_html, $headers)) {
     http_response_code(500);
     echo json_encode([
         'success' => false, 
+<<<<<<< HEAD:WEB CORRECIONES EDUARDO/send_contact_old.php
         'message' => 'Error al enviar el mensaje. Por favor, intenta nuevamente.'
+=======
+        'message' => 'Error al enviar el mensaje: ' . $resultado['error']
+>>>>>>> d7aaab743cfb50b7e93a20445ef922e0dd567535:WEB CORRECIONES EDUARDO/send_contact_smtp.php
     ]);
 }
 ?>
+
+
+
+
